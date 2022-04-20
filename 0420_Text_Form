@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset = "UTF-8">
+		<title></title>
+		
+		<style>
+		pre{
+			font-size : 1.5em; /*개수를 나타내는 단위*/
+		}
+		span{
+			font-weight : bold;
+		}
+		</style>
+	</head>
+	
+	<body>
+	<pre>
+	<h1>진달래꽃</h1>
+				<h2>김소월</h2>
+ 
+나 <strong>보기가</strong> 역겨워
+<i>가실 때에는</i>
+<b>말없이</b> 고이 보내 <em>드리오리다</em> <!--이탤릭을 나타내는 태그-->
+
+영변에 약산
+<span>진달래꽃</span>
+아름 따다 가실 길에 <span id = "sp1">뿌리오리다</span><!--span은 기본 bold-->
+
+가시는 걸음걸음
+놓인 그 꽃을
+사뿐히 즈려밟고 가시옵소서
+
+나 보기가 역겨워
+가실 때에는
+죽어도 아니 눈물 흘리오리다
+</pre>
+	</body>
+</html>
