@@ -1,0 +1,18 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset = "UTF-8">
+		<title></title>
+		
+		<style>
+		img{
+			width : 200px;
+		}
+		</style>
+	</head>
+
+	<body>
+	<img src="../images/카푸치노.jpg" alt = "카페라떼.jpg">
+	<img src="../images/Jaebok.jpeg" alt = "카페라떼.jpg">
+	</body>
+</html>
