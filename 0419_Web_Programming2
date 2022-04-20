@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Web Programming</title>
+	
+		<style>
+		p, h1, h2, img{
+			width : 50%;
+			border : 2px solid green;
+			margin : 20px auto; /*auto 좌우 정렬 - block 요소에서 실행*/
+			text-align : center;
+		}
+		img{
+		width : 250px;
+		height : 300px;
+		}
+		span{
+			fonnt-size 2.5em;
+			color : red;
+			font-style : italic;
+		}
+		#sp1{/*아이디에는 #을 붙임*/
+			color : green;
+			font-size : 1.2em;
+			font-weight : bold;
+		}
+	</style>
+	
+	</head>
+	<body>
+	<!-- html의 주석 -->
+		<h1>Welcome to the Web Programming!</h1>
+		<p><img src = "../images/Jaebok4.jpeg" alt = "Jaebok5.jpeg"></p>
+		
+		<p>
+			<span id="sp1">언제든지 오셔서 질문이 있으시면 올려주세요!</span>
+			<span id = "sp2">여러분을 환영합니다.</span>
+		</p>
+		
+		<h2>
+		우리집 멍멍이도 보고 가세요..!
+		</h2>
+		
+		<p>
+		<strong>HTML5</strong>, CSS, Javascript, jQuery, SQL, JSP....
+		</p>
+		
+	
+	</body>
+
+</html>
