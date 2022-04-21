@@ -1,0 +1,211 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset = "UTF-8">
+		<title></title>
+		
+		<style>
+		div{
+			width : 200px;
+			height : 280px;
+			border : 2px dotted green;
+			margin : 10px;
+			float : left;
+		}
+		
+		#d2 img{
+			width : 50px;
+		}
+		
+		#d4ol{
+			list-style-type : lower-greek;
+		}
+		.d5ol{
+			list-style-type : lower-roman;
+		}
+		#d6 ol{
+			list-style-type : hangul;
+		}
+		#d6 .d6ol{ /*위에서 #d6을 정의해줬기에 그냥 .d6ol만 쓰면 적용 안 됨*/
+			list-style-type : hangul-consonant;
+		}
+		br{
+			clear : both;
+		}
+		#d7 ol{
+			list-style-type : none;
+		}
+		#d8{
+			width : 500px;
+			height : 150px;
+		}
+		#d8 ol{
+			list-style-type : none;
+			/*border : 2px solid blue;*/
+			height : 70px;
+		}
+		#d8 ol li{
+			float : left;
+			/*border : 3px solid red;*/
+			margin : 10px 25px;
+			padding : 10px;
+			font-size : 1.5em;
+		}
+		#d9{
+			width : 500px;
+			height : 150px;
+		}
+		#d10{
+			width : 200px;
+			height : 280px;
+			font-size : 1.5em;
+		}
+		
+		</style>
+	</head>
+
+	<body>
+		<div id = "d1">
+		<h4><그냥 리스트></h4>
+			<ol>
+				<li>네이버</li>
+				<li>다음</li>
+				<li>네이트</li>
+			</ol>
+		</div>
+		
+		<div id = "d2">
+		<h4>리스트에 사진 넣기</h4>
+			<ol>
+				<li><img src = "../images/아메리카노.jpeg" alt = "dd"></li>
+				<li><img src = "../images/카페라떼.jpg" alt = "ss"></li>
+				<li><img src = "../images/카푸치노.jpg" alt = "aa"></li>
+			</ol>
+		</div>
+		
+		<div id = "d3">
+		<h4>리스트 안에 리스트</h4>
+			<ol>
+				<li>네이버</li>
+				<ol>
+					<li>메일</li>
+					<li>로그인</li>
+					<li>회원가입</li>
+				</ol>
+				<li>다음</li>
+				<li>네이트</li>
+			</ol>
+		</div>
+		
+		<div id = "d4">
+		<h4>리스트 안에 문자 변경</h4>
+			<ol>
+				<li>네이버</li>
+				<ol id = "d4ol">
+					<li>메일</li>
+					<li>로그인</li>
+					<li>회원가입</li>
+				</ol>
+				<li>다음</li>
+				<li>네이트</li>
+			</ol>
+		</div>
+		
+		<div id = "d5">
+		<h4>리스트 안에 문자 변경 2</h4>
+			<ol>
+				<li>네이버</li>
+				<ol id = "d5ola" class = "d5ol">
+					<li>메일</li>
+					<li>로그인</li>
+					<li>회원가입</li>
+				</ol>
+				<!-- 아이디는 중복 X, 클래스는 같은 스타일 적용시키기 위한 것이라 이름이 같아도 됨  -->
+				<li>다음</li>
+					<ol id = "d5olb" class = "d5ol">
+					<li>메일</li>
+					<li>로그인</li>
+					<li>회원가입</li>
+					</ol>
+				<li>네이트</li>
+			</ol>
+		</div>
+		
+		<div id = "d6">
+		<h4>리스트 안에 문자 한글로</h4>
+			<ol>
+				<li>네이버</li>
+				<ol id = "d6ola" class = "d6ol">
+					<li>메일</li>
+					<li>로그인</li>
+					<li>회원가입</li>
+				</ol>
+				<!-- 아이디는 중복 X, 클래스는 같은 스타일 적용시키기 위한 것이라 이름이 같아도 됨  -->
+				<li>다음</li>
+					<ol id = "d6olb" class = "d6ol">
+					<li>메일</li>
+					<li>로그인</li>
+					<li>회원가입</li>
+					</ol>
+				<li>네이트</li>
+			</ol>
+		</div>
+		
+		<br>
+		
+		<div id = "d7">
+		<h4>리스트 문자 없애기</h4>
+			<ol>
+				<li>네이버</li>
+				<li>다음</li>
+				<li>네이트</li>
+			</ol>
+		</div>
+		
+		<div id = "d8">
+		<h4>리스트 번호 없애고 한 줄로 출력</h4>
+			<ol>
+				<li>네이버</li>
+				<li>다음</li>
+				<li>네이트</li>
+			</ol>
+		</div>
+		
+		<div id = "d9">
+			<ol>
+				<li>#d8{
+			width : 500px;
+			height : 150px;}</li>
+			<li>#d8 ol{
+			list-style-type : none;
+			height : 70px;}</li>
+			<li>#d8 ol li{
+			float : left;
+			margin : 10px 25px;
+			padding : 10px;
+			font-size : 1.5em;}</li>
+			</ol>
+		</div>
+		
+		<div id = "d10">
+			<pre>
+		#d8{
+		width : 500px;
+		height : 150px;}
+		#d8 ol{
+		list-style-type : none;
+		height : 70px;}
+		#d8 ol li{
+		float : left;
+		margin : 10px 25px;
+		padding : 10px;
+		font-size : 1.5em;}
+			</pre>
+		</div>
+		
+	
+	
+	
+	</body>
+</html>
+
