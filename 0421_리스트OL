@@ -56,9 +56,12 @@
 			height : 150px;
 		}
 		#d10{
-			width : 200px;
-			height : 280px;
+			width : 270px;
+			height : 270px;
 			font-size : 1.5em;
+		}
+		#d10 pre{
+			margin : 10px;
 		}
 		
 		</style>
@@ -189,17 +192,17 @@
 		
 		<div id = "d10">
 			<pre>
-		#d8{
-		width : 500px;
-		height : 150px;}
-		#d8 ol{
-		list-style-type : none;
-		height : 70px;}
-		#d8 ol li{
-		float : left;
-		margin : 10px 25px;
-		padding : 10px;
-		font-size : 1.5em;}
+#d8{
+width : 500px;
+height : 150px;}
+#d8 ol{
+list-style-type : none;
+height : 70px;}
+#d8 ol li{
+float : left;
+margin : 10px 25px;
+padding : 10px;
+font-size : 1.5em;}
 			</pre>
 		</div>
 		
