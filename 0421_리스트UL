@@ -9,7 +9,14 @@
 				border : 1px solid orange;
 				margin : 20px;
 				width : 200px;
+				height : 300px;
 				float : left;
+				overflow : auto;
+				/* overflow는 3가지 방법이 있음. 1 : hidden, 2 : scroll, 3 : auto */
+			}
+			
+			hr{
+				clear : both;
 			}
 			#d2{
 				float : left;
@@ -23,6 +30,22 @@
 			img{
 				width : 120px;
 				height : 50px;
+			}
+			
+			#d6, #d7, #d8{
+				width : 400px;
+			}
+			
+			#d6 ul{
+				list-style-type : circle;
+			}
+			
+			#d7 ul{
+				list-style-type : square;
+			}
+			
+			#d8 ul{
+				list-style-image : url(../images/home.png);
 			}
 		</style>
 	</head>
@@ -96,6 +119,39 @@
 			<li>w3schools</li></li>
 			</ul>
 		</div>
+		
+		<hr>
+		
+		
+		<div id="d6">
+		<h4>ul{list-stye-type : circle}</h4>
+			<ul>
+				<li>네이버</li>
+				<li>다음</li>
+				<li>네이트</li>
+				<li>w3schools</li>
+			</ul>
+		</div>
+		
+		<div id="d7">
+		<h4>ul{list-stye-type : square}</h4>
+			<ul>
+				<li>네이버</li>
+				<li>다음</li>
+				<li>네이트</li>
+				<li>w3schools</li>
+			</ul>
+		</div>
+		
+		<div id="d8">
+		<h4>ul{list-stye-type : url(../images/home)}</h4>
+			<ul>
+				<li>네이버</li>
+				<li>다음</li>
+				<li>네이트</li>
+				<li>w3schools</li>
+			</ul>
+		</div>
+		
 	</body>
 </html>
-
