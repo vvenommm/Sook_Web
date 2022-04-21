@@ -1,0 +1,101 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset = "UTF-8">
+		<title></title>
+		
+		<style>
+			div{
+				border : 1px solid orange;
+				margin : 20px;
+				width : 200px;
+				float : left;
+			}
+			#d2{
+				float : left;
+			}
+			ul{
+				/*border : 1px solid blue;*/
+			}
+			li{
+				/*border : 1px solid green;*/
+			}
+			img{
+				width : 120px;
+				height : 50px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id = "d1"><!-- 스타일이 있어야만 표시가 됨 -->
+			<ul>
+				<li>네이버</li>
+				<li>다음</li>
+				<li>네이트</li>
+				<li>w3schools</li>
+			</ul>
+		</div>
+		<div id = "d2">
+			<ul>
+				<li><img src = "../images/아메리카노.jpeg" alt = ""></li>
+				<li><img src = "../images/카페라떼.jpg" alt = ""></li>
+				<li><img src = "../images/카푸치노.jpg" alt = ""></li>
+				<li><img src = "../images/Jaebok.jpeg" alt = ""></li>
+			</ul>
+		</div>
+		<div id = "d3">
+			<ul>
+				<li><a href ="http://www.naver.com" target ="_blank">네이버</a></li>
+				<li><a href ="http://www.daum.net" target ="_blank">다음</a></li>
+				<li><a href ="http://www.nate.com" target ="_self">네이트</a></li>
+				<li><a href ="http://www.w3schools.com">w3schools</a></li>
+				<!-- 타겟 안 쓰면 자동으로 self -->
+			</ul>
+		</div>
+		<div id = "d4">
+			<ul>
+				<li><a href ="http://www.naver.com" target ="_blank"><img src="../images/네이버.png"></a></li>
+				<li><a href ="http://www.daum.net" target ="_blank"><img src="../images/다음.png"></a></li>
+				<li><a href ="http://www.nate.com" target ="_blank"><img src="../images/네이트.png"></a></li>
+				<li><a href ="../0420/아메리카노.html" target ="_blank"><img src="../images/아메리카노.jpeg"></a></li>
+			</ul>
+		</div>
+		<div id = "d5">
+			<ul>
+			<li>네이버
+				<ul>
+					<li>메일
+						<ul>
+							<li>일주일전</li>
+							<li>4/20</li>
+							<ul>
+								<li>오전</li>
+								<li>오후</li>
+							</ul>
+							<li>4/21</li>
+						</ul>
+					</li>
+					<li>로그인</li>
+					<li>회원가입</li>
+				</ul>
+			</li>
+			<li>다음
+				<ol>
+					<li>메일</li>
+					<ul>
+						<li>일주일전</li>
+						<li>어제</li>
+						<li>오늘</li>
+					</ul>
+					<li>로그인</li>
+					<li>회원가입</li>
+				</ol>
+			</li>
+			<li>네이트</li>
+			<li>w3schools</li></li>
+			</ul>
+		</div>
+	</body>
+</html>
+
