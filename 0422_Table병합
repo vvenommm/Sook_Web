@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Table 병합</title>
+
+<style>
+table{
+	width : 500px;
+	height: 200px;
+	margin : 40px;
+	float : left;
+}
+#t3 {
+	border : 5px solid #2E8B57;
+}
+
+#t4 {
+	border : 10px solid #FF69B4;
+}
+#t4 td{
+	border : 1px dotted #87CEEB;
+}
+</style>
+
+</head>
+<body>
+<table border = "1">
+	<tr>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+	
+	<tr>
+		<td rowspan = "2"></td>
+		<td></td>
+		<td></td>
+	</tr>
+	
+	
+	<tr>
+		<td></td>
+		<td></td>
+	</tr>
+	
+	
+	<tr>
+		<td colspan = "3"></td>
+	</tr>
+	
+</table>
+
+
+
+
+<table border = "1">
+	<tr>
+		<td colspan = "2"></td>
+		<td colspan = "2"></td>
+		<td></td>
+		<td></td>
+	</tr>
+	
+	<tr>
+		<td colspan = "4"></td>
+		<td colspan = "2"></td>
+	</tr>
+	
+	
+	<tr>
+		<td colspan = "4"></td>
+		<td colspan = "2" rowspan = "2"></td>
+	</tr>
+	
+	
+	<tr>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+	
+</table>
+
+
+
+
+<table id = "t3" border = "1">
+
+	<tr>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+	
+	<tr>
+		<td rowspan = "2"></td>
+		<td></td>
+		<td></td>
+	</tr>
+	
+	
+	<tr>
+		<td></td>
+		<td></td>
+	</tr>
+	
+	<tr>
+		<td colspan = "3"></td>
+	</tr>
+	
+</table>
+
+
+
+
+<table id = "t4" border = "1">
+	<tr>
+		<td colspan = "2"></td>
+		<td colspan = "2"></td>
+		<td></td>
+		<td></td>
+	</tr>
+	
+	<tr>
+		<td colspan = "4"></td>
+		<td colspan = "2"></td>
+	</tr>
+	
+	
+	<tr>
+		<td colspan = "4"></td>
+		<td colspan = "2" rowspan = "2"></td>
+	</tr>
+	
+	
+	<tr>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+	
+</table>
+</body>
+</html>
