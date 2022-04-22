@@ -5,9 +5,32 @@
 <title>Insert title here</title>
 <style>
 
-td{
+table{
+	border : 3px solid blue;
+/*	border-width: 3px;
+	border-style: solid;
+	border-color: blue;
+	이 3개를 합쳐서 하나로 작성 가능 */
+	margin : 50px auto;
+}
+
+th{
+	height : 60px;
+	font-size : 1.5em;
+/*	background-color : ;
+	background-image : ;
+	background-position : ;
+	background-size : ;
+	background-repeat : ;
+	색상은 backgound만 써도 됨 */
+	background : black;
+	color : white;
+}
+
+td{ /*th에 세로는 적용되지 않아서 따로 지정해줘야 함*/
 	width : 200px;
 	height : 50px;
+	text-align : center;
 }
 </style>
 
@@ -17,36 +40,36 @@ td{
 
 <table border="1">
 	<tr>
-<!-- 	th는 테이블 헤드 -->
+<!-- 	th는 테이블 헤드. 제목 -->
 		<th>영화제목</th>
 		<th>개봉년도</th>
 		<th>감    독</th>
 		<th>평    가</th>
-	</tr>
+	</tr>  
 	
 	<tr>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-	</tr>
-	
-	<tr>
-		<td></td>
+		<td>기생충</td>
 		<td></td>
 		<td></td>
 		<td></td>
 	</tr>
 	
 	<tr>
-		<td></td>
+		<td>미나리</td>
 		<td></td>
 		<td></td>
 		<td></td>
 	</tr>
 	
 	<tr>
+		<td>백두산</td>
 		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+	
+	<tr>
+		<td>괴물</td>
 		<td></td>
 		<td></td>
 		<td></td>
