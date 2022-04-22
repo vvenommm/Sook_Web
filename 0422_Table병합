@@ -21,6 +21,42 @@ table{
 #t4 td{
 	border : 1px dotted #87CEEB;
 }
+
+#t5 {
+	width : 1000px;
+	height: 200px;
+	border : 20px solid #28A0FF;
+	text-align: center;
+}
+
+#t5 th{ /*일반적인걸 먼저 주고 특별한걸 나중에 써야 적용이 됨*/
+	width : 70px;
+	height: 50px;
+	margin : 10px;
+	font-size : 1.8em;
+}
+
+#t5 td{
+	height: 50px;
+}
+
+#title th {
+	font-size : 1.5em;
+}
+
+#5 title2 {
+	font-size : 1.5em;
+}
+
+
+#t5 .m{
+	width : 300px;
+}
+
+#t5 .text{
+	text-align : left;
+	padding : 10px;
+}
 </style>
 
 </head>
@@ -140,6 +176,49 @@ table{
 		<td></td>
 		<td></td>
 		<td></td>
+	</tr>
+	
+</table>
+
+
+
+
+<table id = "t5" border = "1">
+	<tr>
+		<th colspan = "5">평생교육원 강좌 소개 - 2019년도 1학기</th>
+	</tr>
+	
+	<tr id = "title">
+		<th>강좌이름</th>
+		<th>강의자</th>
+		<th class = "m">소개</th>
+		<th>강좌코드</th>
+		<th>실습비</th>
+	</tr>
+	
+	
+	<tr>
+		<td>뎃생과 유화</td>
+		<td>김철수</td>
+		<td class = "text">모든 미술영역의 뼈대를 이루는 뎃생의 기본실력을 체계적으로 다루며, 유화에서는 재료를 다루는 방법에서부터 다양한 표현기법에 이르기까지 준문적인 비술인으로 입문할 수 있도록 각 개인의 수준에 맞추어 개인별, 단계별로 지도합니다.</td>
+		<td>H27</td>
+		<td>100,000원</td>
+	</tr>
+	
+	<tr>
+		<td>바이올린</td>
+		<td>홍길동</td>
+		<td class = "text">전반적인 현악기의 특성을 파악하며 기초를 다지고, 데뛰드와 곡을 접하면서 아름다운 음색의 바이올린을 연주할 수 있다.</td>
+		<td>H28</td>
+		<td>200,000원</td>
+	</tr>
+	
+	<tr>
+		<td>성악아카데미</td>
+		<td>김호성</td>
+		<td class = "text">강의를 통해 배우고 익힌 곡을 음악회를 통하여 기량을 향상하고 무대를 경험한다.</td>
+		<td>H30</td>
+		<td>300,000원</td>
 	</tr>
 	
 </table>
