@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>나의 홈페이지</title>
+
+<style>
+body{
+	margin : 30px;
+}
+h1{
+	font-size : 2em;
+	text-align: center;
+}
+#tableName{
+	text-align: center;
+	font-size: 1.2em;
+}
+table{
+	margin : 70px;
+	margin-top : 1px;
+	width : 850px;
+	border : 5px solid blue;
+}
+th, td{
+	height : 30px;
+	width : 100px;
+	text-align: center;
+}
+</style>
+</head>
+
+
+<body>
+<h1>연습</h1>
+<h2>나의 홈페이지</h2>
+<img src="../images/myHomepage.png" alt="나의 홈페이지">
+<h3>컴퓨터 프로그래머를 꿈꾸며 열심히 대덕인재개발원에서 공부하고 있습니다.</h3>
+
+<div>
+<p>현재 학습하고 있는 과목</p>
+<ul>
+	<li>HTML5 & Script <a href="http://www.w3cschool.com">W3C사이트</a></li>
+	<li>JAVA</li>
+	<li>데이터베이스</li>
+	<li>JSP</li>
+</ul>
+</div>
+
+	<p id = "tableName">시간표</p>
+<table border = "1">
+	<tr>
+		<th></th>
+		<th>3월</th>
+		<th>4월</th>
+		<th>5월</th>
+		<th>6월</th>
+		<th>7월</th>
+		<th>8월</th>
+		<th>9월</th>
+	</tr>
+	
+	
+	<tr>
+		<td>오전</td>
+		<td>HTML5 & Script</td>
+		<td>jQuery</td>
+		<td>고급자바</td>
+		<td>JSP</td>
+		<td>Framework</td>
+		<td>프로젝트</td>
+		<td>프로젝트</td>
+	</tr>
+	
+	
+	<tr>
+		<td>오후</td>
+		<td>HTML5 & Script</td>
+		<td>jQuery</td>
+		<td>고급자바</td>
+		<td>JSP</td>
+		<td>Framework</td>
+		<td>프로젝트</td>
+		<td>프로젝트</td>
+	</tr>
+</table>
+
+
+</body>
+</html>
