@@ -129,3 +129,28 @@ border-spacing : 테이블 셀 사이의 리
 • list-style-image : 리스트 항목 마터를 이미지로 지정
 • list-style-position : 리스트 마커의 위치를 안쪽으로 할지 바깥쪽으로 할지 지정
 • list-style-type : 리스트 마커의 타입 지정
+
+
+8. float
+• 문서에 있는 사진이나 그림을 정렬해주는것.
+float의 속성
+○ float : none ; => 띄우지 않음
+○ float : left ; => 왼쪽에 띄움
+○ float : right ; => 오른쪽에 띄움
+•
+○ float : initial ; => 기본값으로설정
+○ float : inherit ; => 부모요소로부터상속함
+9. clear
+취소하다라는 의미로 , 사진 주위로 글자가 붙지 않게 하는 것.
+○ clear : none; => 기초값으로clear를 설정하지 않은것
+○ clear : left; => 왼쪽을 취소
+○ clear : right; => 오른쪽으로 취소
+○ clear : both; => 오른쪽 왼쪽을 취소
+•
+10. overflow
+요소의 박스에 내용이 더 길 때, 어떻게 보일지 선택하는 속성
+○ overflow : visible ; => 기본값으로, 내용이 더 길어도 그대로보임(흘러넘침)
+○ overflow : hidden; =>내용이 넘치면 넘치는 부분을 자르고 보이지 않게 함. 
+•
+○ overflow : scroll; => 내용이 넘치든 넘치지 않든 옆에 스크바를 만들어줌
+○ overflow : auto; => 내용이 넘칠때만 스크롤바가 보임.
