@@ -12,9 +12,10 @@ h1{
 	font-size : 2em;
 	text-align: center;
 }
-#tableName{
-	text-align: center;
-	font-size: 1.2em;
+caption{
+	font-size: 1.5em;
+	margin : 20px;
+	caption-side : bottom; /*기본은 상단, 아래에 두고 싶으면 caption-side : bottom으로 */
 }
 table{
 	margin : 70px;
@@ -47,8 +48,8 @@ th, td{
 </ul>
 </div>
 
-	<p id = "tableName">시간표</p>
 <table border = "1">
+	<caption>시간표</caption>
 	<tr>
 		<th></th>
 		<th>3월</th>
