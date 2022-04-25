@@ -2,9 +2,45 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>iFrame1</title>
+<link rel = "stylesheet" href="../css/public.css">
+<style type="text/css">
+a{
+	margin : 30px;
+}
+iframe {
+	width : 80%;
+	height: 400px;
+}
+span{
+	color : #FF7A85;
+	font-style : bold;
+}
+</style>
 </head>
 <body>
+<pre>
+ &lt;a href="../0420/아메리카노.html" target="_blank">아메리카노&lt;/a>
+ -> 새 창으로 열림
+
+</pre>
+
+<a href="../0420/아메리카노.html" target="ifr">아메리카노</a>
+<a href="../0420/카페라떼.html" target="_blank">카페라떼</a>
+<a href="../0420/카푸치노.html" target="_blank">카푸치노</a>
+<br><hr><br>
+<pre>
+ &lt;a href="../0420/아메리카노.html" <span>target="ifr"</span>>아메리카노&lt;/a>
+ -> 창 안의 창. 액자식 구성. ifr은 iframe 태그의 name이고 하이퍼링크를 걸 때 target에 이름을 써 줌
+
+</pre>
+
+<a href="../0420/아메리카노.html" target="_blank">아메리카노</a>
+<a href="../0420/카페라떼.html" target="blank">카페라떼</a>
+<a href="../0420/카푸치노.html" target="blank">카푸치노</a>
+<br><br>
+<iframe name = "ifr" src = "../0421/리스트UL.html"></iframe>
+
 
 </body>
 </html>
