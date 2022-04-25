@@ -9,22 +9,26 @@ div {
 	margin : 15px;
 	padding : 20px;
 	height: 420px;
+	box-sizing : border-box; /* content-box가 올 수도. 내용에 대한 것만 지정하는 것. 기타 여백은 포함되지 않아서 또 지정을 따로 해줘야 함 */
 }
 #d1{
 	/*
 	width : 210px;
 	*/
-	height : 280px;
-	width : 19%;
+	height : 300px;
+/*	width : 19%; */
+	width : calc(21% - 1px);
 	float : left;
 	background-color: #FDE1B4;
+	padding : 10px;
 }
 #d2{
 /*
 	width : 740px;
 	*/
-	height : 280px;
-	width : 67%;
+	height : 300px;
+/*	width : 67%; */
+	width : calc(73% - 1%);
 	float : right;
 	background-color : #FDE6BE;
 }
