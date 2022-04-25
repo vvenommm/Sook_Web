@@ -14,7 +14,19 @@ iframe {
 }
 span{
 	color : #FF7A85;
-	font-style : bold;
+	font-weight : bold;
+	/*인라인 요소는 크기 지정 안 됨*/
+	/*
+	width : 1000px; 
+	height: 500px;
+	*/
+	
+	/* display : inline; block; none; inline-block;
+	인라인, 블록 등을 지정할 수 있음. none은 화면에 보이지 않음.
+	inline-block은 인라인에서 줄이 바뀌지 않는 속성과 크기를 지정할 수 있는 블록 속성을 갖고 있음.*/
+	display : none;
+	width: 200px;
+	height: 50px;
 }
 </style>
 </head>
@@ -32,7 +44,13 @@ span{
 <pre>
  &lt;a href="../0420/아메리카노.html" <span>target="ifr"</span>>아메리카노&lt;/a>
  -> 창 안의 창. 액자식 구성. ifr은 iframe 태그의 name이고 하이퍼링크를 걸 때 target에 이름을 써 줌
+ -> &lt;iframe <span>name = "ifr"</span> src = "../0421/리스트UL.html">&lt;/iframe>
+ -> 웹 페이지 내부에 다른 웹페이지를 포함시킬 때 사용
 
+
+div = 큰 단락. 블록요소(자동 줄바꿈 O)
+span = 글자의 일부분에 효과를 줄 때. 효과를 주지 않으면 보이지 않음. 인라인 요소(자동 줄바꿈 X)
+둘 다 자체적으로 특별한 의미가 있지 않다.
 </pre>
 
 <a href="../0420/아메리카노.html" target="_blank">아메리카노</a>
