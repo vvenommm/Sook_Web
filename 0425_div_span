@@ -3,32 +3,37 @@
 <head>
 <meta charset="UTF-8">
 <title>div_span</title>
+<link rel = "stylesheet" href = "../css/public.css">
 <style type="text/css">
+body{
+	min_width : 1180px; /* 창을 아무리 줄여도 이 최소 크기 지정 이하로는 줄어들지 않음 */
+}
 div {
 	border : 2px dotted #FFC81E;
-	margin : 15px;
-	padding : 20px;
-	height: 420px;
+	margin : 8px;
+	padding : 10px;
+	width : 1180px;
+	height: 510px;
 	box-sizing : border-box; /* content-box가 올 수도. 내용에 대한 것만 지정하는 것. 기타 여백은 포함되지 않아서 또 지정을 따로 해줘야 함 */
 }
 #d1{
 	/*
 	width : 210px;
 	*/
-	height : 300px;
+	height : 390px;
 /*	width : 19%; */
-	width : calc(21% - 1px);
+	width : calc(25% - 1px);
 	float : left;
 	background-color: #FDE1B4;
-	padding : 10px;
+	padding : 5px;
 }
 #d2{
 /*
 	width : 740px;
 	*/
-	height : 300px;
+	height : 390px;
 /*	width : 67%; */
-	width : calc(73% - 1%);
+	width : calc(72% - 1%);
 	float : right;
 	background-color : #FDE6BE;
 }
@@ -37,11 +42,61 @@ h2 {
 	font-size : 1.5em;
 }
 img {
-	width : 209px;
+ 	width : 100%;
+ 	height: 100%;
+}
+span {
+	background-color: yellow;
+	color : red;
+	display : inline-block;
+	width: 200px;
+	height : 40px;
+	
 }
 </style>
 </head>
 <body>
+<pre>
+body{
+	min_width : 1200px;
+}
+div {
+	border : 2px dotted #FFC81E;
+	margin : 8px;
+	padding : 20px;
+	width : 1200px;
+	height: 510px;
+	box-sizing : border-box;
+	/* content-box가 올 수도. 내용에 대한 것만 지정하는 것.
+	기타 여백은 포함되지 않아서 또 지정을 따로 해줘야 함 */
+}
+d1{
+	/*
+	width : 210px;
+	*/
+	height : 390px;
+/*	width : 19%; */
+	width : calc(25% - 1px);
+	float : left;
+	background-color: #FDE1B4;
+	padding : 5px;
+}
+#d2{
+/*
+	width : 740px;
+	*/
+	height : 390px;
+/*	width : 67%; */
+	width : calc(72% - 1%);
+	float : right;
+	background-color : #FDE6BE;
+}
+img {
+ 	width : 100%;
+ 	height: 100%;
+}
+</pre>
+
 <div>
 	<h2>사자</h2>
 	<div id = "d1">
@@ -49,13 +104,13 @@ img {
 	</div>
 	
 	<div id = "d2">
-	사자(獅子)는 아프리카와 인도에 서식하는 식육목(食肉目) 고양이과 포유류이다.<br>
+	사자(獅子)는 아프리카와 인도에 서식하는 식육목(食肉目) <span>고양이과 포유류</span>이다.<br>
 	북아프리카와 중동, 서아시아, 유럽, 아라비아에서도 과거엔 서식했었으나 유럽 지역에서는 기원전부터 씨가 말랐고, 인도를 제외한 아시아 지역에서도 19~20세기 부터 하나둘씩 사라져갔다.<br>
 	북아프리카에서도 1920년 모로코에서 사살되어 이 지역들의 야생 사자는 멸종된 상태이다.<br>
 	지금은 대부분이 남아프리카 사바나 일대에 서식하고 있고, 남서아프리카의 나미비아 사막[1]에 밀렵으로 멸종된 줄 알았던 사막 사자가 살아남아 있으며 사헬 지대에도 일부 살아남아 있다.<br>
 	인도의 기르숲이란 곳에도 사자가 약간 남아있기는 하다. 현재도 개체수가 계속 감소 중인 사자기에, 나중엔 일부 보호구역에서 소수만이 남을 것이다.<br>
-	간지나는 비주얼과 강인한 사냥 능력으로 오랫동안 '백수의 왕'으로 불리우며 왕의 상징으로 여겨지는 등 인기를 누려온 동물이다.<br>
-고양잇과 동물답게 상자를 매우 좋아하며 개박하에 취한다.
+	간지나는 비주얼과 강인한 사냥 능력으로 오랫동안 <span>'백수의 왕'</span>으로 불리우며 왕의 상징으로 여겨지는 등 인기를 누려온 동물이다.<br>
+고양잇과 동물답게 <span>상자를 매우 좋아하며 개박하에 취한다.</span>
 	</div>
 </div>
 </body>
