@@ -3,8 +3,64 @@
 <head>
 <meta charset="UTF-8">
 <title>Input Type 2</title>
+<style>
+form{
+	border : 10px double #BC50BC;
+	margin : 30px;
+	padding: 20px;
+	width : 700px;
+	margin : 30px;
+}
+label {
+	display : inline-block;
+	width: 130px;
+	height: 30px;
+	padding-left : 10px;
+	text-align: right;
+}
+form .button{
+	vertical-align: top;
+	width: 50px;
+}
+#j{
+	width : 50px;
+}
+</style>
 </head>
 <body>
+	<form action="input_type_file.jsp" method="post">
 
+		<label>이름</label>
+		<input type="text" name="name">
+		
+		<br>
+		
+		<label>전화번호</label>
+		<input type="text" name="tel">
+
+		<br>
+
+		<label>이메일</label>
+		<input type="text" name="email">
+
+		<br>
+
+		<label>주소</label>
+		<input type="text" name="add">
+
+		<br>
+
+		<label>첨부파일</label>
+		<input type="file" name="infile">
+		
+		<input type="hidden" value="10" name="num">
+
+	<br><br>
+	<input class = "button" type="submit" value="전송">
+	<input class = "button" type="reset" value="취소">
+<!-- 	취소(reset)은 입력 내용 다 지워줌 -->
+	<input id = "j" class = "button" type="image" src="../images/J.png">
+	
+	</form>
 </body>
 </html>
