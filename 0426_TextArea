@@ -2,9 +2,39 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>TextArea</title>
+<style>
+form {
+	border : 1px dotted pink;
+	margin : 30px auto;
+	padding : 5px;
+	width : 400px;
+	height: auto;
+}
+label {
+	display : inline-block;
+	
+	width: 100px;
+	height: 40px;
+}
+</style>
 </head>
 <body>
+<form action="area.jsp" method="post">
+	<label>이름</label>
+	<input type="text" name="name"><br>
+	
+	<label>메일</label>
+	<input type="text" name="mail"><br>
+	
+	<label>자기소개</label><br>
+ 	<textarea rows="5" cols="50" name="area"></textarea> <!--닫는 태그 사이를 띄어놓으면 안 됨! -->
+	
+	<br><br>
+	
+	<input type="submit">
+	
 
+</form>
 </body>
 </html>
