@@ -2,9 +2,53 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Input Type</title>
+<style>
+form{
+	border : 3px solid #BC50BC;
+	margin : 30px;
+	padding: 20px;
+	width : 700px;
+}
+label {
+	display : inline-block;
+	width: 130px;
+	height: 30px;
+}
+</style>
+
 </head>
 <body>
+	<form action="input_type.jsp" method = "post">
+	<label id = "id">아이디</label>
+	<input type="text" name="id"><br>
+	
+	<label id = "name">이름</label>
+	<input type="text" name="name"><br>
+	
+	<label id = "pass">비밀번호</label>
+	<input type="password" name="pass"><br>
+	
+	<label id = "gender">성별</label>
+	<input type="radio" name="gender" value="여자">여자
+	<input type="radio" name="gender" value="남자">남자<br>
+	
+	<label id="food"><strong>좋아하는 음식</strong></label>
+   <input type = "checkbox" checked name = "like">떡볶이 <!-- checked를 넣은채로 실행하면 check가 이미 되어있는 상태로 실행이 된다. -->
+   <input type = "checkbox" name = "like" value="달걀찜
+   ">달걀찜
+   <input type = "checkbox" name = "like" value="보쌈">보쌈
+   <input type = "checkbox" name = "like" value="닭똥집">닭똥집
+   <input type = "checkbox" name = "like" value="치킨">치킨
+   <input type = "checkbox" name = "like" value="닭발">닭발
+   <input type = "checkbox" name = "like" value="오돌뼈">오돌뼈
+   
+   <br>
+   
+   <input type = "submit" value = " 전송">
+	 
+	
+	</form>
 
 </body>
 </html>
