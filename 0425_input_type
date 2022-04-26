@@ -34,7 +34,7 @@ label {
 	<input type="radio" name="gender" value="남자">남자<br>
 	
 	<label id="food"><strong>좋아하는 음식</strong></label>
-   <input type = "checkbox" checked name = "like">떡볶이 <!-- checked를 넣은채로 실행하면 check가 이미 되어있는 상태로 실행이 된다. -->
+   <input type = "checkbox" checked name = "like" value="떡볶이">떡볶이 <!-- checked를 넣은채로 실행하면 check가 이미 되어있는 상태로 실행이 된다. -->
    <input type = "checkbox" name = "like" value="달걀찜
    ">달걀찜
    <input type = "checkbox" name = "like" value="보쌈">보쌈
