@@ -1,1 +1,105 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Input Type 2 with attached file</title>
+<style>
+h1{
+	color : #FF9100;
+	background-color : #FAFAD2;
+	text-align: center;
+}
+div{
+	margin-left : 380px;
+}
+p{
+	width : 200px;
+	height : 50px;
+	border : 5px solid #FFCD28;
+	float : left;
+	text-align: center;
+	font-size : 1.1em;
+	
+}
+pre{
+	color : #FF9100;
+	background-color : #FAFAD2;
+	border : 2px dotted #D5C2EE;
+	width : 80%;
+	padding : 20px;
+	margin : 50px;
+	margin-left : 100px;
+	font-size: 1.5em;
+}
+br{
+	clear : both;
+}
+div .pp{
+	padding-top : 20px;
+}
+span{
+	color : red;
+	font-weight: bold;
+}
+</style>
+</head>
 
+<body>
+<h1>JSP : Java Server Page</h1>
+<br>
+<pre>
+	첨부 파일도 request.getParameter로 출력한다.
+	이미지를 이용하여 전송한다.
+		&lt;input id = "j" class = "button" <span>type="image"</span> src="../images/J.png">
+</pre>
+
+<%
+	request.setCharacterEncoding("UTF-8");
+
+	String name = request.getParameter("name");
+	String tel = request.getParameter("tel");
+	String email = request.getParameter("email");
+	String add = request.getParameter("add");
+	String file = request.getParameter("infile");
+	String hidden = request.getParameter("num");
+	
+	
+%>
+
+<br>
+
+<div>
+	<p class = "pp">이름</p>
+	<p class = "pp"><%= name %></p>
+	
+	<br>
+	
+	<p class = "pp">전화번호</p>
+	<p class = "pp"><%= tel %></p>
+	
+	<br>
+	
+	<p class = "pp">이메일</p>
+	<p class = "pp"><%= email %></p>
+	
+	<br>
+	
+	<p class = "pp">주소</p>
+	<p class = "pp"><%= add %></p>
+
+	<br>
+
+	<p class = "pp">첨부파일</pp>
+	<p class = "pp"><%= file %></p>
+
+	<br>
+
+	<p class = "pp">Hidden</pp>
+	<p class = "pp"><%= hidden %></p>
+</div>
+
+
+</body>
+</html>
