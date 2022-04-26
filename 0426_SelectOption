@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Select Option</title>
+<style type="text/css">
+form {
+	width: 400px;
+	height: 400px;
+	border : 1px dotted blue;
+	margin : 20px auto;
+	padding : 10px;
+}
+
+label {
+	display : inline-block;
+	width: 100px;
+	height: 50px;
+	font-size : 1.5em;
+}
+
+select {
+	width: 100px;
+	height: 40px;
+	font-size : 1.5em;
+	text-align: center;
+}
+
+</style>
+
+</head>
+<body>
+<form action="">
+	<label>이름</label>
+	<input type="text" name="name"><br>
+	
+	<label>전화번호</label>
+	<input type="text" name="tel"><br>
+	
+	<label>주소</label>
+	<select name="add"><br>
+		<option>대전</option>
+		<option>서울</option>
+		<option>대구</option>
+		<option>광주</option>
+
+
+</form>
+
+</body>
+</html>
