@@ -30,7 +30,7 @@ select {
 
 </head>
 <body>
-<form action="">
+<form action="SelectOption.jsp" method="post">
 	<label>이름</label>
 	<input type="text" name="name"><br>
 	
@@ -39,10 +39,10 @@ select {
 	
 	<label>주소</label>
 	<select name="add"><br>
-		<option>대전</option>
-		<option>서울</option>
-		<option>대구</option>
-		<option>광주</option>
+		<option value="대전">대전</option>
+		<option value="서울">서울</option>
+		<option value="대구">대구</option>
+		<option value="광주">광주</option>
 
 
 </form>
