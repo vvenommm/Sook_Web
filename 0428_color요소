@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>color 요소</title>
+
+<style type="text/css">
+form *{
+	font-size: 1.5em;
+	border : 4px double orange;
+}
+
+</style>
+
+</head>
+<body>
+<form name = "ff">
+	<pre>
+	form에 이름이 있어야 name="color"를 사용할 수 있다.
+	스크립트에서 color 값을 활용하여 색상을 적용시킨다.
+	스크립트로 선택한 값을 가져가기 위해서
+
+	태그이름을 이용 :
+	 - document.getElementsByTagName('input')
+	 - document.querySelector('input')
+	 - document.querySelectorAll('input')
+
+	name 속성을 이용 : 
+	 - document.ff.color
+	 document.getElementsByName('color') -> 이건 잘 안 씀
+
+	id 속성을 이용 : 
+	 - document.getElementById('color');
+	 - document.querySelector('#color');
+
+	class 속성을 이용 :
+	 - document.getElementsByClassName('color')
+	 - document.querySelector('.color')
+	 - document.querySelectorAll('.color')
+	
+	&lt;input type = "color" name = "color" id = "color">
+	-> 클라이언트의 색을 지정
+	
+	*script에서 사용할 color를 찾지 못해 오류가 남 -> script를 밑으로 내려줌
+	</pre>
+	<input type = "color" name = "color" id = "color" class="color" onchange = "channgecolor()">
+</form>
+<script type="text/javascript">
+	//color 요소에 접근
+	//ff 찾으려고 위에서 아래로 내림
+	var vcolor = document.ff.color.value
+	console.log(vcolor);
+	
+	function channgecolor(){
+// 		vcolor = document.ff.color.value
+// 		console.log(vcolor);
+		
+// 		document.ff.style.background = vcolor;
+		
+//		vcolor = document.getElementsByTagName('input').value; //여러개로 간주하기 때문에 오류가 날 것
+		vcolor = document.getElementsByTagName('input')[0].value; //인덱스를 지정해줘야 함
+		document.querySelector('form').style.background = vcolor;
+		
+		
+	}
+</script>
+</body>
+</html>
