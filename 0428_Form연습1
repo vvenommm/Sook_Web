@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Form 연습 1</title>
+<style>
+body{
+	margin : 30px;
+}
+h1 {
+	color : #006400;
+	width: 50%;
+	margin : 40px;
+	text-align: center;
+}
+form {
+	padding : 20px;
+	border: 3px solid #0A9696;
+	width: 60%;
+	background: #F0FFF0;
+}
+label {
+	display : inline-block;
+	width : 100px;
+	margin : 5px;
+}
+textarea {
+	text-overflow: scroll;
+	margin-bottom: 10px;
+}
+#f2 p {
+	text-align: right;
+}
+h2{
+	color : #006400;
+	display : inline-block;
+	float : left;
+	width: 200px;
+	text
+}
+
+</style>
+
+
+</head>
+<body>
+<h1>이메일 전송화면</h1>
+	<form id = "f1">
+		<label>이름</label>
+		<input type = "text" name = "name"><br>
+		
+		<label>이메일</label>
+		<input type = "email" name = "email"><br>
+		
+		<label>내용</label><br>
+		<textarea rows="5" cols="50" name = "area1"></textarea><br>
+	
+		<input class = "button" type = "submit" value = "전송">
+		<input class = "button" type = "reset" value = "재설정">
+	</form>
+
+<br><br>
+<hr>
+<br><br>
+
+<h1>회원 가입 화면</h1>
+<form action="" id = "f2">
+<h2>배고파요<br>밥 먹으로 갑시다.<br>오후엔 Java가...</h2>
+<p>
+<!-- 한 번 감싼 후에 오른쪽으로 정렬해줌 -->
+	<label>이름</label>
+	<input type = "text" name = "n"><br>
+	
+	<label>주소</label>
+	<input type = "text" name = "tel"><br>
+
+	<label>이메일</label>
+	<input type = "email" name = "email"><br>
+	
+	<input type = "radio" name = "gender" value = "Female">Female
+	<input type = "radio" name = "gender" value = "Male">Male<br>
+	
+	<input class = "button" type = "submit" value = "Send">
+	<input class = "button" type = "reset"	value = "원래대로"><br>
+	
+</p>
+	
+
+</form>
+
+
+</body>
+</html>
+
