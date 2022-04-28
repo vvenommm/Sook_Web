@@ -1,0 +1,66 @@
+	<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>FieldSet</title>
+
+<style>
+form{
+	border : 1px solid blue;
+	padding : 10px;
+	width: 80%
+}
+label{
+	display: inline-block;
+	width: 100px;
+	height: 40px;
+}
+fieldset {
+	width : 80%
+}
+textarea {
+	margin-button : 10px;
+}
+legend {
+	margin-top : 30px;
+}
+</style>
+</head>
+<body>
+<form action="fieldset.jsp" method = "post">
+	<fieldset>
+		<legend>인적사항</legend>
+		
+		<label>이름</label>
+		<input type = "text" name = "name"><br>
+		
+		<label>주소</label>
+		<input type = "text" name = "add"><br>
+		
+		<label>전화번호</label>
+		<input type = "text" name = "tel"><br>
+	</fieldset>
+
+	<fieldset>
+		<legend>경력사항</legend>
+      
+      <label>기간</label>
+      <input type="date" name ="start">~<input type="date" name ="end"><br><br>
+      <textarea rows="5" cols="50"></textarea><br>
+
+      <label>기간</label>
+      <input type="date" name ="start2">~<input type="date" name ="end2"><br><br>
+      <textarea rows="5" cols="50"></textarea><br>
+      
+       <label>기간</label>
+      <input type="date" name ="start3">~<input type="date" name ="end2"><br><br>
+      <textarea rows="5" cols="50"></textarea><br>
+	</fieldset>
+	
+	<input class = "button" type="submit" value="전송">
+	<input class = "button" type="reset" value="취소">
+
+</form>
+
+</body>
+</html>
