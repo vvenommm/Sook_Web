@@ -3,6 +3,44 @@
 <head>
 <meta charset="UTF-8">
 <title>속성 선택자</title>
+<script>
+window.onload = function(){ //document가 모두 출력된 후에 수행하라는 뜻
+	
+		//한 번 수행되는 것이기에 document출력이 되면서 색도 같이 출력됨
+		//하지만 d2가 아직 만들어지지 않은 상태이기 때문에 script가 상단에 있을 땐 오류 발생.
+		//그러나 script는 head 사이에 위치하는 것이 표면적 -> 그렇기에 오류가 발생하지 않는 방법을 사용해야 함 = window.upload
+		var d2 = document.getElementById('d2'); 
+		var d2 = document.querySelector('#d2');
+
+		//랜덤 값을 계속 반복하여 자동으로 색이 바뀌게 하려고
+		setInterval(function(){
+
+			cr = parseInt(Math.random()*255); 
+			cg = parseInt(Math.random()*255);
+			cb = parseInt(Math.random()*255);
+		
+			d2.style.background = "rgb(" + cr + "," +  cg + "," + cb + ")"; //변수는 따옴표 안에 있으면 안 됨
+			
+		}, 100);
+		
+
+	function change(){ //function 위에 있으면 오류가 남. 왜냐하면 document가 다 완성된 후에 클릭하기 때문에 script의 위치는 상관 없이 변수를 찾을 수 있음
+		//id=d1으로 접근
+		var d1 = document.getElementById('d1'); //d1 변수에 담음
+		//var d1 = document.querySelector('#d1'); //이것도 변수에 담는 방법 #d1은 이름
+		var d1 = document.querySelector('#d1');
+// 		alert("hello");
+
+		cr = parseInt(Math.random()*255); //자바에서는 Integer.parseInt인데 html에서는 이렇게. 그리고 var, let처럼 변수 형태 생략 가능
+		cg = parseInt(Math.random()*255);
+		cb = parseInt(Math.random()*255);
+		
+		d1.style.background = "rgb(" + cr + "," +  cg + "," + cb + ")"; //변수는 따옴표 안에 있으면 안 됨
+		
+	}
+}
+
+</script>
 <style type="text/css">
 p {
 	font-size : 2.0em;
@@ -46,11 +84,17 @@ input[type=button]{
 	background: #D2D2FF;
 	color : white;
 	padding: 5px 20px; /* 위아래 & 좌우 */
-	border: 3px solid yellow;
+	border: 3px solid #6A5ACD;
 	border-radius: 50px 5px 10px 30px; /* 각 진 모서리 둥글게 만들기, 상단 왼쪽부터 시계방향으로 1, 2, 3, 4. 값을 2개 적으면 (1,3)과 (2,4)에 적용 */
 }
-button : active{
-	border-radius: 10px 30px 50px 5px;
+input:active{
+	border-radius: 24px 30px 50px 10px;
+}
+#d2 {
+	font-size: 2.0em;
+	text-align: center;
+	color : white;
+	font-weight: bold;
 }
 </style>
 
@@ -67,31 +111,29 @@ button : active{
 
 <br>
 
+<pre>
+버튼을 클릭하면 change() 함수를 호출 - 랜덤으로 색상을 발생
+	id=d1인 div 요소의 배경색을 변경한다.
+</pre>
+
+
 <input id = "button" type = "button" value = "클릭!" onclick = "change()">
 
-<br>
+<br><br>
 
 <div id = "d1">
 
 </div>
 
-<script>
-	function change(){ //function 위에 있으면 오류가 남. 왜냐하면 document가 다 완성된 후에 클릭하기 때문에 script의 위치는 상관 없이 변수를 찾을 수 있음
-		//id=d1으로 접근
-		var d1 = document.getElementById('d1'); //d1 변수에 담음
-		//var d1 = document.querySelector('#d1'); //이것도 변수에 담는 방법 #d1은 이름
-		var d1 = document.querySelector('#d1');
-// 		alert("hello");
+<pre>
+실행 하자마자 버튼 클릭 없이 랜덤으로 색상을 변경한다.
+id=d2인 div요소의 배경색을 바꾼다.
+</pre>
 
-		cr = parseInt(Math.random()*255); //자바에서는 Integer.parseInt인데 html에서는 이렇게. 그리고 var, let처럼 변수 형태 생략 가능
-		cg = parseInt(Math.random()*255);
-		cb = parseInt(Math.random()*255);
-		
-		d1.style.background = "rgb(" + cr + "," +  cg + "," + cb + ")"; //변수는 따옴표 안에 있으면 안 됨
-		
-	}
+<div id = "d2">
+어서오세요~~
+</div>
 
-</script>
 
 
 </body>
