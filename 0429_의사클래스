@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>의사 클래스</title>
+<link rel="stylesheet" href="../css/public.css">
+
+<style type="text/css">
+div {
+	border : 2px solid #FF5675;
+	padding:  : 10px;
+	margin : 20px;
+	}
+a {
+	border : 3px solid #FFE146;
+	margin : 10px;
+	padding : 10px;
+	font-size : 2.0em;
+}
+a:link {
+	color : #2E8B57;
+}
+a:visited {
+	color : #FF7E9D;
+}
+a:hover { /*마우스 올렸을 때 */
+	text-decoration: none; /* line-through 글자 중앙에 줄, overline 글자 상단에 줄, underline 글자 하단에 줄, none 밑줄 없음 */
+}
+a:active {
+	background: #FFC81E;
+}
+p:link { /* 없는 기능 */
+	color : red;
+}
+p:visited { /* 없는 기능 */
+	color : red;
+}
+p:hover {
+	color : yellow;
+}
+p:active {
+	font-size : 1.5em;
+	color : blue;
+}
+
+table {
+	border : 1px solid #008080;
+}
+
+td {
+	width: 300px;
+	height: 50px;
+	text-align: center;
+}
+
+#t1 tr:nth-child(2n+1){ /*테이블의 각 행의 1,3,5칸에 배경색을 지정해주려고*/
+	background: #98EBDC;
+}
+
+#t1 tr:nth-child(2n){
+	background: #BEF5BE;
+}
+
+#t2 tr:nth-child(2n+1){ /*테이블의 각 행의 1,3,5칸에 배경색을 지정해주려고*/
+	background: #FFF064;
+}
+
+#t2 tr:nth-child(2n){
+	background: #FFA98F;
+}
+#t1 tr:nth-child(1), #t2 tr:nth-child(1){  /*모든 테이블의 자손에게 줄 효과면 아이디 생략 가능  이렇게 썼을 때 2번 테이블에 적용되는 이유는 테이블2는 td에 적용한게 아니고 tr에 적용한거기 때문에 가중치 차이가 생겨 이게 적용 됨 */
+ 	color : white;
+ 	background: black;
+ 	font-size : 1.5em;
+} 
+/* tr:nth-child(1){ /* 모든 테이블의 자손에게 줄 효과면 아이디 생략 가능 */ */
+/* 	color : white; */
+/* 	background: black;	 */
+/* 	font-size : 1.5em; */
+/* } */
+</style>
+
+</head>
+<body>
+
+<pre>
+의사클래스(pseudo-class) : 
+상태에 따른 스타일을 지정
+	a:link - 처음 만들어졌을 때 - a태그에서만 적용
+	a:visited - 방문하고 난 후 - a태크에서만 적용
+	a:hover - 마우스를 갖다 댔을 때
+	a:active - 클릭하는 순간
+		
+	target에 오는 것 : _self 같은 창에서 열기
+			   _blank 새 창 열기
+			   ifr현재 페이지에서 내장 프레임으로 열기(25일 iframe1 파일)
+			   href=#아이디 한 페이지 내에서 id를 준 위치로 스크롤 이동(20일 a링크id사용 파일)
+</pre>
+
+<pre>
+의사클래스(pseudo-class) : 
+구조에 따른 스타일을 지정
+	nth-child(1)
+	nth-child(20)
+	
+-- 테이블의 각 행의 1,3,5칸에 배경색을 지정해줄 때 --
+#t1 td:nth-child(2n+1){ 
+	background: #6EDCDC;
+}
+
+#t1 td:nth-child(2n){
+	background: :#64DB99;
+}
+</pre>
+
+<div>
+	<a href="http://www.ddit.or.kr" target="#kk">DDIT</a>
+	<a href="http://plus.cnu.ac.kr" target="">충남대학교</a>
+	<a href="http://www.hannam.ac.kr" target="">한남대학교</a>
+	<a href="http://hrd.go.kr/" target="">HRD</a>
+	<br>
+	<p>무궁화 꽃이 피었습니다.</p>
+	<p>능소화 꽃이 피었습니다.</p>
+</div>
+
+<div>
+<table id = "t1" border = "1">
+	<tr>
+		<td>이름</td>
+		<td>주소</td>
+		<td>전화번호</td>
+		<td>이메일</td>
+		<td>생일</td>
+	</tr>
+	
+	<tr>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+	
+	<tr>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+	
+	<tr>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+	
+	<tr>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+</table>
+</div>
+
+<br><br>
+
+<pre>
+
+</pre>
+
+<div>
+<table id = "t2" border = "1">
+	<tr>
+		<td>이름</td>
+		<td>주소</td>
+		<td>전화번호</td>
+		<td>이메일</td>
+		<td>생일</td>
+	</tr>
+	
+	<tr>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+	
+	<tr>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+	
+	<tr>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+	
+	<tr>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+</table>
+</div>
+
+
+</body>
+</html>
