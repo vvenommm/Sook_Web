@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>텍스트 스타일</title>
+
+<style type="text/css">
+@import url('https://fonts.googleapis.com/css2?family=Gugi&family=Hi+Melody&family=Jua&display=swap');
+
+div{
+	border : 2px dotted lightblue;
+	margin: 20px;
+	padding: 10px;
+	font :2.0em/30px;
+}
+
+#d1{
+	letter-spacing : 2px;
+	line-height: 25px;
+	font : 2.5em/20px;
+	font-family: 'Jua', sans-serif;
+}
+
+#d2{
+	text-align: right;
+	text-decoration: underline;
+}
+
+#d3{
+	text-indent: 50px; /* 들여쓰기 */
+}
+
+span{
+	background-color : #FFE3EE;
+}
+
+#s1{
+	text-transform: uppercase;
+	text-decoration: overline;
+}
+
+#s2{
+	text-transform: lowercase;
+	text-decoration: line-through;
+}
+
+#s3{
+	text-transform: capitalize;
+	text-decoration: underline;
+}
+
+h1{
+	text-shadow : 5px 5px 3px red; /*가로로 들어가는 정도, 아래로 내려가는 정도, 번짐&선명도(숫자가 작을 수록 선명, 클수록 흐림), 색 순으로*/
+}
+
+textarea {
+	direction: rtl; /* 일반 방향은 ltr 반대 방향은 rtl으로 적으면 됨 */
+}
+
+</style>
+
+</head>
+<body>
+<textarea rows="10" cols="50"></textarea>
+<br><br>
+
+<div id = "d1">
+<h1>Hello World!!</h1>
+<strong>letter-spacing, line-height, font-family 적용</strong><br>
+Hello World!! Good Morning and Good Afternoon. Good Evening and Good Night ^_^
+Hello World!! Good Morning and Good Afternoon. Good Evening and Good Night ^_^
+Hello World!! Good Morning and Good Afternoon. Good Evening and Good Night ^_^
+Hello World!! Good Morning and Good Afternoon. Good Evening and Good Night ^_^
+Hello World!! Good Morning and Good Afternoon. Good Evening and Good Night ^_^
+</div>
+
+<div id = "d2">
+Hello World!! Good Morning and Good Afternoon. Good Evening and Good Night ^_^
+Hello World!! Good Morning and Good Afternoon. Good Evening and Good Night ^_^
+Hello World!! Good Morning and Good Afternoon. Good Evening and Good Night ^_^
+Hello World!! Good Morning and Good Afternoon. Good Evening and Good Night ^_^
+Hello World!! Good Morning and Good Afternoon. Good Evening and Good Night ^_^
+</div>
+
+<div id = "d3">
+Hello World!! Good Morning and Good Afternoon. Good Evening and Good Night ^_^
+Hello World!! <strong>uppercase -></strong> <span id = "s1">Good Morning and Good Afternoon.</span> Good Evening and Good Night ^_^
+Hello World!! <strong>lowercase -></strong> <span id = "s2">Good Morning and Good Afternoon.</span> Good Evening and Good Night ^_^
+Hello World!! <strong>capitalize-></strong> <span id = "s3">Good Morning and Good Afternoon.</span> Good Evening and Good Night ^_^
+Hello World!! Good Morning and Good Afternoon. Good Evening and Good Night ^_^
+</div>
+
+
+
+
+
+</body>
+</html>
