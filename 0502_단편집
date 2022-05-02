@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>단편집</title>
+<style>
+div {
+	height: auto;
+	margin: 10px;
+	padding: 10px;
+	font-size: 1.5em;
+	border : 2px solid gold;
+}
+</style>
+</head>
+<body>
+<div>
+
+</div>
+</body>
+</html>
