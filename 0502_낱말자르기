@@ -17,6 +17,11 @@ div {
 	word-wrap : break-word;
 }
 
+
+#d4{
+	word-wrap : break-word;
+}
+
 span {
 	color : hotpink;
 	font-size: 1.5em;
@@ -38,7 +43,7 @@ function proc(){
 	
 	//out변수를 이용하여 출력
 	//out.innerText = invalue;
-	out.textContent = invalue;
+	out.textContent += invalue;
 }
 
 </script>
