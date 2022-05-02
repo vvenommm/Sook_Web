@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>둥근경계선</title>
+
+<style type="text/css">
+div{
+	display : inline-block;
+	width: 300px;
+	height: 300px;
+	margin : 20px;
+	botder-width : 10px 5px;
+	border-style : inset dotted solid;
+	border-color : red blue green magenta;
+	float : left;
+}
+
+#d1{
+	border-radius: 50%;
+	box-shadow : 50px 20px 35px yellow;
+}
+
+#d2{
+	width : 500px;
+	height : 200px;
+	border-radius: 50%;
+	box-shadow : 30px 15px 30px grey;
+}
+
+#d3{
+	border-radius: 10px 200px 50px 10px;
+}
+
+</style>
+
+</head>
+
+
+<body>
+<div id = "d1">
+
+</div>
+<div id = "d2">
+
+</div>
+<div id = "d3">
+
+</div>
+
+</body>
+</html>
