@@ -4,6 +4,30 @@
 <meta charset="UTF-8">
 <title>속성 선택자</title>
 <script>
+var a = 0; //전역 변수로 선언. String인지 number인지 구분은 해줘야 함. null은 String, 0은 number
+
+function stop() {
+	clearInterval(a); //전역 변수 a를  여기서도 사용하고 아래에서도 사용
+}
+
+function start() { //시작을 계속 누르면 새로운 아이디가 생기기 때문에 눌리지 않게, 아예 화면에서 사라지게 하는 등의 방법을 사용하여 다시 못 누르게 해줘야 한다. 정지 상태일 때 나올 수 있게끔 해야 함.
+
+	//시작버튼 클릭 후 시작 버튼을 안 보이게 하거나 클릭하지 못 하게 설정
+		var d2 = document.getElementById('d2'); 
+		var d2 = document.querySelector('#d2');
+
+		a = setInterval(function(){ 
+			console.log(a); 
+			
+			cr = parseInt(Math.random()*255); 
+			cg = parseInt(Math.random()*255);
+			cb = parseInt(Math.random()*255);
+		
+			d2.style.background = "rgb(" + cr + "," +  cg + "," + cb + ")";
+			
+		}, 100)
+}
+
 window.onload = function(){ //document가 모두 출력된 후에 수행하라는 뜻
 	
 		//한 번 수행되는 것이기에 document출력이 되면서 색도 같이 출력됨
@@ -13,8 +37,9 @@ window.onload = function(){ //document가 모두 출력된 후에 수행하라�
 		var d2 = document.querySelector('#d2');
 
 		//랜덤 값을 계속 반복하여 자동으로 색이 바뀌게 하려고
-		setInterval(function(){
-
+		a = setInterval(function(){ //let a는 지역변수. window.onloadP{} 안에서만 사용 가능한 변수
+			console.log(a); //콘솔에 로그 찍어보라고 하면 이렇게 써주면 됨
+			
 			cr = parseInt(Math.random()*255); 
 			cg = parseInt(Math.random()*255);
 			cb = parseInt(Math.random()*255);
@@ -28,6 +53,7 @@ window.onload = function(){ //document가 모두 출력된 후에 수행하라�
 		//id=d1으로 접근
 		var d1 = document.getElementById('d1'); //d1 변수에 담음
 		//var d1 = document.querySelector('#d1'); //이것도 변수에 담는 방법 #d1은 이름
+		//let을 사용할 때엔 변수의 이름이 같으면 안 됨
 		var d1 = document.querySelector('#d1');
 // 		alert("hello");
 
@@ -85,10 +111,14 @@ input[type=button]{
 	color : white;
 	padding: 5px 20px; /* 위아래 & 좌우 */
 	border: 3px solid #6A5ACD;
-	border-radius: 50px 5px 10px 30px; /* 각 진 모서리 둥글게 만들기, 상단 왼쪽부터 시계방향으로 1, 2, 3, 4. 값을 2개 적으면 (1,3)과 (2,4)에 적용 */
+	border-radius: 10px 50px; /* 각 진 모서리 둥글게 만들기, 상단 왼쪽부터 시계방향으로 1, 2, 3, 4. 값을 2개 적으면 (1,3)과 (2,4)에 적용 */
+	transition-duration: 0.1s;
+}
+input:hover{
+	background: black;
 }
 input:active{
-	border-radius: 24px 30px 50px 10px;
+	border-radius: 50px 10px;
 }
 #d2 {
 	font-size: 2.0em;
@@ -129,6 +159,8 @@ input:active{
 실행 하자마자 버튼 클릭 없이 랜덤으로 색상을 변경한다.
 id=d2인 div요소의 배경색을 바꾼다.
 </pre>
+<input type = "button" value = "시작" onclick = "start()"> <!-- 함수 호출 -->
+<input type = "button" value = "정지" onclick = "stop()">
 
 <div id = "d2">
 어서오세요~~
