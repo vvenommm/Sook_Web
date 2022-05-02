@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>낱말 자르기</title>
+
+<style type="text/css">
+div {
+	width: 600px;
+	height: 160px;
+	border : 3px dotted hotpink;
+	margin : 30px;
+	padding : 10px;
+}
+
+#d3{
+	word-wrap : break-word;
+}
+
+span {
+	color : hotpink;
+	font-size: 1.5em;
+	font-weight: bold;
+}
+</style>
+</head>
+
+
+
+<body>
+<div id = "d1">
+<p> 정상적으로 띄어쓰기 한 상태</p>
+HelloWorld GoodMorning HelloWorld GoodMorning HelloWorld GoodMorning HelloWorld GoodMorning HelloWorld GoodMorning HelloWorld GoodMorning HelloWorld GoodMorning HelloWorld GoodMorning 
+</div>
+
+<div id = "d2">
+<p> 띄어쓰기 X.X</p>
+HelloWorldGoodMorningHelloWorldGoodMorningHelloWorldGoodMorningHelloWorldGoodMorningHelloWorldGoodMorningHelloWorldGoodMorningHelloWorldGoodMorningHelloWorldGoodMorningHelloWorldGoodMorningHelloWorldGoodMorningHelloWorldGoodMorning
+</div>
+
+<div id = "d3">
+<p> 띄어쓰기 X.X & <span>word-wrap : break-word;</span> 사용해 범위를 벗어나지 않도록 설정</p>
+HelloWorldGoodMorningHelloWorldGoodMorningHelloWorldGoodMorningHelloWorldGoodMorningHelloWorldGoodMorningHelloWorldGoodMorningHelloWorldGoodMorningHelloWorldGoodMorningHelloWorldGoodMorningHelloWorldGoooodMorningHelloWorldGoodMorning
+</div>
+
+<br><hr><br>
+<p>버튼 클릭 시 prompt() - (내장되어 있는 함수) 함수를 이용하여 문자를 입력 받고 id = d4인 div 요소에 출력</p>
+<input type = "button" value = "확인" onclick = "proc()"><br><br>
+<div id = "d4">
+
+</div>
+
+</body>
+</html>
