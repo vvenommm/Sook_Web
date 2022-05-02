@@ -3,12 +3,106 @@
 <head>
 <meta charset="UTF-8">
 <title>Font</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gugi&display=swap" rel="stylesheet">
+
+<style type="text/css">
+p{
+	font-size: 2.0em;
+}
+#p1 {
+	font-family: serif;
+}
+
+#p2 {
+	font-family: sans-serif;
+}
+
+#p3 {
+	font-family: monospace;
+}
+
+#p4 {
+	font-family: fantasy;
+}
+
+#p5 {
+	/*
+	font-size : 1.5em;
+	font-style : italic;
+	font-weight : bold;
+	font-family: serif;
+	line-height: 30px;
+	
+	w3schools에서 scc font property 검색
+	*/
+	
+	font : italic small-caps bold 1.5em/30px serif;
+	/* small-caps는 전무 대문자, 시작 첫 글자는 크게 출력 */
+	
+}
+
+#p6 {
+	
+	font : italic bold 1.5em/30px serif;
+	
+}
+
+#p7 {
+	
+	font-family: 'Gugi', cursive;
+	
+}
+
+
+</style>
+
 </head>
 <body>
 
 <p id = "p1">Hello World!! Good Morning and Good Afternoon. Good Evening and Good Night ^_^</p>
+<br><hr><br>
 <p id = "p2">Hello World!! Good Morning and Good Afternoon. Good Evening and Good Night ^_^</p>
+<br><hr><br>
 <p id = "p3">Hello World!! Good Morning and Good Afternoon. Good Evening and Good Night ^_^</p>
+<br><hr><br>
+<p id = "p4">Hello World!! Good Morning and Good Afternoon. Good Evening and Good Night ^_^</p>
+<br><hr><br>
+
+<p id = "p5">
+small-caps 有<br>
+Hello World!! Good Morning and Good Afternoon. Good Evening and Good Night ^_^
+Hello World!! Good Morning and Good Afternoon. Good Evening and Good Night ^_^
+Hello World!! Good Morning and Good Afternoon. Good Evening and Good Night ^_^
+Hello World!! Good Morning and Good Afternoon. Good Evening and Good Night ^_^
+Hello World!! Good Morning and Good Afternoon. Good Evening and Good Night ^_^
+</p>
+
+<br><hr><br>
+
+<p id = "p6">
+small-caps 無<br>
+Hello World!! Good Morning and Good Afternoon. Good Evening and Good Night ^_^
+Hello World!! Good Morning and Good Afternoon. Good Evening and Good Night ^_^
+Hello World!! Good Morning and Good Afternoon. Good Evening and Good Night ^_^
+Hello World!! Good Morning and Good Afternoon. Good Evening and Good Night ^_^
+Hello World!! Good Morning and Good Afternoon. Good Evening and Good Night ^_^
+</p>
+
+<br><hr><br>
+
+<p id = "p7">
+점심 뭐 먹지 글씨 특이하다 화 표 퓌레 푀 호 회
+Hello World!! Good Morning and Good Afternoon. Good Evening and Good Night ^_^
+Hello World!! Good Morning and Good Afternoon. Good Evening and Good Night ^_^
+Hello World!! Good Morning and Good Afternoon. Good Evening and Good Night ^_^
+Hello World!! Good Morning and Good Afternoon. Good Evening and Good Night ^_^
+Hello World!! Good Morning and Good Afternoon. Good Evening and Good Night ^_^
+</p>
+
+
 
 
 </body>
