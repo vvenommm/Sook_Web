@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Box 모델</title>
+<style type="text/css">
+body {
+	border : 2px dotted black;
+}
+
+div{
+	margin: 30px;
+	border : 20px solid Orange;
+	padding: 20px;
+	background: lightgreen;
+	background-image : url(../images/pattern.jpg);
+}
+
+p{
+	border : 2px dotted black;
+	margin : 20px;
+	background: yellow;
+	padding : 10px;
+}
+
+#d1{
+	border: 30px inset red;
+}
+
+#d2{
+	border: 30px outset red;
+}
+
+#d3{
+	border: 30px groove green;
+}
+
+#d4{
+	border: 30px ridge green;
+}
+
+
+</style>
+
+</head>
+
+<body>
+<div id = "d1">
+
+</div>
+
+<div id = "d2">
+
+</div>
+
+<div id = "d3">
+
+</div>
+
+<div id = "d4">
+
+</div>
+
+
+<div>
+<p>
+이제는 김치를 먹기보다도 커피를 더 많이 마신다는 한국에서는 간단하고 편리한 인스턴트 커피 또한 자주 마시기에 '커피'라고 하면 원두 커피뿐만 아니라 인스턴트 커피도 함께 많이 연상한다. 일본에서도 비슷한 사정이라 원두 커피를 따로 레귤러 커피라고 구분해서 부르기도 한다. 반면 북미에서는 '커피'라고 하면 원두 커피를 의미한다. # 터키, 그리스에서는 인스턴트 커피를 '네스카페'라고 부른다. 이쪽 상표가 워낙 유명해서 그런 듯.
+
+한자로는 '가배'라는 이름으로 음차하는데, 중국에서는 咖啡[2] 라고 쓰고 일본에서는 珈琲[3] 라고 썼다. 미스터 션샤인등의 19세기 후반, 20세기 초반의 구한말, 개화기를 다룬 작품에서 많이 볼 수 있는 명칭이다.
+
+
+</p>
+
+</div>
+</body>
+</html>
