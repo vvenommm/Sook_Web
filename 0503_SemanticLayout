@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Semantic Layout</title>
+<style type="text/css">
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Gugi&family=Hi+Melody&family=Jua&family=Oleo+Script+Swash+Caps&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Dongle:wght@300;400&family=Gugi&family=Hi+Melody&family=Jua&family=Oleo+Script+Swash+Caps&display=swap');
+
+header, footer, nav, section, article {
+	border-radius: 30px;
+	box-sizing : border-box;
+	margin : 20px;
+	margin-top : 3px;
+	margin-bottom : 3px;
+	font-size : 1.5em;
+	padding: 20px;
+}
+
+header{
+	height: 150px;
+	background: #FFF064;
+	text-align: center;
+	font-family: 'Black Han Sans', sans-serif;
+	font-size: 5.0em;
+}
+
+nav{
+	display : inline-block;
+	float : left;
+/* 	width: 20%; */
+	width : calc(20% - 5px);
+	height: 450px;
+	background: #FF7E9D;
+	margin-left : 20px;
+	margin-right : 2px;
+	font-size : 3.0em;
+	font-family: 'Dongle', sans-serif;
+}
+
+section{
+	display : inline-block;
+	float : right;
+	width : calc(75% - 5px);
+/* 	width: 73%; */
+	height: 450px;
+	background: #64DB99;
+	margin-left : 2px;
+	margin-right : 20px;
+
+}
+
+article{
+	border : 2px solid black;
+	width : 90%
+}
+
+#a2 {
+	clear : left;
+	text-align: right;
+	width: 45%;
+}
+
+pre{
+	font-size : 1.0em;
+	font-family: 'Dongle', sans-serif;
+}
+
+footer{
+	clear : both;
+	height: 150px;
+	background: #dda0dd;
+	text-align: center;
+	font-family: 'Dongle', sans-serif;
+	font-size : 3.0em;
+
+}
+
+img {
+	width: 100px;
+	display : inline-block;
+	float : left;
+}
+
+#pat{
+	margin-right : 10px;
+}
+
+#mat{
+	float : right;
+	margin-left : 10px;
+}
+
+ul li{
+	list-style-type: none;
+	display : inline-block;
+	float : left;
+	margin-right : 20px;
+}
+
+a:link{
+	color : #8c008c;
+}
+</style>
+</head>
+<body>
+<header>패트와 매트</header>
+
+<nav>
+	<ol>
+		<li>패트</li>
+		<li>매트</li>
+	</ol>
+</nav>
+
+<section>
+	<article>
+	<img id = "pat" src = "../images/매트.png" alt = "매트">
+	<pre>
+매트 : 원뿔 모양 털모자에 달걀형 얼굴, 빨간 옷
+	</pre>
+	</article>
+	
+	<br>
+	
+	<article id = "a2">
+	<img id = "mat" src = "../images/패트.png" alt = "패트">
+	<pre>
+패트 : 베레모에 둥그런 얼굴, 노란 옷
+	</pre>
+	</article>
+</section>
+
+<footer>
+<ul id = "ul">
+	<li><a href = "http://www.dictionary.com"> 패트 블로그 </a></li>
+	<li><a href = "http://www.naver.com"> 매트 인스타그램 </a></li>
+</ul>
+
+</footer>
+
+
+</body>
+</html>
