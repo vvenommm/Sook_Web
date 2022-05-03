@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Div Layout</title>
+<style type="text/css">
+body{
+	min-width : 1000px;
+}
+
+div{
+	font-size : 1.5em;
+	padding: 20px;
+	border-radius: 30px;
+	margin : 20px;
+	box-sizing : border-box;
+
+}
+#header{
+	height: 150px;
+	background: #FFF064;
+	text-align: center;
+}
+
+#nav{
+	display : inline-block;
+	float : left;
+/* 	width: 20%; */
+	width : calc(20% - 5px);
+	height: 350px;
+	background: #FF7E9D;
+	margin-left : 20px;
+	margin-right : 5px;
+	font-size : 1.5em;
+	font-size : 1.5em;
+
+}
+
+#content{
+	display : inline-block;
+	float : right;
+	width : calc(75% - 5px);
+/* 	width: 73%; */
+	height: 350px;
+	background: #64DB99;
+	margin-left : 5px;
+	margin-right : 20px;
+
+}
+
+#footer{
+	clear : both;
+	height: 150px;
+	background: #dda0dd;
+	text-align: center;
+
+}
+
+img {
+	width: 200px;
+	display : inline-block;
+	float : left;
+}
+span {
+	margin : 10px;
+}
+
+ul li{
+	list-style-type: none;
+	display : inline-block;
+	float : left;
+	margin-right : 20px;
+}
+
+a:link{
+	color : #8c008c;
+}
+</style>
+
+
+
+</head>
+
+<body>
+<div id = "header"> "패트와 매트"</div>
+
+<div id = "nav">
+	<ol>
+		<li>패트</li>
+		<li>매트</li>
+	</ol>
+
+</div>
+
+<div id = "content">
+<span>패트와 매트</span>
+<img src = "../images/패트.png" alt = "패트">
+<img src = "../images/매트.png" alt = "매트">
+</div>
+
+
+<div id = "footer">
+<ul id = "ul">
+	<li><a href = "http://www.dictionary.com"> 패트 블로그 </a></li>
+	<li><a href = "http://www.naver.com"> 매트 인스타그램 </a></li>
+</ul>
+</div>
+
+</body>
+</html>
