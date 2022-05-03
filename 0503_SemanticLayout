@@ -7,6 +7,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Gugi&family=Hi+Melody&family=Jua&family=Oleo+Script+Swash+Caps&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Dongle:wght@300;400&family=Gugi&family=Hi+Melody&family=Jua&family=Oleo+Script+Swash+Caps&display=swap');
 
+body{
+	min-width: 1000px;
+}
+
 header, footer, nav, section, article {
 	border-radius: 30px;
 	box-sizing : border-box;
@@ -18,30 +22,36 @@ header, footer, nav, section, article {
 }
 
 header{
-	height: 150px;
+	height: 90px;
 	background: #FFF064;
 	text-align: center;
 	font-family: 'Black Han Sans', sans-serif;
-	font-size: 5.0em;
+	font-size: 3.0em;
 }
 
 nav{
 	display : inline-block;
 	float : left;
 /* 	width: 20%; */
-	width : calc(20% - 5px);
+	width : calc(20% - 10px);
 	height: 450px;
 	background: #FF7E9D;
 	margin-left : 20px;
 	margin-right : 2px;
-	font-size : 3.0em;
+	font-size : 1.5em;
 	font-family: 'Dongle', sans-serif;
+}
+
+h3{
+	font-size: 1.0em;
+	margin : 15px;
+	text-align: center;
 }
 
 section{
 	display : inline-block;
 	float : right;
-	width : calc(75% - 5px);
+	width : calc(75% - 1px);
 /* 	width: 73%; */
 	height: 450px;
 	background: #64DB99;
@@ -51,29 +61,47 @@ section{
 }
 
 article{
-	border : 2px solid black;
-	width : 90%
+	border : 2px dotted green;
+	width : calc(96% - 5px);
+	height: 180px;
 }
 
+figure{
+	display : inline-block;
+	float : left;
+	margin : 1px;
+}
+
+.h3{
+	display : inline-block;
+	width : 20%;
+	text-align : center;
+	margin : 1px;
+	font-size: 1.1em;
+}
+
+#head1{
+	float : right;
+	clear : right;
+}
+
+#head2{
+	float : left;
+	clear : left;
+}
+
+#f2{
+	float : right;	
+	
+}
 #a2 {
 	clear : left;
 	text-align: right;
-	width: 45%;
 }
 
-pre{
+div{
 	font-size : 1.0em;
 	font-family: 'Dongle', sans-serif;
-}
-
-footer{
-	clear : both;
-	height: 150px;
-	background: #dda0dd;
-	text-align: center;
-	font-family: 'Dongle', sans-serif;
-	font-size : 3.0em;
-
 }
 
 img {
@@ -91,6 +119,25 @@ img {
 	margin-left : 10px;
 }
 
+#dind{
+	width : 83%;
+	display : inline-block;
+	float : left;
+	text-align: right;
+	word-wrapper : word-break;
+}
+
+figcaption{
+	font-size : 0.8em;
+	text-align: center;
+}
+
+ol{
+	list-style-type: upper-roman;
+	margin-top : 15px;
+	width: 100px;
+}
+
 ul li{
 	list-style-type: none;
 	display : inline-block;
@@ -98,44 +145,74 @@ ul li{
 	margin-right : 20px;
 }
 
+footer{
+	clear : both;
+	height: 90px;
+	background: #dda0dd;
+	text-align: center;
+	font-family: 'Dongle', sans-serif;
+	font-size : 1.5em;
+	padding : 1px;
+
+}
+
+#fd{
+	display : inline-block;
+	width: 300px;
+	margin-left : 100px auto;
+}
+
 a:link{
 	color : #8c008c;
 }
+
 </style>
 </head>
 <body>
 <header>패트와 매트</header>
 
 <nav>
+<h3>게시판</h3>
 	<ol>
 		<li>패트</li>
 		<li>매트</li>
+		<li>패트와 매트</li>
+		<li>패트의 하루</li>
+		<li>매트의 하루</li>
 	</ol>
 </nav>
 
 <section>
 	<article>
+	<div>
+	<figure>
 	<img id = "pat" src = "../images/매트.png" alt = "매트">
-	<pre>
-매트 : 원뿔 모양 털모자에 달걀형 얼굴, 빨간 옷
-	</pre>
+	<figcaption>매트</figcaption>
+	</figure>
+매트는 원뿔 모양 털모자에 달걀형 얼굴, 빨간 옷을 입고 있다.<br>얼굴이 패트에 비해 길쭉한 편이며 주로 사고를 치는 쪽에 속한다.
+	</div>
 	</article>
 	
-	<br>
-	
 	<article id = "a2">
+	<div>
+	<div id = "dind">
+패트는 베레모에 둥그런 얼굴, 노란 옷을 입고 있다.<br>얼굴이 매트에 비해 동글한 편이며 매트가 친 사고를 수습하는 쪽에 속한다.
+	</div>
+	<figure id = "f2">
 	<img id = "mat" src = "../images/패트.png" alt = "패트">
-	<pre>
-패트 : 베레모에 둥그런 얼굴, 노란 옷
-	</pre>
+	<figcaption>패트</figcaption>
+	</figure>
+	</div>
 	</article>
 </section>
 
 <footer>
+<div id = "fd">
 <ul id = "ul">
 	<li><a href = "http://www.dictionary.com"> 패트 블로그 </a></li>
 	<li><a href = "http://www.naver.com"> 매트 인스타그램 </a></li>
 </ul>
+</div>
 
 </footer>
 
