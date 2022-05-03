@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Z Index</title>
+<style type="text/css">
+div {
+	width : 100px;
+	height: 100px;
+	border : 1px solid blue;
+	margin: 10px;
+	position: absolute;
+}
+
+#d1{
+	background: yellow;
+	top : 50px;
+	left : 50px;
+}
+
+#d2{
+	background: blue;
+	top : 80px;
+	left : 70px;
+	z-index: 100; /* 겹칠 때 누가 위로 올라갈지 지정해주는 것이 z-index */
+
+}
+
+#d3{
+	background: green;
+	top : 100px;
+	left : 90px;
+	z-index: 110;
+
+}
+#d4{
+	background: pink;
+	top : 130px;
+	left : 100px;
+
+}
+
+</style>
+
+</head>
+<body>
+
+<div id = "d1">d1</div>
+<div id = "d2">d2</div>
+<div id = "d3">d3</div>
+<div id = "d4">d4</div>
+</body>
+</html>
