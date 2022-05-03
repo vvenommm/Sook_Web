@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>위치설정</title>
+<style type="text/css">
+div {
+	width: 150px;
+	height: 150px;
+	border: 2px solid blue;
+	margin : 5px;
+}
+
+#d1, #d5, #d9{
+	background: yellow;
+}
+
+#d2, #d6, #d10{
+	background: violet;
+
+}
+
+#d3, #d7, #d11{
+	background: lightgreen;
+
+}
+
+#d4, #d8, #d12{
+	background: skyblue;
+
+}
+
+#d6{
+	position: relative;
+	top : 80px;
+	left : 50px;
+	color : white;
+}
+
+#d11{
+	position: absolute;
+	top : 200px;
+	left : 150px;
+}
+
+#d13{
+	background: pink;
+	position : fixed;
+	top : 300px;
+	right : 50px;
+}
+#fix{
+	position : fixed;
+	top : 250px;
+	right : 50px;
+}
+</style>
+
+</head>
+<body>
+<h2>정적위치(Static Positioning) : 정상적인 흐름에 따라 배치</h2>
+<div id = "d1">d1</div>
+<div id = "d2">d2</div>
+<div id = "d3">d3</div>
+<div id = "d4">d4</div>
+
+<br><hr><br>
+
+<h2>상대위치(Relative Positioning) : 정상적인 배치(기준점)를 기준으로 설정</h2>
+<div id = "d5">d5</div>
+<div id = "d6">
+	d6<br>
+	position: relative;<br>
+	top : 80px;<br>
+	left : 50px;<br>
+	color : white;
+</div>
+<div id = "d7">d7</div>
+<div id = "d8">d8</div>
+
+<br><hr><br>
+
+<h2>절대위치(Absolute Positioning) : 컨테이너의 원점을 기준으로 설정</h2>
+<div id = "d9">d9</div>
+<div id = "d10">d10</div>
+<div id = "d11">
+	d11<br>
+	position: absolute;<br>
+	top : 200px;<br>
+	left : 150px;
+</div>
+<div id = "d12">d12</div>
+
+<h2 id = "fix">고정위치(Fixed Positioning)</h2>
+<div id = "d13">d13<br>
+	background: pink;<br>
+	position : fixed;<br>
+	top : 300px;<br>
+	right : 50px;
+</div>
+
+
+
+
+</body>
+</html>
