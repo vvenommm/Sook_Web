@@ -8,6 +8,8 @@
 ul {
 	height : 50px;
 	border : 2px solid pink;
+	border-left : none;
+	border-right : none; /* 혹은 border-top,  border-bottom으로 부여 */
 	padding: 20px;
 }
 li{
@@ -19,11 +21,16 @@ li{
 }
 a {
 	letter-spacing: 2px;
-	font-family: 'Oleo Script Swash Caps', cursive;
 }
 a:link{
 	text-decoration: none;
 	color : green;
+}
+a:visited{
+	color : black;
+	font-size : 3.0em;
+	background: red;
+	text-decoration: overline; 
 }
 a:hover{
 	text-decoration: underline;
@@ -35,12 +42,8 @@ a:active{
 	color : blue;
 	background: yellow;
 }
-a:visited{
-	color : red;
-}
 </style>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Gugi&family=Hi+Melody&family=Jua&family=Oleo+Script+Swash+Caps&display=swap');
 </style>
 
 
@@ -48,10 +51,10 @@ a:visited{
 
 <body>
 <ul>
-	<li><a href="#">HOME</a></li>
-	<li><a href="#">BLOG</a></li>
-	<li><a href="#">ABOUT</a></li>
-	<li><a href="#">CONTACT</a></li>
+	<li><a href="http://www.naver.com">HOME</a></li>
+	<li><a href="http://www.daum.net">BLOG</a></li>
+	<li><a href="http://www.w3schools.com">ABOUT</a></li>
+	<li><a href="http://www.nate.com">CONTACT</a></li>
 </ul>
 
 
