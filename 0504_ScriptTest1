@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Script Test1</title>
+
+</head>
+
+<body>
+<script type="text/javascript">
+	var now = new Date();
+	
+	document.write(now + "<br>");
+	
+	
+	
+	var today1 = now.toLocaleString();
+	document.write(today1);
+
+</script>
+
+
+</body>
+</html>
