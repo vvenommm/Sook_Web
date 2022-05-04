@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Script Test2</title>
+<link rel = "stylesheet" href = "../css/public.css">
+<style type="text/css">
+div{
+	border: 2px dotted green;
+	margin: 10px;
+	padding: 10px;
+	width: 50%;
+	height: 55px;
+}
+
+h1{
+	color : red;
+}
+
+
+
+</style>
+
+<script type="text/javascript">
+	var now = new Date();
+	
+	var today1 = now.toLocaleString();
+	var today2 = now.toLocaleDateString();
+	var today3 = now.toLocaleTimeString();
+	
+	window.onload = function(){ //이게 있어야 document가 다 출력된 후 실행되어 오류가 나지 않음
+		//div에 접근 -> div를 검색하여 접근
+		var out = document.querySelector('div'); //div가 여러 개일 경우 제일 첫 div를 검색 
+		
+		//document.write(today1); //document에 ()에 있는 매개변수를 출력하고 끝나버림. 나머지 요소들은 사라짐. 이 코드가 document를 덮어 써버림 -> 주석처리
+		
+		//out 변수를 이용해서 today1 변수값을 출력한다.
+		//out.textContent = today1;
+		
+		out.innerHTML = today1 + "<br>"; //today1 + <br>이 출력 내용
+		out.innerHTML += today2 + "<br>"; // + 안 쓰면 덮어씌워짐
+		out.innerHTML += today3 + "<br>";
+		
+		
+	}
+
+
+</script>
+
+</head>
+<body>
+<pre>
+html 요소에 내용 출력하기
+	
+┌───────────────────────────────────┐
+│ innerHTML : 출력 내용 속에 html 태그가 포함될 경우                   │
+│ textContent : 출력 내용 속에 html 태그가 포함되지 않는 경우          │
+│ innerText : 출력 내용 속에 html 태그가 포함되지 않는 경우(잘 사용 X) │
+└───────────────────────────────────┘	
+</pre>
+<h1>오늘도 행복하세요</h1>
+<p>실행하면 오늘의 날짜를 생성하여 아래 div 요소에 출력한다.</p>
+<div></div>
+<br>
+<hr>
+<input type="button" value="확인" onclick="alert('힝! 속았지?')">                              
+
+</body>
+</html>
