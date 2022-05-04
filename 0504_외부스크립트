@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>외부 스크립트</title>
+
+<link rel = "stylesheet" href = "../css/public.css">
+<link rel="shortcut icon" type="image/x-icon" href="../images/J.png"/> <!-- 탭에 표시되는 아이콘 -->
+<style type="text/css">
+div{
+	border: 2px dotted green;
+	margin: 10px;
+	padding: 10px;
+	width: 50%;
+	height: 55px;
+}
+
+h1{
+	color : #50C785;
+}
+
+</style>
+
+
+<script src = "../js/MyDate.js" type="text/javascript">
+// function proc1() {
+// 	얘는 내부 스크립트이다.
+// }
+
+
+</script>
+
+
+</head>
+<body>
+<pre>
+외부 스트립트 사용
+&lt;script src = "../js/MyDate.js" type="text/javascript">&lt;/script>
+
+</pre>
+
+<h1>오늘도 행복하세요</h1>
+<p>버튼을 클릭하면 오늘의 날짜를 생성하여 아래 div 요소에 출력한다.</p>
+<input type = "button" value = "확인" onclick="proc1()">
+<div></div>
+
+
+</body>
+</html>
