@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Prompt 입력</title>
+<link rel = "stylesheet" href="http://192.168.46.49/webpro/css/public.css">
+<style type="text/css">
+</style>
+
+<script type="text/javascript">
+function calc(){
+	
+	x = window.prompt("1) 정수 입력하거라", "1 ~ 100");
+	y = window.prompt("2) 정수 입력하라고", "1 ~ 100");
+	
+	hap = parseInt(x) + parseInt(y); //+일 때에만 parseInt 사용.
+	
+	//id=d1을 검색
+	out = window.document.getElementById('d1');
+	
+	//출력 내용
+	str = "입력1 : " + x + "<br>";
+	str += "입력2 : " + y + "<br>";
+	str += "합 : " + hap + "<br>";
+	
+	out.innerHTML = str; //textContent로 출력하면 html 태그인 <br>이 그냥 출력됨
+	
+}
+
+function cal(){
+	
+	//입력
+	input1 = parseInt(prompt("정수1"));
+	input2 = parseInt(prompt("정수2"));
+	op = prompt("연산자", "+ - * /");
+	
+	if(op == '+'){
+		total = input1 + input2;
+	}else if(op == '-'){
+		total = input1-input2;
+		
+	}else if(op == '*'){
+		total = input1 * input2;
+		
+	}else{
+		total = input1 / input2;
+		
+	}
+	
+	//id=d2에 input1, input2, total 출력
+	
+	//출력 내용
+//	str = input1 + " " + op + " " + input2 + " = " + total;
+	str;
+	str += `${input1} ${op} ${input2} = ${total}`
+	document.getElementById('d2').innerHTML = str;
+
+}
+</script>
+</head>
+<body>
+<pre>
+prompt() 함수를 이용하여 입력하고 출력한다.
+출력은 id = d1인 div 요소에 출력한다.
+</pre>
+
+<input type="button" value = "클릭" onclick="calc()">
+
+<br><br>
+
+<div id = "d1"></div>
+
+<pre>
+숫자 2개와 연산자 1개를 입력 받아 연산자에 맞는 계산 결과를 출력하는 프로그램
+입력은 prompt를 이용
+출력은 div에 출력
+</pre>
+
+<input type="button" value = "계산기" onclick="cal()">
+
+<div id = "d2"></div>
+
+<pre>
+str = input1 + " " + op + " " + input2 + " = " + total + "&lt;br>";
+템플릿 문자열 - 백틱(`)을 이용한 문장
+문자열과 변수를 간단히 표현
+변수 표현 : ${변수}
+str += `${input1} ${op} ${input2} = ${total} &lt;br>` -> +와 "" 없이 쓸 수 있음
+</pre>
+
+
+</body>
+</html>
