@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Switch 문제</title>
+<link rel = "stylesheet" href = "../css/public.css">
+
+<script type="text/javascript">
+function calc(){
+	//입력
+	num1 = parseInt(prompt("정수1"));
+	num2 = parseInt(prompt("정수2"));
+	
+	op = prompt("연산자 입력", "+ - * /");
+	
+	//비교
+	switch(op){
+	case "+" :
+		res = num1 + num2;
+		break;
+	case "-" :
+		res = num1 - num2;
+		break;
+	case "*" :
+		res = num1 * num2;
+		break;
+	case "/" :
+		res = num1 / num2;
+		break;
+	}
+	
+	//출력내용
+// 	첫번째수 : 
+// 	두번째수 : 
+// 	연산자 : 
+// 	1 + 2 = 3	
+	str = `첫번째수 : ${num1} <br>`;
+	str += `두번째수 : ${num2} <br>`;
+	str += `연산자 : ${op} <br>`;
+	str += `${num1} ${op} ${num2} = ${res}`;
+	
+	document.getElementById('d1').innerHTML = str;
+	
+}
+	//////////////////////////////////////////////////////////////////////////
+	
+function calc2(){
+	
+	input = parseInt(prompt("점수를 입력하세요."));
+	
+	str = `점수 : ${input}점 <br>`;
+	
+	//비교
+	switch(parseInt(input/10)){ //html은 정수끼리 나눠도 결과가 실수가 될 수 있어서 정수로 정해줘야 한다.
+	case 9, 10:
+		str += "학점 : 수";
+		break;
+	case 8:
+		str += "학점 : 우";
+		break;
+	case 7:
+		str += "학점 : 미";
+		break;
+	case 6:
+		str += "학점 : 양";
+		break;
+	default:
+		str += "학점 : 가";
+		break;
+	}
+	
+	document.getElementById('d2').innerHTML = str;
+		
+}
+	
+function calc3(){}
+calc3 = function(){}
+	
+//람다함수 - 화살표를 이용한 함수 -> this 쓸 때는 람다함수 쓰지 못 함
+calc3 = () =>{ //화살표 띄어쓰기 하면 안 됨
+	let first = prompt("첫번째 사람", "가위바위보");
+	let second = prompt("두번째 사람", "가위바위보");
+	
+	//비긴 경우
+	if(first == second){
+		res = "비겼습니다!";
+	}else if(first == "가위" && second == "보"
+			|| first == "바위" && second == "가위" 
+			|| first == "보" && second == "바위" ){//첫 사람이 이긴 경우
+		res = "첫번째 사람 승리!";
+	}else{
+		res = "두번째 사람 승리!";
+	}
+	
+	//출력
+	
+	str = `첫번째 사람 : ${first} <br>`;
+	str += `두번째 사람 : ${second} <br>`;
+	str += `결과 : ${res} <br>`;
+	
+	document.getElementById('d3').innerHTML = str;
+	
+}
+	
+
+</script>
+</head>
+<body>
+<pre>
+숫자 2개와 연산자 1개를 입력 받아 연산자에 맞는 계산 결과를 출력하는 프로그램
+입력은 prompt를 이용
+출력은 div에 출력
+</pre>
+
+<input type="button" value = "확인" onclick="calc()">
+<div id = "d1"></div>
+
+
+<br><br>
+
+
+<pre>
+점수를 입력 (1~100) - prompt()
+학점을 계산하여 출력 - div
+90~100 : 수
+80~89 : 우
+70~79 : 미
+60~69 : 양
+0~59 : 가
+</pre>
+<input type="button" value = "확인" onclick="calc2()">
+
+<div id = "d2"></div>
+
+
+<br><br>
+
+
+<pre>
+두 사람의 가위, 바위, 보를 입력 받아 승자를 출력하는 프로그램을 작성하시오.
+</pre>
+<input type="button" value = "확인" onclick="calc3()">
+
+<div id = "d3"></div>
+
+
+
+</body>
+</html>
