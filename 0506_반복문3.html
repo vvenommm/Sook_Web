@@ -36,11 +36,11 @@ proc1 = () =>{
 
 
 proc2 = () =>{
+
+	sum = 0;
 	
 	while(true){
 		input = parseInt(prompt("아무 숫자 쓰세용~ 종료는 0"));
-		
-		sum = 0;
 		
 		if(input == 0){
 			break;
@@ -55,11 +55,37 @@ proc2 = () =>{
 	out.innerHTML = sum;
 }
 
-//4번도 하기!
+
+proc3 = () =>{
+	
+	str = 0;
+	
+	for(i = 1; i <= 10; i++){
+		for(j = 1; j <= 10; j++){
+			if((i+j)%3 != 0){
+				continue;
+			}else{
+			str += `i : ${i}, j : ${j} -> 합 : ${i+j} <br>`;
+			out = document.getElementById('d3');
+			out.innerHTML = str;
+				
+			}
+		}
+	}
+	
+}
+
+
 
 
 </script>
 
+<style type="text/css">
+#d3 {
+	height: 500px;
+	overflow: scroll;
+}
+</style>
 
 </head>
 <body>
@@ -79,6 +105,14 @@ proc2 = () =>{
 <input type = "button" value = "확인" onclick = "proc2()">
 <br><br>
 <div id = "d2"></div>
+
+<pre>
+다중 for문을 이용해서 1 ~ 10 까지 중   
+i와 k의 더한 합이 3의 배수일때만 출력 continue를 이용
+</pre>
+<input type = "button" value = "확인" onclick = "proc3()">
+<br><br>
+<div id = "d3"></div>
 
 
 </body>
