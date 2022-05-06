@@ -5,6 +5,13 @@
 <title>반복문 1</title>
 <link rel = "stylesheet" href = "../css/public.css">
 
+<style type="text/css">
+#d4{
+	height: 500px;
+	overflow: scroll;
+}
+</style>
+
 <script>
 function sum(){
 	let sum = 0;
@@ -40,8 +47,6 @@ getTotal = function(){}
 
 getTotal = () =>{
 	
-// 	while(total >= 5050){
-		
 		input = parseInt(prompt("100 이상인 숫자를 입력해주세요."));
 		total = 0;
 
@@ -55,13 +60,32 @@ getTotal = () =>{
 		
 		}else if(input < 100){
 			alert("100 이상으로 입력!!");
+			return false;
 		}
-// 	}
-	
-	
-	
 	
 }
+
+//////////////////////////////////////////////////////////////////////&nbsp
+
+function gugu(){}
+gugu = function(){}
+
+gugu = () =>{
+	//구구단의 결과를 누적하기 위한 변수
+	str = "";
+	
+	for(i = 2; i <= 9; i++){
+		for(j = 1; j <= 9; j++){
+			str += `${i} * ${j} <br>`; 
+			
+		}
+		
+		str += <br>;
+	}
+	
+	document.getElementById('d4').innerHTML = str;
+}
+
 
 </script>
 
@@ -84,7 +108,9 @@ for문 사용
 <input type = "button" value="확인" onclick="hapPro()">
 <div id = "d2"></div>
 
+
 <br><br>
+
 
 <pre>
 prompt를 이용하여 수(100 이상)를 입력한다.
@@ -95,6 +121,18 @@ prompt를 이용하여 수(100 이상)를 입력한다.
 <input type = "button" value="확인" onclick="getTotal()">
 
 <div id = "d3"></div>
+
+
+<br><br>
+
+
+<pre>
+다중 반복문
+구구단 출력
+</pre>
+<input type = "button" value="확인" onclick="gugu()">
+<br><br>
+<div id = "d4"></div>
 
 
 </body>
