@@ -3,13 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <title>반복문 3 문제풀기</title>
+<link rel = "stylesheet" href = "../css/public.css">
 <script type="text/javascript">
-proc = () =>{
+proc1 = () =>{
 	sum = 0;
 	
 	//continue 사용
 	for(i = 1; i <= 200; i++){
-		if(i%2 != 0){
+		if(i%2 != 0){ // if(i%2 != 0) continue; \n sum += i; 이렇게 써줘도 됨
 			continue;
 		}else{
 			sum += i;
@@ -17,24 +18,52 @@ proc = () =>{
 	}
 	
 	//아니면
-	for(i=2; i<=200; i+=2){
-		sum += i;
-	}
+// 	for(i=2; i<=200; i+=2){
+// 		sum += i;
+// 	}
 	
 	//혹은
 	
-	for(i=1; i<=200; i++){
-		if(i%2 == 0){
-			sum += i;
-		}
-	}
+// 	for(i=1; i<=200; i++){
+// 		if(i%2 == 0){
+// 			sum += i;
+// 		}
+// 	}
+	
+	out = document.getElementById('d1');
+	out.innerHTML = "1 ~ 200 사이의 짝수 합 : " + sum;
 }
+
+
+proc2 = () =>{
+	
+	while(true){
+		input = parseInt(prompt("아무 숫자 쓰세용~ 종료는 0"));
+		
+		sum = 0;
+		
+		if(input == 0){
+			break;
+		}else{
+		sum += input;
+			
+		}
+		
+	}
+	
+	out = document.getElementById('d2');
+	out.innerHTML = sum;
+}
+
+//4번도 하기!
+
 
 </script>
 
 
 </head>
 <body>
+
 <pre>
 1부터 200까지의 짝수 합을 구하는 프로그램을 작성하시오.
 (continue 사용)
@@ -42,6 +71,14 @@ proc = () =>{
 <input type = "button" value = "확인" onclick = "proc1()">
 <br><br>
 <div id = "d1"></div>
+
+<pre>
+사용자가 입력한 값을 계속 더하고,
+사용자가 0을 입력하면 값을 출력하여라.
+</pre>
+<input type = "button" value = "확인" onclick = "proc2()">
+<br><br>
+<div id = "d2"></div>
 
 
 </body>
