@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <title>반복문 2</title>
 <link rel = "stylesheet" href = "../css/public.css">
+
 <script type="text/javascript">
 	guguTable = () =>{
 		
@@ -12,7 +13,7 @@
 		for(i=1; i<=9; i++){
 			res += "<tr>";
 			for(k=1; k<=9; k++){
-				res += "<td>" + i*k + "<td>";
+				res += "<td>" + (i*k) + "</td>";
 			}
 			res += "</tr>";
 		}
@@ -21,18 +22,46 @@
 		out = document.getElementById('d1');
 		out.innerHTML = res;
 	}
+	
+	///////////////////////////////////////////////////////
+	guguWhile = () =>{
+		
+		str = "";
+		
+		while(true){
+			
+			input = parseInt(prompt('구구단 (__)단 보기'));
+		
+			if(1 < input && input < 10){
+				str += `${input}단 시작!<br>`;
+				for(i = 1; i < 10; i++){
+					str += `${input} * ${i} = ${input*i} <br>`;
+				}
+				str += `<br>`;
+			}
+			
+			if(input == 0){
+				break;
+			}
+		}
+		
+		out = document.getElementById('d2');
+		out.innerHTML = str;
+	}
+	
+	
 </script>
 
 <style type="text/css">
 table{
-/* 	border : 5px solid white; */
+/*  	border : 5px solid #FFF0F0;  */
 	border-spacing : 10px;
 	width : 400px;
 	height : 400px;
 	font-size : 1.5em;
 	background : white;
 	
- 	border : transparent;
+  	border : transparent; 
 	text-align: center;
 }
 
@@ -42,6 +71,10 @@ td{
 
 }
 
+#d1, #d2{
+	height: 410px;
+	overflow: scroll auto;
+}
 
 </style>
 
@@ -59,7 +92,7 @@ td{
 → 입력한 수의 구구단을 출력
 → 반복적으로 수행 하다가 입력 숫자가 0일 때 종료
 </pre>
-<input type = "button" value = "확인" onclick = "guguTable()">
+<input type = "button" value = "확인" onclick = "guguWhile()">
 <div id = "d2"></div>
 
 </body>
