@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>반복문 3 문제풀기</title>
+<script type="text/javascript">
+proc = () =>{
+	sum = 0;
+	
+	//continue 사용
+	for(i = 1; i <= 200; i++){
+		if(i%2 != 0){
+			continue;
+		}else{
+			sum += i;
+		}
+	}
+	
+	//아니면
+	for(i=2; i<=200; i+=2){
+		sum += i;
+	}
+	
+	//혹은
+	
+	for(i=1; i<=200; i++){
+		if(i%2 == 0){
+			sum += i;
+		}
+	}
+}
+
+</script>
+
+
+</head>
+<body>
+<pre>
+1부터 200까지의 짝수 합을 구하는 프로그램을 작성하시오.
+(continue 사용)
+</pre>
+<input type = "button" value = "확인" onclick = "proc1()">
+<br><br>
+<div id = "d1"></div>
+
+
+</body>
+</html>
