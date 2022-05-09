@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>함수 연습2</title>
+<link rel="stylesheet" href="../css/public.css">
+
+<style type="text/css">
+input[type=button]{
+	width : 100px;
+	height: 30px;
+	padding: 5px 10px;
+	background: yellow;
+	border-radius : 30px;
+	font-size: 1.2em;
+}
+
+div{
+	overflow: auto;
+}
+</style>
+
+<script type="text/javascript">
+function proc1(op){
+	
+	//입력한 값
+	value1 = parseInt(document.getElementById('num1').value);
+	value2 = parseInt(document.getElementById('num2').value);
+	
+	//비교
+	switch(op){
+	case "+" :
+		res = add();
+		break;
+	case "-" :
+		res = sub();
+		break;
+	case "*" :
+		res = multi();
+		break;
+	case "/" :
+		res = dvd();
+		break;
+	}
+	
+	//출력
+	document.getElementById('d1').innerHTML = `숫자1 : ${value1}<br>숫자2 : ${value2}<br>두 수의 '${op}' : ${res}`;
+}
+
+function add(){
+	return value1 + value2;
+}
+
+function sub(){
+	return value1 - value2;
+}
+
+function multi(){
+	return value1 * value2;
+}
+
+function dvd(){
+	return value1 / value2;
+}
+
+function proc2(){
+	
+	str = ""; //랜덤 수를 만들어 담는 변수
+	for(i=0; i<5; i++){
+		rand = parseInt((Math.random() * 100) +1);
+		str += rand + " ";
+	}
+	
+	
+	//출력
+	out = document.getElementById('d2');
+	out.innerHTML += str + "<br>";
+	
+}
+</script>
+</head>
+<body>
+
+
+<pre>
+연산자에 따른 식을 리턴 값이 있는 함수를 사용하여 계산
+예) +이면 add() 함수를 통해 두 숫자의 합을 리턴
+</pre>
+
+
+숫자1	<input type="text" id="num1"><br>
+숫자2	<input type="text" id="num2"><br><br>
+
+<input type="button" value = "+" onclick="proc1('+')">
+<input type="button" value = "-" onclick="proc1('-')">
+<input type="button" value = "*" onclick="proc1('*')">
+<input type="button" value = "/" onclick="proc1('/')">
+<br><br>
+<div id = "d1"></div>
+
+<br><br>
+
+<pre>
+버튼을 클릭하면 proc2()함수 호출
+함수에서 1~100 사이의 랜덤수를 5개 생성하여 div에 출력</pre>
+<br><br>
+<input type="button" value = "확인" onclick="proc2()">
+<div id = "d2"></div>
+
+
+</body>
+</html>
