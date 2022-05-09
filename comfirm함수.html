@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Title</title>
+<link rel="stylesheet" href="../css/public.css">
+
+<script type="text/javascript">
+function proc1(){
+	
+	str = "";
+	
+	while(true){
+		
+		//숫자 입력
+		num = prompt('숫자 입력이요');
+		
+		if(num == 0){
+			alert('0은 안 돼요. 다시 입력하세요.');
+			continue;
+		}
+		
+		str += `${num}단 시작!<br>`;
+		
+		//입력 받은 숫자의 구구단 출력
+		for(i=1; i<=9; i++){
+			str += `${num} * ${i} = ${num*i} <br>`;
+		}
+		
+		str += `<br>`;
+		
+		conf = confirm("킵 고잉?");
+		if(!conf){
+			break;
+		}
+	}
+	
+	//출력
+	out = document.getElementById('d1');
+	out.innerHTML = str;
+}
+
+</script>
+</head>
+<body>
+
+
+<pre>
+confirm() : 사용자의 답변을 처리하는 함수
+true / false를 리턴하는 함수
+if 조건식에서 사용
+</pre>
+
+<input type="button" value = "확인" onclick="proc1()">
+<br><br>
+<div id = "d1"></div>
+
+</body>
+</html>
