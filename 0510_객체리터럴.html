@@ -42,9 +42,21 @@ function proc1(){
 	
 }
 
-function print(d1){
+function print(d){
 	//rect 정보 출력
 	res = "사각형 정보<br><br>";
+	
+	
+	//proc1()이 먼저 실행되어야 proc2()에서 이름이 출력됨. 아니면 undefined로 출력됨
+	//res += "이름 : " + rect.name + "<br>"; 그래서 아래의 if문 사용해보자
+	
+	if(typeof rect.name == "undefined"){ //undefined는 '자료형'에서 '값이 없을 때' 출력이라 '=='으로 비교 불가 ->typeof를 이용하여 undefined를 비교한다.
+		res += "이름 : 없음<br>";
+	}else{
+		res += "이름 : " + rect.name + "<br>"
+	}
+	
+	
 	res += "가로 : " + rect.width + "<br>";
 	res += "세로 : " + rect.height + "<br>";
 	
@@ -54,12 +66,45 @@ function print(d1){
 	res += "면적 : " + area + "<br>";
 	res += "둘레 : " + dule + "<br>";
 	
-	out = document.getElementById(d1);
+	out = document.getElementById(d);
 	out.innerHTML = res;
 }
 
 function proc2(){
+	//입력
+	wid = parseInt(prompt("가로 입력"));
+	hei = parseInt(prompt("세로 입력"));
 	
+	//대입
+	rect.width = wid;
+	rect.height = hei;
+	
+	//출력
+	print('d2');
+}
+
+//객체 선언 - 속성과 메소드를 정의하지 않음
+//속성과 메소드는 동적으로 추가 가능하다
+circle = {}
+
+function proc3(){
+	
+	//속성 추가
+	circle.rad = 3; //반지름
+	circle.calcArea = function(){
+		return this.rad * this.rad * Math.PI; //Math.PI가 3.14어쩌고
+	}
+	
+	circle.calcCircum = function(){
+		return 2*Math.PI * this.rad;
+	}
+	
+	//출력
+	str = "반지름 : " + circle.rad + "<br>";
+	str += "면적 : " + circle.calcArea().toFixed(2) + "<br>"; //.toFixed(n) : 소수점 n자리까지 출력하게 하는 메소드
+	str += "둘레 : " + circle.calcCircum().toFixed(2) + "<br>";
+	
+	document.getElementById('d3').innerHTML = str;
 }
 
 </script>
@@ -88,12 +133,24 @@ name지정하기, name 가져오기
 <br><br>
 
 <pre>
-가로 세로를 입력한다
+가로와 세로를 직접 입력하여 정보를 구한다.
 </pre>
 
 <input type="button" value = "확인" onclick="proc2()">
 <br><br>
 <div id = "d2"></div>
+
+<br><br>
+
+<pre>
+circle 객체 생성
+속성과 메소드를 동적으로 추가한다.
+circle = { }
+</pre>
+
+<input type="button" value = "확인" onclick="proc3()">
+<br><br>
+<div id = "d3"></div>
 
 </body>
 </html>
