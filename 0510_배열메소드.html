@@ -52,6 +52,40 @@ function proc2(){
 	
 }
 
+function proc3(){
+	idx=0;
+	str="";
+	count=0;
+	
+	value = prompt("찾는 문자?");
+	
+	while(true){
+		var idx = arr.indexOf(value, idx);
+
+		if(idx == -1){
+			
+			break;
+		}
+		
+		str += idx + "번 째 ";
+
+		idx++;
+		count++;
+	}
+	
+	res = "찾는 문자열 : " + value + "<br>";
+	
+	if(count > 0){
+		res += "위치 : " + str;
+	}else{
+		res += "배열에 없는 요소입니다.";
+	}
+	
+	out = document.getElementById('d3');
+	out.innerHTML = res;
+	
+}
+
 </script>
 </head>
 <body>
