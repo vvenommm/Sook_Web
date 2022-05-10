@@ -2,79 +2,53 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Buttons</title>
-<link  type ="text/css" rel = "stylesheet" href = "../css/public.css">
+<title>객체리터럴</title>
+<link rel="stylesheet" href="../css/public.css">
 
-<style type="text/css"> <!--text/css는 생략 가능 -->
-span {
-	color : EB0000;
-	font-weight: bold;
-	background-color: yellow;
+<script type="text/javascript">
+	//객체선언
+var Rect = {
+			width : 12,
+			height : 8,
+			calcArea : function(){
+				
+			},
+			calcCircum : function(){
+				
+			}
+			
 }
-</style>
-<script type="text/javascript"> 
-/* text/javascript는 생략 가능 */
-	function aa(){
-// 		alert("힝! 속았지!\n'제출'을 눌러주세요~~!") 
-		
-		var userId = document.ff.id.value;
-		var userName = document.ff.name.value;
-		
-		alert("아이디 : " + userId + "\n이름 : " + userName);
-	}
-/* 이미 정의 되어 있는 내장 함수*/
+	
+function proc1(){
+	//rect가 proc1()안에 있을 때 전역변수라 하더라도 proc1()이 실행되어야 Rect를 proc2()에서도 사용할 수 있다.(생성이 안 되기 때문에)
+	//그래서 function 밖에서 선언을 해주면 전역변수로 선언한 것이 되어서 다른 함수에서도 언제든지 사용할 수 있게 된다. (function 밖에 써줌)
+	
+}
+
+function proc2(){
+	
+}
+
 </script>
 </head>
 <body>
 
-<pre>
-	&lt;input type="button" value="확인">
-	&lt;button type="button">확인&lt;/button>
 
-	type = "button"인 요소는 특별한 기능이 없다.
-	script를 이용하여 기능을 부여한다.
-	<span>onclick="함수이름()"</span> : 클릭 이벤트로 정의된 함수를 호출한다.
-	
-	함수정의
-	function aa(){ return 100; } function aa(x)
-	
-	함수 종류(return 있/없, 매개변수 있/없)
-	public void pro1(){}
-	public String pro2(){}
-	public void pro3(int a){}
-	public String pro4(int a){}
-	
-	&lp;input type="button" value="확인" <span>onclick="aa()"</span>>
-	&lp;button type="button" <span>onclick="aa()"</span>>확인&lp;/button>
-	
+<pre>
+객체 : 속성과 메소드를 묶어서 표현
+생성자 없이 리터럴로 생성하는 방법
+
+Rect(angle)객체 생성 -
+속성 : width, height, color, border, name
+메소드 : 
+면적 구하기, 둘레 구하기
+color 색 지정하기, border 지정하기, color값 가져오기, border값 가져오기
+name지정하기, name 가져오기
 </pre>
 
-<form name = "ff" action="buttons.jsp" method = "post">
-	<label>아이디</label>
-	<input name="id"><br>
-	
-	<label>이름</label>
-	<input name="name"><br>
-	
-	<label>Hidden이 숨겨진 곳</label>
-	<input type="hidden" name = "num" value="10">
-	<br>
-	
-	<label>Input Type : </label>
-	<input type="button" value="확인" onclick="aa()">
-	<input type="submit">
-	<input type="reset"><br>
-	
-	<label>Button : </label>
-	<button type="button" onclick="aa()">확인</button>
-	<button type="submit">전송</button>
-	<button type="reset">취소</button>
-	<button onclick="aa()">전송(type생략)</button>
-	
-	
-	
-	
-</form>
+<input type="button" value = "확인" onclick="proc1()">
+<br><br>
+<div id = "d1"></div>
 
 </body>
 </html>
