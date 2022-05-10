@@ -5,24 +5,57 @@
 <title>객체리터럴</title>
 <link rel="stylesheet" href="../css/public.css">
 
+<style type="text/css">
+div{
+	height: auto;
+}
+</style>
+
 <script type="text/javascript">
 	//객체선언
-var Rect = {
+var rect = {
 			width : 12,
 			height : 8,
 			calcArea : function(){
+				//area = this.width * this.height;
+				//return area; 를 아래처럼 한 줄로 써줘도 됨
 				
+				return this.width * this.height;
 			},
 			calcCircum : function(){
-				
+				return (this.width + this.height) * 2;
 			}
 			
 }
 	
 function proc1(){
+		
+		
+	//rect 객체의 속성을 동적으로 추가 가능
+	rect.name = "사각형";
+		
 	//rect가 proc1()안에 있을 때 전역변수라 하더라도 proc1()이 실행되어야 Rect를 proc2()에서도 사용할 수 있다.(생성이 안 되기 때문에)
 	//그래서 function 밖에서 선언을 해주면 전역변수로 선언한 것이 되어서 다른 함수에서도 언제든지 사용할 수 있게 된다. (function 밖에 써줌)
+	//여기에 print 내용이 있었는데 print()로 옮김
 	
+	print('d1');
+	
+}
+
+function print(d1){
+	//rect 정보 출력
+	res = "사각형 정보<br><br>";
+	res += "가로 : " + rect.width + "<br>";
+	res += "세로 : " + rect.height + "<br>";
+	
+	area = rect.calcArea();
+	dule = rect.calcCircum();
+	
+	res += "면적 : " + area + "<br>";
+	res += "둘레 : " + dule + "<br>";
+	
+	out = document.getElementById(d1);
+	out.innerHTML = res;
 }
 
 function proc2(){
@@ -46,9 +79,21 @@ color 색 지정하기, border 지정하기, color값 가져오기, border값 �
 name지정하기, name 가져오기
 </pre>
 
+<p>name 속성을 rect 객체에 정의하지 않고 동적으로 추가해서 사용 가능</p>
+
 <input type="button" value = "확인" onclick="proc1()">
 <br><br>
 <div id = "d1"></div>
+
+<br><br>
+
+<pre>
+가로 세로를 입력한다
+</pre>
+
+<input type="button" value = "확인" onclick="proc2()">
+<br><br>
+<div id = "d2"></div>
 
 </body>
 </html>
