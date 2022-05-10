@@ -86,13 +86,52 @@ function proc3(){
 	
 }
 
+function proc4(){
+	res = "원래 배열 : " + arr + "<br>"; //자바에서는 배열 이름만 치면 주소값이 나오지만 html에서는 배열 이름만 써줘도 값이 나옴
+	
+	arr.push("파인애플", "망고");
+	
+	res += "push 후 배열 : " + arr + "<br>";
+	
+	
+	out = document.getElementById('d4');
+	out.innerHTML = res;
+}
+
+function proc5(){
+	res = "원래 배열 : " + arr + "<br>";
+	
+	returnValue = arr.pop(); //push는 매개변수가 있지만 pop은 없음
+	
+	res += "pop 후 제거된 값 : " + returnValue + "<br>";
+	res += "pop 후 배열 : " + arr + "<br>";
+	
+	
+	out = document.getElementById('d5');
+	out.innerHTML = res;
+}
+
+proc6 = () => {
+	res = "원래 배열 : " + arr + "<br>";
+
+	arr2 = arr.slice(1, 5);
+
+	res += "slice한 값 : " + arr2 + "<br>";
+	res += "slice 후 배열 : " + arr + "<br>";
+	
+	out = document.getElementById('d6');
+	out.innerHTML = res;
+}
+
 </script>
 </head>
 <body>
 
 
 <pre>
-
+indexOf : 부분 문자열의 위치를 검색한다. start는 검색 시작 위치이며 생략시 0이 적용되어 처음부터 검색한다.
+lastIndexOf : 부분 문자열의 위치를 역방향에서 검색한다. start는 검색 시작 위치이며 생략 시 문자열의 제일 끝이 적용된다.
+둘 다 찾는 요소가 없을 경우 -1을 리턴한다.
 </pre>
 
 <input type="button" value = "indexOf" onclick="proc1()">
@@ -102,6 +141,37 @@ function proc3(){
 <div id = "d1"></div>
 <div id = "d2"></div>
 <div id = "d3"></div>
+
+<pre>
+push(a, b, c, ...) : 배열의 끝에 추가
+pop : 배열의 끝에서 제거 후 해당 값을 리턴
+</pre>
+
+<input type="button" value = "push" onclick="proc4()">
+<input type="button" value = "pop" onclick="proc5()">
+<br><br>
+<div id = "d4"></div>
+<div id = "d5"></div>
+
+<pre>
+slice(start, end) : start ~ end-1까지 요소 추출(잘라낸다) 후 리턴
+splice(index, n, a, b, c) : index번 째에서 n개를 지우고 a, b, c를 삽입
+
+예시)
+splice(2, 1, a, b, c) : 2번 째 인덱스에서 1개를 지우고 a, b, c를 삽입
+splice(3, 2) : 3번 째 위치에서 2개를 삭제
+splice(4, 0, a, b, c) : 4번 째 인덱스에서 0개를 지우고 a, b, c를 삽입
+</pre>
+
+<input type="button" value = "slice" onclick="proc6()">
+<input type="button" value = "splice(수정)" onclick="proc7()">
+<input type="button" value = "splice(삭제)" onclick="proc8()">
+<input type="button" value = "splice(삽입)" onclick="proc9()">
+<br><br>
+<div id = "d6"></div>
+<div id = "d7"></div>
+<div id = "d8"></div>
+<div id = "d9"></div>
 
 </body>
 </html>
