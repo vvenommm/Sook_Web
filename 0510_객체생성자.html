@@ -4,7 +4,12 @@
 <meta charset="UTF-8">
 <title>객체생성자</title>
 <link rel="stylesheet" href="../css/public.css">
-
+<link rel="shortcut icon" type="image/x-icon" href="../images/J.png"/>
+<style type="text/css">
+div{
+	height: auto;
+}
+</style>
 <script type="text/javascript">
 //객체 정의
 function Rect(width, height){
@@ -14,16 +19,32 @@ function Rect(width, height){
 	
 	//메소드
 	this.calcArea = function(){
-		
+		return this.width * this.height; //this 꼭 써줘야 함
 	}
 	this.calcCircum = function(){
-		
+		return (this.width * this.height)*2;
 	}
 	
 	//함수
 }
 
 function proc1(){
+	//Rect 객체 정보 출력
+	//생성자 정의 함수를 이용하여 객체를 생성한다.
+	
+	var rect = new Rect(12, 34);
+	
+	//추가
+	rect.name = "네모";
+	
+	res = "이름 : " + rect.name + "<br>";
+	res += "가로 : " + rect.width + "<br>";
+	res += "세로 : " + rect.height + "<br>";
+	res += "면적 : " + rect.calcArea() + "<br>";
+	res += "둘레 : " + rect.calcCircum() + "<br>";
+	
+	out = document.getElementById('d1');
+	out.innerHTML = res;
 	
 }
 
