@@ -13,6 +13,7 @@ div{
 <script type="text/javascript">
 //객체 정의
 function Rect(width, height){
+	//람다에서 this는 function을 가리키기 때문에 this의 의미가 달라짐. 람다형식으로 쓸 때 this는 쓰지 않도록 하자
 	//속성
 	this.width = width;
 	this.height = height;
