@@ -14,7 +14,7 @@ div {
 
 <script type="text/javascript">
 arr = new Array("사과", "바나나", "복숭아", "자두", "참외", "수박");
-arr = ["사과", "바나나", "복숭아", "사과", "자두", "참외", "사과"];
+arr = ["사과", "바나나", "복숭아", "사과", "자두", "참외", "수박", "사과"];
 
 proc1 = () => {
 	value = prompt("찾는 문자를 입력");
@@ -123,6 +123,76 @@ proc6 = () => {
 	out.innerHTML = res;
 }
 
+proc7 = () => {
+	res = "원래 배열 : " + arr + "<br>";
+	
+	arr.splice(2, 1, "aaa", "bbb", "ccc");
+
+	res += "splice 후 배열 : " + arr + "<br>";
+	
+	out = document.getElementById('d7');
+	out.innerHTML = res;
+}
+
+proc8 = () => {
+	res = "원래 배열 : " + arr + "<br>";
+	
+	arr.splice(3, 2);
+
+	res += "splice 후 배열 : " + arr + "<br>";
+	
+	out = document.getElementById('d8');
+	out.innerHTML = res;
+}
+
+proc9 = () => {
+	res = "원래 배열 : " + arr + "<br>";
+	
+	arr.splice(3, 0, "xxx", "yyy");
+
+	res += "splice 후 배열 : " + arr + "<br>";
+	
+	out = document.getElementById('d9');
+	out.innerHTML = res;
+}
+
+proc10 = () => {
+	var arr2 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+	res = "arr배열 : " + arr + "<br>";
+	res += "arr2배열 : " + arr2 + "<br>";
+	
+	arr3 = arr.concat(arr2);
+	
+	res += "arr.concat(arr2) 후 병합배열 : " + arr3 + "<br>";
+	
+	
+	out = document.getElementById('d10');
+	out.innerHTML = res;
+}
+
+proc11 = () => {
+	str = "";
+	
+	for(i=0; i<arr.length; i++){
+		str += i + "번 째 : " + arr[i] + "<br>";
+	}
+	
+	out = document.getElementById('d11');
+	out.innerHTML = str;
+	
+	arr5 = arr.join(); //arr배열을 String타입으로 변환 -> 한 글자씩 자르고 반점(,)까지 문자열로 변환
+	
+	for(i=0; i<arr5.length; i++){
+		str += i + "번 째 : " + arr5[i] + "<br>";
+	}
+	
+	out = document.getElementById('d11');
+	out.innerHTML += str; //out.innerHTML += arr랑 arr5를 하면 출력은 똑같이 보이게 출력 된다.
+	
+	//배열은 "sd", "sd", ..로 출력되며 문자배열은 "sd, sd, sd, ..."로 출력(통틀어서 따옴표 한 쌍만 있음. 그 안에 문자열로 변환된 값이 다 들어감)
+	
+}
+
 </script>
 </head>
 <body>
@@ -134,9 +204,9 @@ lastIndexOf : 부분 문자열의 위치를 역방향에서 검색한다. start�
 둘 다 찾는 요소가 없을 경우 -1을 리턴한다.
 </pre>
 
-<input type="button" value = "indexOf" onclick="proc1()">
-<input type="button" value = "lastIndexOf" onclick="proc2()">
-<input type="button" value = "동시에 여러개 찾기" onclick="proc3()">
+<input type="button" value = "1. indexOf" onclick="proc1()">
+<input type="button" value = "2. lastIndexOf" onclick="proc2()">
+<input type="button" value = "3. 동시에 여러개 찾기" onclick="proc3()">
 <br><br>
 <div id = "d1"></div>
 <div id = "d2"></div>
@@ -147,8 +217,8 @@ push(a, b, c, ...) : 배열의 끝에 추가
 pop : 배열의 끝에서 제거 후 해당 값을 리턴
 </pre>
 
-<input type="button" value = "push" onclick="proc4()">
-<input type="button" value = "pop" onclick="proc5()">
+<input type="button" value = "4. push" onclick="proc4()">
+<input type="button" value = "5. pop" onclick="proc5()">
 <br><br>
 <div id = "d4"></div>
 <div id = "d5"></div>
@@ -163,15 +233,28 @@ splice(3, 2) : 3번 째 위치에서 2개를 삭제
 splice(4, 0, a, b, c) : 4번 째 인덱스에서 0개를 지우고 a, b, c를 삽입
 </pre>
 
-<input type="button" value = "slice" onclick="proc6()">
-<input type="button" value = "splice(수정)" onclick="proc7()">
-<input type="button" value = "splice(삭제)" onclick="proc8()">
-<input type="button" value = "splice(삽입)" onclick="proc9()">
+<input type="button" value = "6. slice" onclick="proc6()">
+<input type="button" value = "7. splice(수정)" onclick="proc7()">
+<input type="button" value = "8. splice(삭제)" onclick="proc8()">
+<input type="button" value = "9. splice(삽입)" onclick="proc9()">
 <br><br>
 <div id = "d6"></div>
 <div id = "d7"></div>
 <div id = "d8"></div>
 <div id = "d9"></div>
+
+<pre>
+a.concat(b) : a 배열에 b배열이 합쳐짐 (배열병합)
+b.concat(a) : b 배열에 a배열이 합쳐짐 (배열병합)
+
+a.join() : 배열을 문자열로 변경
+</pre>
+
+<input type="button" value = "10. concat" onclick="proc10()">
+<input type="button" value = "11. join" onclick="proc11()">
+<br><br>
+<div id = "d10"></div>
+<div id = "d11"></div>
 
 </body>
 </html>
