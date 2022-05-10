@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>배열메소드</title>
+<link rel="stylesheet" href="../css/public.css">
+<link rel="shortcut icon" type="image/x-icon" href="../images/J.png"/>
+
+<style type="text/css">
+div {
+	height: auto;
+}
+</style>
+
+<script type="text/javascript">
+arr = new Array("사과", "바나나", "복숭아", "자두", "참외", "수박");
+arr = ["사과", "바나나", "복숭아", "사과", "자두", "참외", "사과"];
+
+proc1 = () => {
+	value = prompt("찾는 문자를 입력");
+	
+	var idx = arr.indexOf(value);
+	
+	res = `찾는 문자열 : ${value}<br>`;
+
+	if(idx == -1){
+		res += "배열에 없는 요소입니다.";
+	}else{
+		res += `${idx}번 째에 있습니다.`;
+	}
+
+	out = document.getElementById('d1');
+	out.innerHTML = res;
+	
+}
+
+function proc2(){
+	value = prompt("찾는 문자?");
+	
+	var idx = arr.lastIndexOf(value);
+	
+	res = "찾는 문자열 : " + value + "<br>";
+	
+	if(idx == -1){
+		res += "배열에 없는 요소입니다.";
+	}else{
+		res += idx + "번 째에 있습니다.";
+	}
+	
+	out = document.getElementById('d2');
+	out.innerHTML = res;
+	
+}
+
+</script>
+</head>
+<body>
+
+
+<pre>
+
+</pre>
+
+<input type="button" value = "indexOf" onclick="proc1()">
+<input type="button" value = "lastIndexOf" onclick="proc2()">
+<input type="button" value = "동시에 여러개 찾기" onclick="proc3()">
+<br><br>
+<div id = "d1"></div>
+<div id = "d2"></div>
+<div id = "d3"></div>
+
+</body>
+</html>
