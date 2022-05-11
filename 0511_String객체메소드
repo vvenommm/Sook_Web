@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Title</title>
+<link rel="stylesheet" href="../css/public.css">
+<link rel="shortcut icon" type="image/x-icon" href="../images/J.png"/>
+
+<script type="text/javascript">
+
+str = "I Love Korea 대한 민국 만세 Korea 화이팅";
+	
+function proc1(){
+	chr = str.charAt(5); //str.indexOf(e). 서로 반대
+// 	alert(chr);
+	document.getElementById('d1').innerHTML = 'chr = str.charAt(5) : ' + chr;
+}
+
+function proc2(){
+	chr = str.charCodeAt(5);
+// 	alert(chr);
+	document.getElementById('d2').innerHTML = 'chr = str.charCodeAt(5) : ' + chr;
+}
+
+function proc3(){
+	chr = str.substring(2, 6);
+// 	alert(chr);
+	document.getElementById('d3').innerHTML = 'chr = str.substring(2, 6) : ' + chr;
+}
+
+function proc4(){
+	chr = str.slice(2, 6);
+// 	alert(chr);
+	document.getElementById('d4').innerHTML = 'chr = str.slice(2, 6) : ' + chr;
+}
+
+function proc5(){
+	chr = str.substr(2, 6);
+// 	alert(chr);
+	document.getElementById('d5').innerHTML = 'chr = str.substr(2, 6) : ' + chr;
+}
+
+function proc6(){
+	chr = str.split(" ");
+// 	alert(chr);
+	document.getElementById('d6').innerHTML = "chr = str.split(' ') : " + chr;
+}
+
+function proc7(){
+	chr = str.replace(/\s/g, "<br>");
+// 	alert(chr);
+	document.getElementById('d7').innerHTML = "chr = str.replace(/\s/g, '<br>') : " + chr;
+}
+
+function proc8(){
+	nValue = document.getElementById('name').value;
+
+// 	alert(nValue.length);
+	nValue = nValue.trim();
+	
+	if(nValue.length < 1){
+		alert('이름을 입력');
+		return false;
+	}
+	
+	//길이 체크
+	if(nValue.length < 2 || nValue.length > 5){
+		alert('2 -5자 사이의 이름을 입력해주세요.');
+		return false;
+	}
+	alert('정상적 처리 완');
+}
+
+</script>
+</head>
+<body>
+
+
+<pre>
+str = "I Love Korea 대한 민국 만세 Korea 화이팅";
+
+1. charAt -> "chr = str.charAt(5) : " + chr;
+2. charCodeAt -> "chr = str.charCodeAt(5) : " + chr;
+</pre>
+
+<input type="button" value = "1. charAt" onclick="proc1()">
+<input type="button" value = "2. charCodeAt" onclick="proc2()">
+<br><br>
+<div id = "d1"></div>
+<div id = "d2"></div>
+
+<pre>
+str = "I Love Korea 대한 민국 만세 Korea 화이팅";
+
+3. substring(start, end) -> "chr = str.substring(2, 6) : " + chr;
+4. slice(start, end) -> "chr = str.slice(2, 6) : " + chr;
+5. substr(start, length) -> "chr = str.substr(2, 6) : " + chr;
+</pre>
+
+<input type="button" value = "3. subString" onclick="proc3()">
+<input type="button" value = "4. slice" onclick="proc4()">
+<input type="button" value = "5. substr" onclick="proc5()">
+<br><br>
+<div id = "d3"></div>
+<div id = "d4"></div>
+<div id = "d5"></div>
+
+
+<pre>
+str = "I Love Korea 대한 민국 만세 Korea 화이팅";
+split(구분자, 개수) : 구분자로 구분하여 문자열 분리, 배열로 반환. 최대 '개수'만큼 리턴
+
+6. split -> "chr = str.split(' ') : " + chr;
+7. replace(search,value) : 문자열을 대체한다. 정규식도 사용 가능 -> "chr = str.replace(/\s/g, '&lt;br>') : " + chr;
+</pre>
+
+<input type="button" value = "6. split" onclick="proc6()">
+<input type="button" value = "7. replace" onclick="proc7()">
+<br><br>
+<div id = "d6"></div>
+<div id = "d7"></div>
+
+
+<pre>
+value : "후 ";
+8. trim() : 앞뒤의 공백제거 -> nValue.trim(); -> 공백 제거된 '후' 한 글자.
+</pre>
+
+이름 입력 : <input type="text" id = "name"><br><br>
+<input type="button" value = "8. trim" onclick="proc8()">
+<br><br>
+<div id = "d8"></div>
+</body>
+</html>
