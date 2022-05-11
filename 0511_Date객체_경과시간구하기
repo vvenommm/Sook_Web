@@ -7,10 +7,63 @@
 <link rel="shortcut icon" type="image/x-icon" href="../images/J.png"/>
 
 <script type="text/javascript">
+today = new Date();
+
 function proc1(){
+	myday = new Date(1992, 2, 30, 18, 04);
+	
+	standard = today.getTime()/1000/60/60/24/365;
+	mine = myday.getTime()/1000/60/60/24/365;
+	
+	time = standard - mine;
+	
+	str = "현재날짜 : " + today.toLocaleString() + "<br>";
+	str += "내 생일 : " + myday.toLocaleString() + "<br>";
+	str += "지금까지 : " + parseInt(time) + "년을 살아오셨군요<br>";
+	
+// 	alert("기준 : " + standard + " / 내 생일 : " + mine + " => " + time);
+	
+	document.getElementById('d1').innerHTML = str;
 	
 }
 
+function proc2(){
+	//오늘의 millisec
+	toMilli = today.getTime();
+	
+	//100일의 millisec
+	milli100 = 1000 * 60 * 60 * 24 * 100;
+	
+	//오늘의 millisec + 100일의 millisec
+	time = toMilli + milli100;
+	
+	//Date 생성 = 오늘의 millisec + 100일의 millisec
+	dDay = new Date(time);
+	
+	alert("Day+100 : " + dDay.toLocaleString());
+	
+}
+
+function proc3(){
+	inputDate = document.getElementById('buyDate').value;
+	
+	buyDate = new Date(inputDate);
+	todayDate = new Date();
+	
+	term = todayDate.getTime() - buyDate.getTime();
+	term = term/1000/60/60/24;
+	
+	res = "";
+	
+	if(term > 7){
+		res = '교환 기간 경과';
+	}else if(term <= 7){
+		res = '교환 가능 기간';
+	}
+	
+	document.getElementById('d3').innerHTML = "구입일로부터 " + parseInt(term) + "일 지났습니다.<br>" + res;
+	
+}
 </script>
 </head>
 <body>
@@ -18,11 +71,32 @@ function proc1(){
 
 <pre>
 getTime() : 경과시간 구하기, millisec 값을 리턴
+생일로부터 현재까지의 년 수를 구함
 </pre>
 
 <input type="button" value = "확인" onclick="proc1()">
 <br><br>
 <div id = "d1"></div>
+
+<pre>
+100일 후의 D-Day 계산하기
+</pre>
+
+<input type="button" value = "확인" onclick="proc2()">
+<br><br>
+<div id = "d2"></div>
+
+<pre>
+달력에서 구입날짜 선택 후
+오늘까지 7일이 경과했는지 비교 후
+교환 가능 여부 출력
+</pre>
+
+구입일 : 
+<input type="date" id="buyDate">
+<button onclick = "proc3()">확인</button>
+<br><br>
+<div id = "d3"></div>
 
 </body>
 </html>
