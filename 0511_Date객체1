@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Date 객체</title>
+<link rel="stylesheet" href="../css/public.css">
+<link rel="shortcut icon" type="image/x-icon" href="../images/J.png"/>
+
+<style type="text/css">
+#d3{
+	font-size: 1.5em;
+}
+</style>
+
+<script type="text/javascript">
+
+	today1 = new Date();
+
+function proc1(){
+	today1 = new Date();
+	today2 = new Date(100000);
+	today3 = new Date("1992.3.30 18:04");
+	today4 = new Date(2022, 4, 11, 18, 4); //0월부터 시작이라 5를 입력하면 6월이 나옴
+	
+	today1 = today1.toLocaleString();
+	today2 = today2.toLocaleString();
+	today3 = today3.toLocaleString();
+	today4 = today4.toLocaleString();
+	
+	document.getElementById('d1').innerHTML = today1 + "<br>" + today2 + "<br>" + today3 + "<br>" + today4;
+}
+
+function proc2(){
+	switch(today1.getDay()){
+	
+	case 0:
+		day = "일요일";
+		break;
+	case 1:
+		day = "월요일";
+		break;
+	case 2:
+		day = "화요일";
+		break;
+	case 3:
+		day = "수요일";
+		break;
+	case 4:
+		day = "목요일";
+		break;
+	case 5:
+		day = "금요일";
+		break;
+	case 6:
+		day = "토요일";
+		break;
+	}
+	
+	res = "오늘은 " + today1.toLocaleString() + "<br>";
+	res += "오늘은 " + day + "입니다.";
+
+	document.getElementById('d2').innerHTML = res;
+}
+
+function proc3(){
+	arr = ["일요일", "월요일", "화요일", "수요일", "목요일", "금요일", "토요일"];
+	
+	window.setInterval(function(){ //window는 생략 가능
+		today = new Date(); //먼저 생성을 해준 후에 locale 사용
+		
+		day = arr[today.getDay()];
+		
+	res = "오늘은 " + today.toLocaleString() + "<br>";
+	res += "오늘은 " + day + "입니다.";
+		
+	document.getElementById('d3').innerHTML = res;
+
+	}, 1000);
+}
+
+</script>
+</head>
+<body>
+
+
+<pre>
+today1 = new Date();
+today2 = new Date(100000);
+today3 = new Date("1992.3.30 18:04");
+today4 = new Date(2022, 4, 11, 18, 4); //0월부터 시작이라 5를 입력하면 6월이 나옴
+</pre>
+
+<input type="button" value = "확인" onclick="proc1()">
+<br><br>
+<div id = "d1"></div>
+
+
+<pre>
+-- 요일 구하기 --
+getDay() : 0 ~ 6을 반환. 일요일부터 시작
+</pre>
+
+<input type="button" value = "확인" onclick="proc2()">
+<br><br>
+<div id = "d2"></div>
+
+
+<pre>
+-- 자동으로 날짜 1초마다 갱신 --
+getDay() : 0 ~ 6을 반환. 일요일부터 시작
+배열을 이용 : arr = ["일요일", "월요일", "화요일", "수요일", "목요일", "금요일", "토요일"];
+-> getDay()를 index로 사용
+</pre>
+
+<input type="button" value = "확인" onclick="proc3()">
+<br><br>
+<div id = "d3"></div>
+
+</body>
+</html>
