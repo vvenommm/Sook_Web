@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>String 객체 문제</title>
+<link rel="stylesheet" href="../css/public.css">
+<link rel="shortcut icon" type="image/x-icon" href="../images/J.png"/>
+
+<script type="text/javascript">
+function proc1(){
+	
+	//입력
+	input = prompt("주민번호 입력", "-포함하여 입력");
+	
+	//각 자리별 추출
+	y = input.substr(0, 2); //혹은 slice(0, 2)로 해도 됨 -> 0, 1만 추출
+	m = input.substr(2, 2);
+	d = input.substr(4, 2);
+	s = input.substr(7, 1);
+	
+	//비교
+	//1, 2 -> 1900, 3, 4 -> 2000
+	//1, 3 -> 남자, 2, 4 -> 여자
+	
+	if(s == '1' || s == '2'){
+		year = '19' + y;
+	}else if(s == '3' || s == '4'){
+		year = '20' + y;
+	}
+	
+	if(s == '1' || s == '3'){
+		sex = "남자";
+	}else if(s == '2' || s == '4'){
+		sex = "여자";
+	}
+	
+	today = new Date();
+	age = today.getFullYear() - parseInt(year);
+	
+	//출력정보
+	output = `생일 : ${year}년 ${m}월 ${d}일<br>성별 : ${sex}<br>나이 : 만 ${age}세`;
+	
+	//출력
+	document.getElementById('d1').innerHTML = output;
+}
+
+</script>
+</head>
+<body>
+
+
+<pre>
+주민등록번호를 입력 받아 생년월일과 성별을 출력하는 프로그램을 작성하시오.
+(입력은 prompt로 입력받는다.)
+</pre>
+
+<input type="button" value = "확인" onclick="proc1()">
+<br><br>
+<div id = "d1"></div>
+
+</body>
+</html>
