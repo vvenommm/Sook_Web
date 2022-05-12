@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Location 객체</title>
+<link rel="stylesheet" href="../css/public.css">
+<link rel="shortcut icon" type="image/x-icon" href="../images/J.png"/>
+
+<script type="text/javascript">
+function proc1(){
+	
+}
+
+</script>
+</head>
+<body>
+
+
+<pre>
+href
+protocol
+hostname
+host
+port
+pathname
+</pre>
+
+<input type="button" value = "확인" onclick="proc1()">
+<br><br>
+<div id = "d1"></div>
+
+</body>
+</html>
