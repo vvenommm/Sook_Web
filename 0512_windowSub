@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Window Sub</title>
+<link rel="stylesheet" href="../css/public.css">
+<link rel="shortcut icon" type="image/x-icon" href="../images/J.png"/>
+
+<script type="text/javascript">
+function proc1(){
+	rand = parseInt(Math.random() * 10 +1);
+	
+	//부모창의 div id=d1인 요소에 출력
+	opener.document.getElementById('d1').innerHTML = rand;
+	
+	window.close();
+}
+
+</script>
+</head>
+<body>
+
+
+<pre>
+window.open()에 의해 열린 자식창이다.
+자식창에서 처리한 결과를 부모창으로 보내 때 opener 속성을 이용
+
+opener : open()을 통해 새로운 창을 열었을 때 자식창에서 부모창을 가리킬 때.
+
+</pre>
+
+<input type="button" value = "확인" onclick="proc1()">
+<br><br>
+<div id = "d1"></div>
+
+</body>
+</html>
