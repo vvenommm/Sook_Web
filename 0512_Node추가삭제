@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Node 추가 삭제</title>
+<link rel="stylesheet" href="../css/public.css">
+<link rel="shortcut icon" type="image/x-icon" href="../images/J.png"/>
+
+<script type="text/javascript">
+str = ["재복아", "산책가자", "간식먹을까?", "이쪽으로가자", "재복!", "어디가", "고양이있어?", "누나보고싶었엉~"];
+function proc1(){
+	rand = parseInt(Math.random() * str.length);
+	
+	//p태그 생성
+	ptag = document.createElement('p');
+	
+	//str[rand]번 째로 textNode 생성
+	text = document.createTextNode(str[rand]);
+	
+	//텍스트 노드를 p태그에 추가
+	ptag.appendChild(text);
+	
+	//p태그를 div에 추가
+	divtag = document.getElementById('d1');
+	divtag.appendChild(ptag);
+	
+}
+
+</script>
+</head>
+<body>
+
+
+<pre>
+
+</pre>
+
+<input type="button" value = "추가" onclick="proc1()">
+<input type="button" value = "삭제" onclick="proc2()">
+<br><br>
+<div id = "d1"></div>
+
+</body>
+</html>
