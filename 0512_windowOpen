@@ -2,19 +2,23 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Title</title>
+<title>Window Open</title>
 <link rel="stylesheet" href="../css/public.css">
 <link rel="shortcut icon" type="image/x-icon" href="../images/J.png"/>
 
 <script type="text/javascript">
 function proc1(){
+// 	a = window.open("http://www.naver.com", "_blank", "width=300 height=400");
 	
+// 	a.resizeBy(300, 300);
+	
+	window.open("windowSub.html", "서브윈도우", "width=400 height=500");
+	a.moveTo(500,500);
 }
 
 </script>
 </head>
 <body>
-
 
 <pre>
 
