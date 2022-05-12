@@ -8,6 +8,19 @@
 
 <script type="text/javascript">
 function proc1(){
+	//ul 먼저 검색 (ul이 여러개 있을 수 있음)
+// 	list = document.getElementsByTagName('ul')[0]; list는 ul 하나만 담은 변수
+// 	allItem = list.getElementsByTagName('li'); //li가 여러개라서 이것도 배열
+
+	list = document.getElementsByTagName('ul'); //list는 ul들을 담은 배열
+	allItem = list[0].getElementsByTagName('li');
+	
+	str = "";
+	for(i=0; i<allItem.length; i++){
+		str += allItem[i].firstChild.data + "<br>"; //그냥 firstchild로 적으면 data를 담고있는 type이 출력(이 경우에는 Object text)
+	}
+	
+	document.getElementById('d1').innerHTML = str;
 	
 }
 
