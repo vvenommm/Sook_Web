@@ -8,26 +8,62 @@
 
 <script type="text/javascript">
 function proc1(){
+	res = "href = " + location.href + "<br>";
+	res += "protocol = " + location.protocol + "<br>";
+	res += "host = " + location.host + "<br>";
+	res += "hostName = " + location.hostname + "<br>";
+	res += "port = " + location.port + "<br>";
+	res += "pathName = " + location.pathname + "<br>";
 	
+	document.getElementById('d1').innerHTML = res;
+}
+
+function proc2(){
+	location.href="http://localhost/webpro/0504/ScriptTest1.html";
+}
+
+function proc3(){
+	location.href="http://localhost/webpro/0504/ScriptTest2.html";
 }
 
 </script>
 </head>
 <body>
 
-
 <pre>
-href
 protocol
 hostname
 host
 port
 pathname
+href
 </pre>
 
 <input type="button" value = "확인" onclick="proc1()">
 <br><br>
 <div id = "d1"></div>
+
+<pre>
+href
+1. 버튼 클릭 시 특정 페이지 이동 -> location.href='링크'
+2. a태그 이용해서 특정 페이지로 이동 : a태그에서는 a href = proc1() 불가.
+3. a태그 이용해서 자바스크립트의 함수를 호출해서 특정 페이지로 이동한다.
+-> &lt;a href = "javascript:proc3()">&lt;/a> 혹은 &lt;a href = "#" onclick = "proc3()">&lt;/a>
+4. get 방식으로 특정 페이지로 이동 -> &lt;input type="button" value = "test.jsp로가기" onclick="location.href='test.jsp?name=korea&&id=a001'">
+-> JS 페이지에서 korea님 환영합니다 / a001님 즐거운 하루 되세요로 출력
+</pre>
+
+<input type="button" value = "확인" onclick="proc2()">
+<input type="button" value = "location.href" onclick="location.href='windowOpen.html'">
+<br><br>
+
+<p>a태그로 함수 호출</p>
+<a href = "javascript:proc3()">공지사항목록</a>
+<a href = "#" onclick = "proc3()">공지사항목록</a>
+<br><br>
+<input type="button" value = "test.jsp로가기" onclick="location.href='test.jsp?name=korea&&id=a001'">
+
+<div id = "d2"></div>
 
 </body>
 </html>
