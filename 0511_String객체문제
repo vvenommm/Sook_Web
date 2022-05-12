@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>String 객체 문제</title>
+<link rel="stylesheet" href="../css/public.css">
+<link rel="shortcut icon" type="image/x-icon" href="../images/J.png"/>
+
+<script type="text/javascript">
+function proc1(){
+	
+	//입력
+	input = prompt("주민번호 입력", "-포함하여 입력");
+	
+	//각 자리별 추출
+	y = input.substr(0, 2); //혹은 slice(0, 2)로 해도 됨 -> 0, 1만 추출
+	m = input.substr(2, 2);
+	d = input.substr(4, 2);
+	s = input.substr(7, 1);
+	
+	//비교
+	//1, 2 -> 1900, 3, 4 -> 2000
+	//1, 3 -> 남자, 2, 4 -> 여자
+	
+	if(s == '1' || s == '2'){
+		year = '19' + y;
+	}else if(s == '3' || s == '4'){
+		year = '20' + y;
+	}
+	
+	if(s == '1' || s == '3'){
+		sex = "남자";
+	}else if(s == '2' || s == '4'){
+		sex = "여자";
+	}
+	
+	today = new Date();
+	age = today.getFullYear() - parseInt(year);
+	
+	//출력정보
+	output = `생일 : ${year}년 ${m}월 ${d}일<br>성별 : ${sex}<br>나이 : 만 ${age}세`;
+	
+	//출력
+	document.getElementById('d1').innerHTML = output;
+}
+
+function proc2(){
+	str = "234567892345";
+	
+	//입력 (ABCDEF-GHIJKLM)
+	input = window.prompt("주민번호", "- 포함하여 입력");
+	
+	
+	//- 제거
+	inputNum = input.replace("-", "");
+	
+	
+	//1. A*2 + B*3 + ... + H*9 + I*2 + ... + L*5 의 총합을 구한다.
+	hap = 0;
+	for(i = 0; i < inputNum.length-1; i++){
+// 		hap += str.substr(i,1) * inputNum.substr(i, 1);
+		hap += (i % 8 + 2) * inputNum.substr(i, 1);
+	}
+	
+	
+	//2. 1번의 합을 11로 나눈 나머지를 구한다.
+	//3. 11에서 2번의 결과를 뺀다.
+	a = 11 - hap%11;
+
+	
+	//4. 10이면 0, 11이면 1로 변환
+// 	if(a == 10){
+// 		a = 0;
+// 	}
+	
+// 	if(a == 11) {
+// 		a = 1;
+// 	}
+	//위에 말고
+	a = a%10; //이렇게 해도 됨
+	
+	
+	//5. 4번의 결과와 M자리의 값이 같으면 맞는 번호이다.
+	if(input.substr(13, 1) == a){
+// 		alert("유효");
+		str = "유효";
+	}else{
+// 		alert("무효");
+		str = "무효";
+	}
+	
+	//출력(0부터 7번째 인덱스까지)
+	res = "주민번호 : " + input.substr(0, 8) + "******<br>";
+	res += str;
+	
+	document.getElementById('d2').innerHTML = res;
+	
+}
+</script>
+</head>
+<body>
+
+<pre>
+주민등록번호를 입력 받아 생년월일과 성별을 출력하는 프로그램을 작성하시오.
+(입력은 prompt로 입력받는다.)
+</pre>
+
+<input type="button" value = "확인" onclick="proc1()">
+<br><br>
+<div id = "d1"></div>
+
+<pre>
+주민등록번호를 입력 받아 주민등록번호의 유효성을 검사하는 프로그램을 작성하시오.(ABCDEF-GHIJKLM)
+
+1. A*2 + B*3 + ... + H*9 + I*2 + ... + L*5 의 총합을 구한다.
+2. 1번의 합을 11로 나눈 나머지를 구한다.
+3. 11에서 2번의 결과를 뺀다.
+4. 3번의 결과가 0~9이면 값 그대로, 10이면 0, 11이면 1로 변환
+5. 4번의 결과와 M자리의 값이 같으면 맞는 번호이다.
+</pre>
+
+<input type="button" value = "확인" onclick="proc2()">
+<br><br>
+<div id = "d2"></div>
+
+</body>
+</html>
