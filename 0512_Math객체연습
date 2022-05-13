@@ -42,7 +42,19 @@ function proc2(){
 }
 
 function proc3(){
-	
+	 lotto = new Array();
+     res = new Array();   
+     
+     for(i=1; i<=45; i++){
+     lotto.push(i); 
+     }
+     
+     while(res.length < 6){
+     temp = lotto[parseInt(Math.random() * 45)];
+     if(res.indexOf(temp) == -1){res.push(temp);}
+     
+     }
+     document.getElementById("d3").innerHTML ="♣행운의 로또번호입니다. ♣ <br>" + res  ;
 }
 </script>
 </head>
