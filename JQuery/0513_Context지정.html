@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Click Hide</title>
+<link rel="stylesheet" href="../css/public.css">
+<link rel="shortcut icon" type="image/x-icon" href="../images/J.png"/>
+<script src="../js/jquery-3.6.0.min.js" type="text/javascript"></script>
+<script>
+
+/////////////////////다 같은 것 (아래 3개)//////////////////////////
+	$(document).ready(function() {
+		$('#d2 h2').on('click', function() {
+// 			alert("hello");
+// 			$('#d2 h2').hide(); //h2가 한번에 모두 사라짐
+
+			//하나씩 사라짐
+// 			this.style.display = "none"; //자스
+ 			$(this).hide(); //제이쿼리
+		})
+	});
+
+	//
+// 	window.onload = function(){
+// 		$('#d2 h2').on('click', function() {
+// 			alert("hello");
+// 			$('#d2 h2').hide(); //h2가 한번에 모두 사라짐
+
+// 			//하나씩 사라짐
+// 			this.style.display = "none"; //자스
+//  			$(this).hide(); //제이쿼리
+// 	}}
+	
+// 	$(function(){
+// 		$('#d2 h2').on('click', function() {
+// 			alert("hello");
+// 			$('#d2 h2').hide(); //h2가 한번에 모두 사라짐
+
+// 			//하나씩 사라짐
+// 			this.style.display = "none"; //자스
+//  			$(this).hide(); //제이쿼리
+// 	}
+	
+		
+///////////////////////////////////////////////////////////
+	
+	function proc1(click) {
+		
+///////////////////색 바꿔보기/////////////////
+// 		click.style.color = 'red';
+		
+		//혹은
+// 		jQuery(click).css('background', 'pink');
+// 		$(click).css('background', 'pink');
+
+///////////////////사라지게 해보기/////////////////
+// 		click.style.display = "none";
+		$(click).hide();
+
+	}
+	
+// 	function proc1(click){ -> click은 javascript의 변수이고 click.css는 jQuery이기 때문에 오류
+// 		click.css('color', 'red');
+// 	}
+</script>
+
+<style type="text/css">
+span {
+	color : red;
+}
+
+h2:hover {
+	color : white;
+	background: black;
+}
+</style>
+</head>
+<body>
+
+<pre>
+JavaScript ver.
+&lt;h2 <span>onclick="proc1(this)"</span>>클릭하면 사라집니다1.&lt;/h2>
+</pre>
+
+<!-- <input type="button" value = "확인" onclick="proc1()"> -->
+<div id = "d1">
+<h2 onclick="proc1(this)">클릭하면 사라집니다1.</h2>
+<h2 onclick="proc1(this)">클릭하면 사라집니다2.</h2>
+<h2 onclick="proc1(this)">클릭하면 사라집니다3.</h2>
+<h2 onclick="proc1(this)">클릭하면 사라집니다4.</h2>
+<h2 onclick="proc1(this)">클릭하면 사라집니다5.</h2>
+<h2 onclick="proc1(this)">클릭하면 사라집니다6.</h2>
+<h2 onclick="proc1(this)">클릭하면 사라집니다7.</h2>
+</div>
+
+<br><br>
+
+<pre>
+JQuery ver.
+$('h2').on('click', function(){});
+</pre>
+
+<!-- <input type="button" value = "확인" onclick="proc2()"> -->
+<div id = "d2">
+<h2>클릭하면 사라집니다1.</h2>
+<h2>클릭하면 사라집니다2.</h2>
+<h2>클릭하면 사라집니다3.</h2>
+<h2>클릭하면 사라집니다4.</h2>
+<h2>클릭하면 사라집니다5.</h2>
+<h2>클릭하면 사라집니다6.</h2>
+<h2>클릭하면 사라집니다7.</h2>
+</div>
+
+</body>
+</html>
