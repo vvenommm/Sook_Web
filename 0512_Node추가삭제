@@ -26,19 +26,72 @@ function proc1(){
 	
 }
 
+function proc2(){
+	//부모.removeChild(자식)
+	parent = document.getElementById('d1');
+	
+	//삭제할 자식을 선택
+	ptag = parent.lastChild;
+	
+	//삭제
+	parent.removeChild(ptag);
+}
+
+function proc3(){
+	rand = parseInt(Math.random() * str.length);
+	
+	//p태그 생성, 내용 생성 후 둘이 잇기
+	pt = document.createElement('p');
+	text = document.createTextNode(str[rand]);
+	pt.appendChild(text);
+	
+	//버튼 생성, 타입 선언, 내용 '삭제' 생성 후 잇기
+	btn = document.createElement('button');
+	btn.type = "button";
+	text = document.createTextNode("삭제");
+	btn.appendChild(text);
+	btn.onclick = function(){
+		this.parentNode.remove();//해당 노드의 부모노드를 삭제. 버튼이 문자열에 appendChild 된 거라서 parentNode를 삭제해야 됨
+	}
+	
+//	btn.innerText 혹은 textContent 혹은 innerHTML = "삭제";
+	
+	//pt에 btn잇기
+	pt.appendChild(btn);
+	
+	//div 생성 후 p 잇기
+	dt = document.getElementById('d3');
+	dt.appendChild(pt);
+	
+}
+
 </script>
 </head>
 <body>
 
-
 <pre>
-
+추가 버튼 : 랜덤으로 발생하는 문자열을 추가(출력)
+ptag 생성 -> textNode 생성 -> ptag.appendChild(textNode) -> divtag.appendChild(ptag)
+삭제 버튼 : 마지막 요소(출력된 문자열)를 삭제
 </pre>
 
 <input type="button" value = "추가" onclick="proc1()">
 <input type="button" value = "삭제" onclick="proc2()">
 <br><br>
 <div id = "d1"></div>
+
+<pre>
+ptag 생성
+-> textNode 생성
+-> button 생성
+-> ptag.appendChild(textNode)
+-> ptag.appendChild(button) &lt;button type="button">삭제&lt;/button><button type="button" onclick="alert('짜잔~~')">삭제</button>
+-> div.appendChild(ptag)
+</pre>
+
+<input type="button" value = "추가" onclick="proc3()">
+<br><br>
+<div id = "d3"></div>
 
 </body>
 </html>
