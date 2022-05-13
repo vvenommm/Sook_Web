@@ -45,9 +45,11 @@ function start2(btn){ //btn = start 버튼을 누르는 그 순간쓰
 	//부모 요소 div id = d1
 	parent = document.getElementById('d2');
 // 	one = parent.childNodes[num];
+	one = document.getElementsByTagName('img')[num];
 	
 	//테두리 지우기
 // 	$(one).css("border", "1px solid white");
+	one.style.border = "none";
 	//자식요소(이미지) 중 첫 번째 선택 후 맨 뒤로 이동을 인터벌 주기
 	
 
@@ -64,17 +66,17 @@ function stop2() {
 }
 
 function bd(){
-	rand = parseInt(Math.random() * 6 + 1);
-	num = rand
-	
+	do {
+		rand = parseInt(Math.random() * 11 + 1);
+	} while (rand < 6)
+	num = rand;
+
 	parent = document.getElementById('d2');
-	one = parent.childNodes[num];
-	
-	$(one).css("border", "10px solid pink");
-// 	one.style.border = "10px solid pink";
-}
+	one = document.getElementsByTagName('img')[rand];
 
-
+	// 	$(one).css("border", "10px solid pink");
+	one.style.border = "10px solid pink";
+	}
 </script>
 </head>
 <body>
