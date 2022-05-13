@@ -5,30 +5,85 @@
 <title>이미지 회전</title>
 <link rel="stylesheet" href="../css/public.css">
 <link rel="shortcut icon" type="image/x-icon" href="../images/J.png"/>
+<script src="../js/jquery-3.6.0.min.js" type="text/javascript"></script>
 <style type="text/css">
 img{
 	width: 200px;
 }
 </style>
 <script type="text/javascript">
-function start(){
+var btnForAll; //전역변수 선언
+function start(btn){ //btn = start 버튼을 누르는 그 순간쓰
+	btn.style.display = "none"; //누르는 순간 사라지게 되는거라 이렇게 써도 첫 화면엔 출력된 상태
+	btnForAll = btn;
 	
+	//부모 요소 div id = d1
+	parent = document.getElementById('d1');
+	
+	//자식요소(이미지) 중 첫 번째 선택 후 맨 뒤로 이동을 인터벌 주기
+	
+
+	interval = window.setInterval(function() {
+			firstImg = parent.firstChild;
+			parent.appendChild(firstImg);
+		}, 300);
 }
 
-function stop(){
-	
+function stop() {
+	window.clearInterval(interval);
+	btnForAll.style.display = "inline";
 }
+
+
+////////////////////////////////////////////////////////////////////////////////////////////
+
+var num = 0;
+function start2(btn){ //btn = start 버튼을 누르는 그 순간쓰
+	btn.style.display = "none"; //누르는 순간 사라지게 되는거라 이렇게 써도 첫 화면엔 출력된 상태
+	btnForAll = btn;
+	
+	//부모 요소 div id = d1
+	parent = document.getElementById('d2');
+// 	one = parent.childNodes[num];
+	
+	//테두리 지우기
+// 	$(one).css("border", "1px solid white");
+	//자식요소(이미지) 중 첫 번째 선택 후 맨 뒤로 이동을 인터벌 주기
+	
+
+	interval = window.setInterval(function() {
+			firstImg = parent.firstChild;
+			parent.appendChild(firstImg);
+		}, 300);
+}
+
+function stop2() {
+	window.clearInterval(interval);
+	btnForAll.style.display = "inline";
+	bd();
+}
+
+function bd(){
+	rand = parseInt(Math.random() * 6 + 1);
+	num = rand
+	
+	parent = document.getElementById('d2');
+	one = parent.childNodes[num];
+	
+	$(one).css("border", "10px solid pink");
+// 	one.style.border = "10px solid pink";
+}
+
 
 </script>
 </head>
 <body>
 
-
 <pre>
-
+WELCOME~~ CLICK START!
+YOU'RE LUCKY TODAY! :)
 </pre>
-
-<input type="button" value = "시작" onclick="start()">
+<input type="button" value = "시작" onclick="start(this)">
 <input type="button" value = "종료" onclick="stop()">
 <br><br>
 <div id = "d1">
@@ -38,6 +93,21 @@ function stop(){
 	<img src = "../images/crepe.jpg" alt ="crepe">
 	<img src = "../images/단팥빵.png" alt = "단팥빵">
 	<img src = "../images/kirish.jpg" alt ="kirish">
+</div>
+	
+<pre>
+'종료'버튼 누르면 랜덤으로 숫자를 발생시켜서 해당 순서에 있는 사진에 테두리를 그려서 표시.
+</pre>
+<input type="button" value = "시작" onclick="start2(this)">
+<input type="button" value = "종료" onclick="stop2()">
+<br><br>
+<div id = "d2">
+	<img id = "1" src = "../images/잠봉뵈르.jpg" alt = "잠봉뵈르">
+	<img id = "2" src = "../images/do.jpg" alt = "do">
+	<img id = "3" src = "../images/bogo.png" alt = "BOGO">
+	<img id = "4" src = "../images/crepe.jpg" alt ="crepe">
+	<img id = "5" src = "../images/단팥빵.png" alt = "단팥빵">
+	<img id = "6" src = "../images/kirish.jpg" alt ="kirish">
 </div>
 	
 </body>
