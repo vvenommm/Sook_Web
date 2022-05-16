@@ -11,28 +11,28 @@ $(function(){
 	$('input#btn1').on('click', function(){
 
 		//input  요소 테두리 lime , 배경색  핑크
-		$('input').css('border', '2px solid lime').css('background', 'pink');
-		
+// 		$('input').css('border', '2px solid lime').css('background', 'pink');
+		$(':input').css({'border' : '2px solid lime', 'background' : 'pink'});
 		
 		//input   type이 button 인 요소 배경색 노란
-
+		$(':button').css('background', 'yellow');
 		
 		//Button  요소와 input   type이 button 인 요소 배경색 하늘색
-		
+		$(':button').css('background', 'skyblue');
 		
 		//Type이 submit 요소의 배경색 녹색
-		$('input[type=submit]')
-		$(':submit')
+// 		$('input[type=submit]').css('background', 'green');
+		$(':submit').css('background', 'green');
 		
 		//Type이 reset인 요소의 배경색 노랑 
-		
+		$(':reset').css('background', 'yellow');
 		
 		//Type이 text, password 인 요소의 테두리 파랑
-		$('input[type=text], input[type=password]')
-		$(':text, :password')
+// 		$('input[type=text], input[type=password]')
+		$(':text, :password').css('background', 'blue');
 		
 		//Type이 file, image인요소의 테두리 빨강
-
+		$(':file', ':image').css('border', '2px solid red');
 		
 	})
 })
@@ -60,7 +60,7 @@ $(function(){
 	<input type="checkbox" name="checkboxes" id="checkbox2" value="2"/> 2<br><br> 
 
 	Textarea : <br> <textarea rows="15" cols="50" id="myTextarea" id="myTextarea"></textarea><br><br> 
-	Image : <input type="image" src="images/image.1.jpg"><br><br> 
+	Image : <input type="image" src="../images/image.1.jpg"><br><br> 
 	File : <input type="file"><br><br> 
 	
 	Buttons : <button type="button" id="normalButton">Normal</button> 
