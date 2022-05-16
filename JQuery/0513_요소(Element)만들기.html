@@ -35,7 +35,20 @@ $(document).ready(function() {
 
 
 <pre>
-
+$(document).ready(function() {
+	$('input[type=button]').on('click', function() {
+		//ptag = "&lt;p id = 'p1' onclick = ''> Hello JQuery!!&lt;/p>";
+		ptag = $('&lt;p>&lt;/p>', {
+			'id' : 'p1',
+			'text' : 'Hello jQuery',
+			'click' : function() {
+				//tihs.style.color = 'red';
+				$(this).css('color', 'red');
+			}
+		})
+		$(ptag).appendTo($('#d1'));
+	})
+})
 </pre>
 
 <input type="button" value = "확인">
