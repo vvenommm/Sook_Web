@@ -30,7 +30,18 @@ $(function(){
 
 
 <pre>
-
+$(function(){
+	$('input#btn1').on('click', function(){
+// 		span태그의 배경색 변경- yellow
+		$('span').css('background', 'yellow'); //정확하게는 '#d1 span'
+		
+// 		div의 모든 후손중  span 태그의 테두리  - red
+		$('#d1 div span').css('border', 'solid red');
+		
+// 		div의 바로 다음 자식 span태그의 테두리  - blue
+		$('div > span').css('border', '3px solid blue'); //정확하게는 '#d1 div span'
+	})	
+})
 </pre>
 
 <input type="button" value = "확인" id="btn1">
