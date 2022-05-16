@@ -7,14 +7,28 @@
 <link rel="shortcut icon" type="image/x-icon" href="../images/J.png"/>
 <script src="../js/jquery-3.6.0.min.js" type="text/javascript"></script>
 <script>
-$(function (){
-	$('input[type=button]').on('click', function(){
-		ptag = "<p id='p1' onclick=''>Hello JQuery :) </p>";
+// $(function (){
+// 	$('input[type=button]').on('click', function(){ 
+// 		ptag = "<p id='p1' onclick=''>Hello JQuery :) </p>";
 		
-		ptag.appentTo($('#d1'));
-	})
-}
+// 		ptag.appentTo($('#d1'));
+// 	})
+// }
 
+$(document).ready(function() {
+	$('input[type=button]').on('click', function() {
+		//ptag = "<p id = 'p1' onclick = ''> Hello JQuery!!</p>";
+		ptag = $('<p></p>', {
+			'id' : 'p1',
+			'text' : 'Hello jQuery',
+			'click' : function() {
+				//tihs.style.color = 'red';
+				$(this).css('color', 'red');
+			}
+		})
+		$(ptag).appendTo($('#d1'));
+	})
+})
 </script>
 </head>
 <body>
