@@ -23,7 +23,16 @@ $(function(){
 
 
 <pre>
-
+$(function(){
+	$('#btn1').on('click', function(){
+		//h3 다음의 모든 형제의 배경색을 변경, 길이지정, 가운데정렬
+		$('h3 ~ p').css('background', 'pink').css('width', '200px').css('text-align', 'center');
+		$('h3 ~ p').css({'background' : 'pink', 'width' :'200px', 'text-align' : 'center'}); //이렇게도 가능
+		
+    	//h3 다음의 첫번째 형제의 글자를 굵게, 크게  : font-weight 
+		$('h3 + p').css('font-weight', 'bold').css('font-size', '2.0em');
+	})
+})
 </pre>
 
 <input type="button" value = "확인" id="btn1">
