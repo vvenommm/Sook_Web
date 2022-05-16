@@ -28,7 +28,20 @@ $(document).ready(function(){
 
 
 <pre>
-
+$(document).ready(function(){
+	$('input#btn1').on('click', function(){
+		//h2의 자식 a 태그의 스타일 에 테두리 설정 - solid
+		$('h2 > a').css('border', '2px solid black');
+		
+		//자바 스크립트 버전
+// 		alist = document.getElementsByTagName('a')
+// 		alist[0].style.border = '2px solid black';
+// 		alist[0].style.background = "yellow";
+	
+		//h2의 후손 a태그의 스타일 배경색 을 노란색으로 변경 
+		$('h2 a').css('background', 'yellow');
+	})
+})
 </pre>
 
 <input type="button" value = "확인" id="btn1">
