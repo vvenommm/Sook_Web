@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>html과 text</title>
+<link rel="stylesheet" href="../css/public.css">
+<link rel="shortcut icon" type="image/x-icon" href="../images/J.png"/>
+<script src="../js/jquery-3.6.0.min.js" type="text/javascript"></script>
+<script>
+$(document).ready(function(){
+	$('#html').on('click', function(){
+// 		alert($('body').html()); //body 안에 태그 포함 모든 글자
+// 		alert($('p').html()); //body 안에 '?'에 해당하는 첫번째 태그만 태그포함 내용을 가져옴
+		aa = $('p').html();
+// 		$('#d1').html(aa); //div에 style이 적용된 홍길동이 출력
+		$('#d1').text(aa); //div에 아무 것도 적용되지 않은 글자 그 자체로 <p>사이의 글자 모두가 출력. '1<span>홍길동</span>' 출력됨
+		
+	})
+	$('#text').on('click', function(){
+// 		alert($('body').text()); //doby 안에 글자만
+// 		alert($('p').text());
+		
+		aa = $('p').text();
+		$('#d1').html(aa); //애초에 aa에 담을 때 글자로만 가져왔기 때문에 .html(aa)로 출력해도 글자만 출력됨
+	})
+	
+	$('#htmlAll').on('click', function(){
+// 		$('p').each(function(i){//i++ 안 해도 자동으로 됨. each 반복문이 알아서 해 줌
+// // 			$('p[i]') 변수가 따옴표 안에 들어가면 안 됨. 틀린 문법
+// 			alert($('p').eq(i).html()); //eq = equal
+// 		})
+// 		$('p').each(function(i, v){//i++ 안 해도 자동으로 됨
+// 			alert($(v).html()); //매개변수 v 사용하면 p랑 eq 생략 가능
+// 			alert($(this).html()); //this를 사용할 때에도 (i) 필요없고 eq도 필요없음
+// 		})
+
+		a=""; //초기화를 시켜놔야 반복문에서 +=으로 사용 가능
+		$('p').each(function(i, v){//i++ 안 해도 자동으로 됨
+			a += $(this).html() + "<br>"; //get
+			$('#d2').html(a); //set - 출력
+		})
+	})
+	
+	
+})
+
+</script>
+<style type="text/css">
+span {
+	background: yellow;
+	font-size : 2.0em;
+}
+</style>
+</head>
+<body>
+
+
+<pre>
+아아아
+</pre>
+
+<input type="button" id="html" value = "html">
+<input type="button" id="text" value = "text">
+<input type="button" id="htmlAll" value = "htmlAll">
+<br><br>
+<div id = "d1">
+</div>
+
+<div id = "d2">
+</div>
+
+<p>1<span>홍길동</span></p>
+<p>2<span>개나리</span></p>
+<p>3<span>진달래</span></p>
+
+</body>
+</html>
