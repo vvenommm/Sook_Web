@@ -11,12 +11,14 @@
 	arr = ["J.png", "Better.jpg", "Camo.jpeg", "Woman.jpg", "패트.png", "매트.png"];
 	$(document).ready(function() {
 		$('#img').on('click', function(){
+			//이미지 배열에서 랜덤으로 사진 꺼내오기
+			rand = parseInt(Math.random()*arr.length);
 			//이미지를 생성, 클릭-테두리
 			//<img src="../images/do.png" alt="do.png" onclick="imgClick()">
 			$('<img>', {
-				'src' : '../images/J.png',
-				'alt' : 'J.png',
-				'width' : '300px',
+				'src' : '../images/' + arr[rand],
+				'alt' : arr[rand],
+				'width' : '300px', //width, height, border는 속성에 들어가는데 margin은 안 먹힘
 				'click' : function(){
 					$(this).css('border', '2px colid red');
 				}
@@ -24,6 +26,11 @@
 		})
 	})
 </script>
+<style type="text/css">
+img{
+	margin : 5px;
+}
+</style>
 </head>
 <body>
 
