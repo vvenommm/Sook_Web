@@ -26,9 +26,6 @@ $(function(){
 		$('#t2 tr:odd').css('background', 'lightgrey');
 		$('#t2 tr:first').css({'background' : 'black', 'color' : 'white'});
 	})
-	
-	
-	
 })
 </script>
 <style type="text/css">
@@ -143,9 +140,10 @@ $('#btn2').on('click', function(){
 </div>
 
 <pre>
-$('#btn2').on('click', function(){
-	$('tr:even').css('background', 'pink');
-	$('tr:odd').css('background', 'lightgrey');
+$('#btn3').on('click', function(){
+	$('#t2 tr:even').css('background', 'white');
+	$('#t2 tr:odd').css('background', 'lightgrey');
+	$('#t2 tr:first').css({'background' : 'black', 'color' : 'white'});
 })
 </pre>
 
