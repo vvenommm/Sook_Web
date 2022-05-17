@@ -21,8 +21,8 @@ $(function(){
 		$(':button').css('background', 'skyblue');
 		
 		//Type이 submit 요소의 배경색 녹색
-// 		$('input[type=submit]').css('background', 'green');
-		$(':submit').css('background', 'green');
+// 		$('input[type=submit]').css('background', 'green'); //속성선택자
+		$(':submit').css('background', 'green'); //양식선택자
 		
 		//Type이 reset인 요소의 배경색 노랑 
 		$(':reset').css('background', 'yellow');
@@ -32,11 +32,16 @@ $(function(){
 		$(':text, :password').css('background', 'blue');
 		
 		//Type이 file, image인요소의 테두리 빨강
-		$(':file', ':image').css('border', '2px solid red');
+		$(':file, :image').css('border', '2px solid red'); //따옴표를 각각 주면 안 됨.
 		
 	})
 })
 </script>
+<style type="text/css">
+input[type=image] {
+	width: 100px;
+}
+</style>
 </head>
 <body>
 
@@ -48,8 +53,8 @@ $(function(){
 <input type="button" value = "확인" id="btn1">
 <br><br>
 <div id = "d1">
-<!-- <form action="Form양식선택.jsp" method="post" onsubmit = "return false;"> form 태그지만 어디로 이동하지 않겠다는 뜻으로 onsubmit=return false를 적어주면 버튼 아무리 눌러도 이동 X-->
-<form onsubmit="return false;">
+<form action="Form양식선택.jsp" method="post"> <!-- form 태그지만 어디로 이동하지 않겠다는 뜻으로 onsubmit=return false를 적어주면 버튼 아무리 눌러도 이동 X-->
+<!-- <form onsubmit="return false;"> -->
 	Text : <input type="text"/><br> 
 	Password : <input type="password" /><br><br> 
 	
