@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Form Visibility 필터</title>
+<link rel="stylesheet" href="../css/public.css">
+<link rel="shortcut icon" type="image/x-icon" href="../images/J.png"/>
+<script src="../js/jquery-3.6.0.min.js" type="text/javascript"></script>
+<script>
+$(function(){
+	str = "";
+	$('#btnV').on('click', function(){
+//		str += $('#d1 p:visible').text(); //html()로 가져오면 태그도 다 가져오기 때문에 출력이 안 돼서 text로 가져와야 함. 출력을 위해서 반복문을 써보자. 그냥 text()는 한 줄로, 띄어쓰기도 없이 출력되기 때문에.
+
+		//반복문으로 가져오기
+		$('#d1 p:visible').each(function(){
+			str += $(this).text() + "<br>";
+		})
+		$('.vi').html(str);//text()로 출력하면 <br>이 그냥 출력돼서 여기서는 html로 출력
+	})
+
+	$('#btnH').on('click', function(){
+		str = ""; //다시 초기화
+		$('#d1 p:hidden').each(function(){
+			str += $(this).html() + "<br>";
+		})
+		$('.hi').html(str);
+	})
+})
+</script>
+</head>
+<body>
+
+<pre>
+Visibility 필터 : 출력 여부에 따라 엘리먼트를 선택
+
+-----------------------------------------------------
+
+:hidden -> 다음과 같을 때 비출력
+	① display : none -> document에서 영역도 아예 없음. 투명이 아니라 그냥 없음
+	② type=hidden
+	③ width=0 height=0
+	④ 부모요소가 hidden
+
+-----------------------------------------------------
+
+:visible -> 다음과 같지 않을 때 출력
+	① display :none
+	② type =hidden
+	③ width=0 height=0
+	④ 부모요소가 hidden
+	⑤ Visibility =hidden opacity=0
+			
+-------------------------------------------------------------------------
+			
+사용한 제이쿼리 :
+
+	반복문으로 가져오기
+	1) visible 필터로 걸러서 가져오기
+		$('#d1 p:visible').each(function(){
+			str += $(this).text() + "&lt;br>";
+		})
+		$('.vi').html(str);//text()로 출력하면 &lt;br>이 그냥 출력돼서 여기서는 html로 출력
+	})
+
+	2) hidden 필터로 걸러서 가져오기
+	$('#btnH').on('click', function(){
+		str = ""; //다시 초기화
+		$('#d1 p:hidden').each(function(){
+			str += $(this).text() + "&lt;br>";
+		})
+		$('.hi').html(str);
+	})
+</pre>
+
+<input type="button" value = "visible" id="btnV">
+<input type="button" value = "hidden" id="btnH">
+<br><br>
+<div id = "d1">
+	<p>♥ 보이는 문단</p>
+	<p style="visibility:hidden;">★ 숨겨진 문단</p>
+	<p style="display:none;">◆ 자리를 차지 하지 못한 문단 </p>
+	<p style="opacity:0;">♣ 투명한 문단</p>
+</div>
+<div class="vi"></div> <!-- visible 필터로 걸러지는 것 = 1번, 4번 -->
+<div class="hi"></div> <!-- hidden 필터로 걸러지는 것 = 3번 -->
+
+<br><br>
+
+<pre>
+① 속성값 가져오기
+	attr('name'), attr('type'), attr('id'), attr('class')
+
+② input에서 값 가져오기
+	input -> val()
+
+③ input이 아닌 태그에서 값 가져오기
+	span, div, p, td .... -> text(), html()
+
+-----------------------------------------------------
+</pre>
+
+<input type="button" value = "visible" id="btnV">
+<input type="button" value = "hidden" id="btnH">
+<br><br>
+<div id = "d1">
+	<p>♥ 보이는 문단</p>
+	<p style="visibility:hidden;">★ 숨겨진 문단</p>
+	<p style="display:none;">◆ 자리를 차지 하지 못한 문단 </p>
+	<p style="opacity:0;">♣ 투명한 문단</p>
+</div>
+<div class="vi"></div> <!-- visible 필터로 걸러지는 것 = 1번, 4번 -->
+<div class="hi"></div> <!-- hidden 필터로 걸러지는 것 = 3번 -->
+
+</body>
+</html>
