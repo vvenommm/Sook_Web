@@ -1,1 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>내용필터</title>
+<link rel="stylesheet" href="../css/public.css">
+<link rel="shortcut icon" type="image/x-icon" href="../images/J.png"/>
+<script src="../js/jquery-3.6.0.min.js" type="text/javascript"></script>
+<script>
+$(function(){
+	$('#btn1').on('click', function(){
 
+		
+		
+	})
+})
+</script>
+<style type="text/css">
+#d1 div {
+	width: 600px;
+/* 	height: 30px; */
+	border: 1px solid green;
+}
+
+pre span{
+	text-decoration: underline;
+	color : red;
+}
+
+table{
+	text-align: center;
+	width: 700px;
+ 	border : 2px solid green; 
+ 	border-collapse : collapse;
+}
+
+tr, td{
+	width: 200px;
+ 	border : 5px solid white; 
+}
+
+th{
+	height: 70px;
+	font-size: 2.0em;
+}
+</style>
+</head>
+<body>
+
+<pre>
+:nth-child(index / even / odd / equation) → 자식 중 index로 지정된 위치의 요소들과 일치하거나,
+								짝수. 홀수 번째의 요소들과 일치하거나, 방정식 값 위치의 요소들과 일치
+:first-child → 부모에 속한 자식 중 첫번째 자식요소와 일치
+:last-child → 부모에 속한 자식 중 마지막 자식요소와 일치
+:only-child → 자신이 부모요소의 유일한 자식요소인 것과 일치
+
+
+</pre>
+
+<input type="button" value = "확인" id="btn1">
+<br><br>
+<div id = "d1">
+	<table border ="1" id="t1">
+	<thead>
+		<tr>
+			<th>이름</th>
+			<th>주소</th>
+			<th>전화번호</th>
+		</tr>
+	</thead>
+		
+	<tbody>
+		<tr>
+			<td>박달래</td>
+			<td>천안</td>
+			<td>010-0000-0000</td>
+		</tr>
+		
+		<tr>
+			<td>이솜솜</td>
+			<td>인천</td>
+			<td>010-0000-0000</td>
+		</tr>
+		
+		<tr>
+			<td>후후리</td>
+			<td>대전</td>
+			<td>010-0000-0000</td>
+		</tr>
+		
+		<tr>
+			<td>안실실</td>
+			<td>서울</td>
+			<td>010-0000-0000</td>
+		</tr>
+	</tbody>
+	</table>
+</div>
+
+</body>
+</html>
