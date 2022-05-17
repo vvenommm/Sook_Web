@@ -9,24 +9,18 @@
 <script>
 $(function(){
 	$('#btn1').on('click', function(){
-
+		$('th').css('background', '#FF9696');
+		$('td').css('font-weight', 'bold');
+		$('td:first-child').css('background', '#FFAAAA'); //각 td의 첫번째가 선택 
+		$('td:nth-child(2)').css('background', '#FFBEBE');
+		$('td:last-child').css('background', '#FFDCDC');
 		
+		//$('tr:first td') -> th가 아니라 td일 경우에.
 		
 	})
 })
 </script>
 <style type="text/css">
-#d1 div {
-	width: 600px;
-/* 	height: 30px; */
-	border: 1px solid green;
-}
-
-pre span{
-	text-decoration: underline;
-	color : red;
-}
-
 table{
 	text-align: center;
 	width: 700px;
@@ -34,14 +28,17 @@ table{
  	border-collapse : collapse;
 }
 
+td{
+	height: 40px;
+}
+
 tr, td{
 	width: 200px;
- 	border : 5px solid white; 
 }
 
 th{
-	height: 70px;
-	font-size: 2.0em;
+	height: 50px;
+	font-size: 1.5em;
 }
 </style>
 </head>
