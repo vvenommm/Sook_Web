@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>내용필터</title>
+<title>Form 자식 필터</title>
 <link rel="stylesheet" href="../css/public.css">
 <link rel="shortcut icon" type="image/x-icon" href="../images/J.png"/>
 <script src="../js/jquery-3.6.0.min.js" type="text/javascript"></script>
@@ -51,7 +51,15 @@ th{
 :last-child → 부모에 속한 자식 중 마지막 자식요소와 일치
 :only-child → 자신이 부모요소의 유일한 자식요소인 것과 일치
 
+---------------------------------------------------------------
 
+	$('th').css('background', '#FF9696');
+	$('td').css('font-weight', 'bold');
+	$('td:first-child').css('background', '#FFAAAA'); //각 td의 첫번째가 선택 
+	$('td:nth-child(2)').css('background', '#FFBEBE');
+	$('td:last-child').css('background', '#FFDCDC');
+		
+	//$('tr:first td') -> th가 아니라 td일 경우에.
 </pre>
 
 <input type="button" value = "확인" id="btn1">
