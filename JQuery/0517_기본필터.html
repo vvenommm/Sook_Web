@@ -16,12 +16,41 @@ $(function(){
 		$('li:last').css('text-decoration', 'line-through');
 	})
 	
+	$('#btn2').on('click', function(){
+		$('#d2 #t1 tr:even').css('background', 'pink'); //div가 여러개고 table이 여러개라면 #으로 지정
+		$('tr:odd').css('background', 'lightgrey');
+	})
+	
+	$('#btn3').on('click', function(){
+		$('#t2 tr:even').css('background', 'white');
+		$('#t2 tr:odd').css('background', 'lightgrey');
+		$('#t2 tr:first').css({'background' : 'black', 'color' : 'white'});
+	})
+	
+	
 	
 })
 </script>
+<style type="text/css">
+table{
+	text-align: center;
+	width: 700px;
+ 	border : transparent; 
+ 	border-collapse : collapse;
+}
+
+tr, td{
+	width: 200px;
+ 	border : 5px solid white; 
+}
+
+th{
+	height: 70px;
+	font-size: 2.0em;
+}
+</style>
 </head>
 <body>
-
 
 <pre>
 :first
@@ -29,22 +58,130 @@ $(function(){
 :eq(idx)
 :gt(idx)
 :lt(idx)
+
+	$('li:first').css('font-weight', 'bold');
+	$('li:first, li:last').css('background', 'yellow');
+	$('li:eq(5)').css('background', 'red');
+	$('li:lt(4)').css('font-weight', 'bold');
+	$('li:last').css('text-decoration', 'line-through');
 </pre>
 
 <input type="button" value = "확인" id="btn1">
 <br><br>
 <div id = "d1">
 	<ul>
-		<li> one </li>
-		<li> two </li>
-		<li>  three </li>
-		<li> four </li>
-		<li> five </li>
-		<li> six</li>
-		<li> seven</li>
+		<li>one</li>
+		<li>two</li>
+		<li>three</li>
+		<li>four</li>
+		<li>five</li>
+		<li>six</li>
+		<li>seven</li>
 		<li>eight</li>
 		<li>nine</li>
 	</ul>
+</div>
+
+<br><br>
+
+<pre>
+$('#btn2').on('click', function(){
+	$('tr:even').css('background', 'pink');
+	$('tr:odd').css('background', 'lightgrey');
+})
+</pre>
+
+<input type="button" value = "확인" id="btn2">
+<br><br>
+<div id = "d2">
+	<table border ="1" id="t1">
+		<tr>
+			<td>one</td>
+			<td>62만원</td>
+		</tr>
+		
+		<tr>
+			<td>two</td>
+			<td>45만원</td>
+		</tr>
+		
+		<tr>
+			<td>three</td>
+			<td>33만원</td>
+		</tr>
+		
+		<tr>
+			<td>four</td>
+			<td>72만원</td>
+		</tr>
+		
+		<tr>
+			<td>five</td>
+			<td>77만원</td>
+		</tr>
+		
+		<tr>
+			<td>six</td>
+			<td>54만원</td>
+		</tr>
+		
+		<tr>
+			<td>seven</td>
+			<td>61만원</td>
+		</tr>
+		
+		<tr>
+			<td>eight</td>
+			<td>52만원</td>
+		</tr>
+		
+		<tr>
+			<td>nine</td>
+			<td>88만원</td>
+		</tr>
+	</table>
+</div>
+
+<pre>
+$('#btn2').on('click', function(){
+	$('tr:even').css('background', 'pink');
+	$('tr:odd').css('background', 'lightgrey');
+})
+</pre>
+
+<input type="button" value = "확인" id="btn3">
+<br><br>
+<div id = "d3">
+	<table border ="1" id="t2">
+	<thead>
+		<tr>
+			<th>이름</th>
+			<th>전화번호</th>
+		</tr>
+	</thead>
+		
+	<tbody>
+		<tr>
+			<td>박달래</td>
+			<td>천안</td>
+		</tr>
+		
+		<tr>
+			<td>이솜솜</td>
+			<td>인천</td>
+		</tr>
+		
+		<tr>
+			<td>후후리</td>
+			<td>대전</td>
+		</tr>
+		
+		<tr>
+			<td>안실실</td>
+			<td>서울</td>
+		</tr>
+	</tbody>
+	</table>
 </div>
 
 </body>
