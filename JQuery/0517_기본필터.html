@@ -2,17 +2,21 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Title</title>
+<title>기본 필터</title>
 <link rel="stylesheet" href="../css/public.css">
 <link rel="shortcut icon" type="image/x-icon" href="../images/J.png"/>
 <script src="../js/jquery-3.6.0.min.js" type="text/javascript"></script>
 <script>
 $(function(){
 	$('#btn1').on('click', function(){
-
-		
-		
+		$('li:first').css('font-weight', 'bold');
+		$('li:first, li:last').css('background', 'yellow');
+		$('li:eq(5)').css('background', 'red');
+		$('li:lt(4)').css('font-weight', 'bold');
+		$('li:last').css('text-decoration', 'line-through');
 	})
+	
+	
 })
 </script>
 </head>
@@ -20,13 +24,27 @@ $(function(){
 
 
 <pre>
-
+:first
+:last
+:eq(idx)
+:gt(idx)
+:lt(idx)
 </pre>
 
 <input type="button" value = "확인" id="btn1">
 <br><br>
 <div id = "d1">
-
+	<ul>
+		<li> one </li>
+		<li> two </li>
+		<li>  three </li>
+		<li> four </li>
+		<li> five </li>
+		<li> six</li>
+		<li> seven</li>
+		<li>eight</li>
+		<li>nine</li>
+	</ul>
 </div>
 
 </body>
