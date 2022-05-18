@@ -33,7 +33,27 @@
 			res += "자기소개---------------------<br>" + intro + "<br>"
 			$('.out').html(res);
 			
-			//자동 전송 타입 : 타입이 없는 버튼, input type submit, input type image, form
+			event.preventDefault();
+		})
+		
+		$('#btnchange').on('click', function(){
+			//자동 전송 막기
+// 			event.preventDefault();
+			
+			//입력 프롬프트
+			newName = prompt('이름 입력');
+			
+			$('#user').val(newName);
+			
+			return false;
+		})
+		
+		$('a').on('click', function(){
+			input = prompt("수를 입력");
+			if(input<15){
+				event.priventDefault();
+				return false;
+			}
 		})
 	})
 </script>
@@ -55,8 +75,23 @@
 	res += "자기소개---------------------&lt;br>" + intro + "&lt;br>"
 	$('.out').html(res);
 			
+---------------------------------------------------------------------------------
+
 	★자동 전송 타입 : 타입이 없는 버튼, input type submit, input type image, form
+
+	type이 생략된 버튼 -> submit 기능 수행
+	&lt;button id="btnview">조사하기 &lt;/button>
+	
+	★전송이 필요 없는 경우
+	① type='button' 추가 필요
+	② 함수 안에서 return false(=함수 종료)를 마지막 문장에 추가
+	③ 함수 안에서 event.preventDefault() 메소드 호출 문장을 추가
+		└ event.preventDefault() : 요소들의 고유 기능 수행을 방지 (예 : a태그의 페이지 이동 기능을 방지 등..)
 </pre>
+
+[자동 전속 방지 테스트]
+클릭하면 수를 입력, 15이상일 때에만 페이지 이동<br><br>
+<a href="http://www.naver.com">네이버</a>
 
 	<br>
 	<br>
@@ -79,11 +114,14 @@
 				<option value="whitehand">백수</option>
 			</select><br>
 			
-			<button id="btnview" type='button'>조사하기 </button>
+<!-- 			<button id="btnview" type='button'>조사하기 </button> -->
+			<button id="btnview">조사하기 </button>
 			<button  id="btnchange">이름변경 </button>
 		</form>
 	</div>
 	<div class="out"></div>
+	
+	<br><br>
 
 </body>
 </html>
