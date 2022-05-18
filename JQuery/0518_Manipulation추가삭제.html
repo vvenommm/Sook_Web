@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Manipulation 추가 삭제</title>
+<link rel="stylesheet" href="../css/public.css">
+<link rel="shortcut icon" type="image/x-icon" href="../images/J.png"/>
+<script src="../js/jquery-3.6.0.min.js" type="text/javascript"></script>
+<script>
+$(function(){
+	$('p').on('click', function(){
+		vTitle = $(this).attr('title');
+		vImg = $('<img>', {
+			 'src' : '../images/' + vTitle,
+			 'alt' : vTitle,
+			 'width' : '150px'
+			});
+// 		$(this).append(vImg); //this = 'p' = 부모
+// 		$(this).prepend(vImg);
+		
+		//부모 자식 바꿔서
+		$(vImg).appendTo(this); 
+// 		$(vImg).prependTo(this);
+		
+	})
+	
+	$('#d2 p').on('click',function(){
+    	vTitle = $(this).attr('title');
+//        vImg = $('<img src = "..HWimages/"'+vtitle2+'".jpg alt = "'+vtitle2 + '">');//이렇게 써도 되는데 그럼 style을 따로 줘야 한다. 
+     	vImg = $('<img>',{//그림추가하기(어디에? 내가 p태그에서 클릭한것에)
+          'src' : '../images/' + vTitle,
+          'alt' : vTitle,
+          'width' : '150px'
+        })
+    	$(this).after(vImg); //그림이 뒤로간다. this는 p를 가리키는 부모이므로 append를 사용하여 ()속에 자식인 vimag를 넣음
+//    $(vimg).insertAfter(this); //위와 반대로 이렇게 써도 된다.
+
+//    $(this).before(vimg);   //앞쪽으로 이미지가 추가되는것을 알 수 있다.
+//    $(vimg).insertBefore(this); //위와 반대로 이렇게 써도 된다. 
+   
+   })
+})
+</script>
+
+<style type="text/css">
+p {
+	border : 2px solid blue;
+}
+</style>
+</head>
+<body>
+
+<pre>
+-- 부모의 테두리를 벗어나지 않은 채로 추가 --
+	부모.append(자식 content) : 일치된 (부모)요소 내부의 마지막 위치(부모)에 content를 추가
+	자식.appendTo(부모 selector) : 선택된 (부모)selector 요소와 일치하는 모든 요소의 내부 마지막 위치에 추가
+		(만일, 일치된 요소가 본문에 존재하면 그 요소를 제거한 후 복사. 즉, 이동)
+	부모.prepend(자식 content) : append(content)와 동일. 다만, 내부의 처음위치에 추가
+	자식.prependTo(부모 selector) : appendTo(selector)와 동일. 다만, 내부의 처음위치에 추가
+</pre>
+
+<br><br>
+<div id = "d1">
+	<p title="Better.jpg">Better</p> <!-- attr('title')로 속성 가져오기. 태그사이 글자는 text()로 가져오기 -->
+	<p title="Camo.jpeg">Camo</p>
+	<p title="image.6.jpg">Copy&Paste</p>
+	<p title="Woman.jpg">Woman</p> 
+</div>
+
+<br><br>
+
+<pre>
+-- 부모의 테두리 바깥 쪽에서 추가 --
+	☆★모두 요소 내부가 아닌 외부에 삽입★☆
+	부모.after(자식 content) : 일치된 (부모)요소 내부의 마지막 위치(부모)에 content를 추가
+	자식.insertAfter(부모 selector) : 선택된 (부모)요소를 selector에 일치된 모든 요소들의 내부 마지막 위치에 추가
+		★☆만일, 일치된 요소가 본문에 존재하면 그 요소를 제거한 후 복사한다. (즉, 이동)☆★
+	부모.before(자식 content) : append(content)와 동일, 다만, 내부의 처음위치에 추가
+	자식.insertBefore(부모 selector) : appendTo(selector)와 동일, 다만, 내부의 처음위치에 추가
+</pre>
+
+<br><br>
+<div id = "d2">
+	<p title="Better.jpg">Better</p> <!-- attr('title')로 속성 가져오기. 태그사이 글자는 text()로 가져오기 -->
+	<p title="Camo.jpeg">Camo</p>
+	<p title="image.6.jpg">Copy&Paste</p>
+	<p title="Woman.jpg">Woman</p> 
+</div>
+
+</body>
+</html>
