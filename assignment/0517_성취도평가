@@ -3,10 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <title>후후리의 웹 성취도 평가 답</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/J.png"/>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
+
+title = null;
+
+//th 값 입력받기
 function btn1(){
-	title = null;
 	
 	title = prompt('타이틀 이름은 무엇이쥬?');
 	if(title == "" || title == " "){
@@ -15,22 +19,72 @@ function btn1(){
 	}else{
 		alert(title);
 	}
-	
-	str = '<th>' + title + '</th>';
-	$(str).appendTo($('thead tr:last'));
-	
-	str = '<td></td>';
-	$(str).appendTo($('tbody tr'));
-	
-	
-	
-	
-	
-	
 }
+
+//div 토글
+$(function() {
+	$('#add').on('click', function() {
+		$('#unseen').toggle();
+	})
+})
+
+//btn1()에서 입력받은 값 -> 테이블 열, div에 글상자 추가
+function btn2(){
+	
+	//버튼1 prompt로 입력받은 값에 따라 열 추가하는 기능은 1번만 가능하게 하는 조건문
+// 	size = $('#head th').length;
+// 	boxSize = $('#unseen :text').length;	
+
+	if (title != null) {
+		str = '<th>' + title + '</th>';
+		$(str).appendTo($('thead tr:last'));
+
+		str = '<td></td>';
+		$(str).appendTo($('tbody tr'));
+
+// 		if (size === boxSize) {
+// 			return;
+// 		} else {
+			str = '<input type="text"><br>';
+
+			$(str).appendTo($('#unseen'));
+// 		}
+				
+			$('#unseen :button').appendTo($('#unseen'));
+				
+			title = null;
+		} else {
+			return;
+		}
+}
+
+//테이블 행 추가와 div의 입력버튼을 누르면 글상자에 입력한 값이 테이블에 들어가게
+function adding(){
+	//번호 생성 및 추가
+	num = parseInt($('tr:last th').text());
+	str = '<tr><th>' + (num+1) + '</th></tr>';
+	$(str).appendTo($('tbody'));
+	
+	//td 행 추가
+	tds = "";
+	size = $('#unseen :text').length;
+	for(i = 0; i < size; i++){
+		tds += '<td></td>';
+	}
+	$(tds).appendTo($('tbody tr:last'));
+	
+	
+	//값 입력
+	$('#unseen input').val();
+// 	alert(size);
+}
+
 
 </script>
 <style type="text/css">
+body{
+	padding : 50px;
+}
 table {
 	border : 3px double green;
 	text-align: center;
@@ -54,85 +108,37 @@ td:hover{
 	background: #eef;
 }
 
+#unseen{
+ 	display: none;
+	margin : 10px;
+	padding: 10px;
+	background: green;
+}
+
 
 </style>
 </head>
 <body>
-<!--
-	안내)
-	1. 본인 이름으로 html 파일을 생성합니다.
-	2. 생성한 html 파일의 내용을 모두 지웁니다.
-	3. 제시된 내용을 모두 복사하여 붙여넣습니다.
-	4. body 태그 안에 주석처리되어있는 문제를 삭제하지 않고 문제를 해결하시면 됩니다.
-	5. 각 문제에 배점이 있으며 부분점수가 있습니다.
-	6. 각 문제는 단계별로 진행되며 난이도가 점차 증가합니다.
-	7. 작성한 html 파일은 담임 이메일로 보냅니다. (제목 : 웹 성취도 평가 // 주소 : tablet7823@daum.net)
 
-	문제01) table 태그를 이용하여 [가로4*세로3] '표 1'을 생성하고 아래와 같은 내용을 넣으세요. (5점) 
-			↓헤더셀 컬럼
-		   ┌────┬──────┬────┬─────────────┐
-헤더셀로우→│번호│이름  │주소│전화번호     │←헤더셀 로우
-		   ├────┼──────┼────┼─────────────┤
-		   │1	│이순신│대전│010-1111-1111│
-		   ├────┼──────┼────┼─────────────┤
-		   │2	│홍길동│서울│010-2222-2222│
-		   └────┴──────┴────┴─────────────┘
-			↑헤더셀 컬럼
-	
-	문제02) '표 1'에서 윗줄을 테이블 헤더로 만드세요. (5점)
-	th로 변환
-
-	문제03) 표 속성을 이용하여 '표 1'에 테두리를 주세요. (5점)
-	border 속성 주기
-	
-	문제04) Style 태그를 이용하여 '표 1' 각 셀의 글자를 중앙정렬과 내부여백 20픽셀을 적용하고, 테이블 헤더셀은 굵은 글씨 및 배경색 #eee로 표현하세요. (5점)
-	center 정렬, padding 20px, color, background
-	
-	문제05) Style 태그를 이용하여 '표 1' 테이블 바디 셀에 마우스를 올리면 가로 격자(배경색 #efe)가 표시되게 하세요. (5점)
-	tr hover
-	
-	문제06) Style 태그를 이용하여 '표 1' 테이블 바디 셀에 마우스를 올리면 해당 셀에만 배경색(#eef)를 적용되게 하세요. (5점)
-	td hover
-
-	문제07) '표 1' 위에 div 태그를 선언하고 내부에 input 버튼([버튼 1] [버튼 2] [추가] [삭제])을 4개 만드세요. (5점)
-	prompt 떠서 input하면 alert 띄우기
-	
-	문제08) JavaScript 혹은 JQuery를 이용하여 '버튼 1'을 누르면 prompt 창을 띄우고, 입력 값을 저장 받고 해당 값을 alert으로 보여주고 return하는 함수를 실행 하세요. (5점)
-			단, 사용자 입력값이 공백이면 alert을 이용해 정상적으로 입력해달라고 표시하고 false를 return 해주세요. 
-	prompt에 입력한 값을 alert로 띄우고 오른쪽 세로줄(열)로 추가
-	
-	문제09) JavaScript 혹은 JQuery를 이용하여 '버튼 2'를 누르면 '문제 8'에서 만든 함수를 실행하여 값을 저장하고, '표 1'에 해당 값을 테이블 헤더로 하는 열(세로줄)을 붙여넣으세요. (10점)
-			단, 함수의 리턴값이 false가 아닐때만 작동하게 하세요.
-	
-	문제10) '표 1'과 버튼들이 있는 div 태그 사이에 div 태그를 하나 추가해주세요.
-			해당 div 태그는 기본적으로 보이지 않게 Style 태그를 이용하여 적용해주세요.
-			해당 div 태그는 내/외부여백은 10픽셀, 배경색은 초록색 으로 적용해주세요. (5점)
-	기본적으로 보이지 않는 div로 만들기
-	
-	문제11) JavaScript 혹은 JQuery를 이용하여 '추가'를 누르면 '문제 10'에서 만든 div 태그가 보였다가 안보였다가 하는 toggle 기능을 적용해 주세요. (5점)
-	누르면 보였다가 다시 누르면 안 보이게
-
-	문제12) '문제 10'에서 만든 div 태그 내부에 input 텍스트를 '표 1'의 내용 컬럼 수 대로 만들고 마지막에는 input 버튼을 하나 만들고 입력이라고 작성해 주세요.
-			JavaScript 혹은 JQuery를 이용하여 '입력'을 누르면 '표 1'에 가로 한 줄을 추가해주세요. (15점)
-			단, 번호 열에는 순서가 맞는 번호가 입력되어야 합니다.
-			단, 내용열에는 입력받은 값들이 입력되어야 합니다. (시연 참조)
-			단, '문제09'에서 열이 새로 생길때마다 input 텍스트는 갯수에 맞게 증가되어야 합니다. (시연 참조)
-		
-	문제13) JavaScript 혹은 JQuery를 이용하여 '삭제'를 누르면 prompt로 번호를 입력받고 해당하는 번호를 삭제하세요. (25점)
-			단, 중간 번호가 삭제되었을 경우(예 : 1 2 3 4 중에 3 삭제)에 '문제 12'에서 새로운 행을 추가하면 중간번호와 상관없이 최대 번호를 기준으로 번호를 입력해주세요. (시연 참조)
-			단, 사용자 입력값이 공백이거나 없는 번호이거나 숫자가 아니면 alert을 이용해 정상적으로 입력해달라고 표시해주세요. 
-		삭제 -> prompt 삭제할 번호 입력 -> 삭제 -> 다시 똑같이 누르면 없는 항목이라고 알림(alert), 3번 삭제하면 1, 2, 4, 5번으로 (당겨지지 않음)
--->
 
 <div>
 	<input type='button' value='버튼1' onclick='btn1()'>
-	<input type='button' value='버튼2'>
-	<input type='button' value='추가'>
+	<input type='button' value='버튼2' onclick='btn2()'>
+	<input type='button' value='추가' id='add' >
+<!-- 	<input type='button' value='추가' onclick='tog()' > -->
 	<input type='button' value='삭제'>
-</div>
+</div><br>
+
+<div id="unseen">
+	<input type='text'><br>
+	<input type='text'><br>
+	<input type='text'><br>
+	<input type='button' value='입력' onclick='adding()'>
+</div><br>
+
 <table border = "1">
 	<thead>
-		<tr>
+		<tr id="head">
 			<th>번호</th>
 			<th>이름</th>
 			<th>주소</th>
@@ -143,7 +149,7 @@ td:hover{
 	<tbody>
 		<tr>
 			<th>1</th>
-			<td>이정후</td>
+			<td>후스키</td>
 			<td>대전</td>
 			<td>010-1111-1111</td>
 		</tr>
