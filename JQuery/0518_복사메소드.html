@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>복사 메소드</title>
+<link rel="stylesheet" href="../css/public_blue.css">
+<link rel="shortcut icon" type="image/x-icon" href="../images/J.png"/>
+<script src="../js/jquery-3.6.0.min.js" type="text/javascript"></script>
+<script>
+$(function(){
+	$('.pp').on('click', function(){
+		//클릭하면 글자 크기 커짐
+		$(this).css('font-size', '+=5px');
+	})
+	
+	//복사된 p를 클릭해도 아무런 이벤트가 일어나지 않음
+	$('#clo').on('click', function(){
+		$('#p1').clone().appendTo('#d1');
+// 		$('#p1').appendTo($('#d1')); //-> d1에 $을 안 쓰면 d1이 p 안으로 삽입. $을 쓰면 잘라내기가 되고 이벤트도 발생됨
+	})
+
+	//복사된 p를 클릭하면 이벤트가 발생
+	$('#clot').on('click', function(){
+		$('#d1').append($('#p2').clone(true));
+	})
+})
+</script>
+</head>
+<body>
+
+<pre>
+
+</pre>
+
+<p id="p1" class="pp">L is for the way you look at me</p>
+<p id="p2"  class="pp">O is for the only one I see</p>
+<p>V is very very extraordinary</p>
+<p>E is even more than anyone that you adore can</p>
+
+<input type="button" value = "clone" id="clo">
+<input type="button" value = "clone true" id="clot">
+<br><br>
+<div id = "d1">
+
+</div>
+
+</body>
+</html>
