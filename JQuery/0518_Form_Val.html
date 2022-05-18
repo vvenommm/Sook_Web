@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Form Value</title>
+<link rel="stylesheet" href="../css/public.css">
+<link rel="shortcut icon" type="image/x-icon" href="../images/J.png" />
+<script src="../js/jquery-3.6.0.min.js" type="text/javascript"></script>
+<script>
+	$(function() {
+		$('#btnview').on('click', function() {
+// 			str = "";
+// 			str += $('#user').val() + " ";
+// 			str += $('#sex').val() + " ";
+// 			str += $('#intro').val() + " ";
+// 			str += $('#work option:selected').val() + " ";
+			
+// 			//출력
+// 			alert(str);
+			
+			//방법2
+			userId = $('#user').val();
+			sex = $('.sex:checked').val();
+			intro = $('#intro').val();
+			intro = intro.replace(/\r/g, "").replace(/\n/g, "<br>"); //g : 전체영역(정규식). 자기소개 엔터 적용을 위해
+			job = $('#work').val();
+
+			//출력2
+			console.log(userId, sex, intro, job);
+			res = "아이디 : " + userId + "<br>";
+			res += "성별 : " + sex + "<br>"
+			res += "직업 : " + job + "<br>"
+			res += "자기소개---------------------<br>" + intro + "<br>"
+			$('.out').html(res);
+			
+			//자동 전송 타입 : 타입이 없는 버튼, input type submit, input type image, form
+		})
+	})
+</script>
+</head>
+<body>
+
+<pre>
+	userId = $('#user').val();
+	sex = $('#sex').val();
+	intro = $('#intro').val();
+	intro = intro.replace(/\r/g, "").replace(/\n/g, "&lt;br>"); //g : 전체영역(정규식). 자기소개 엔터 적용을 위해
+	job = $('#work').val();
+
+	//출력2
+	console.log(userId, sex, intro, job);
+	res = "아이디 : " + userId + "&lt;br>";
+	res += "성별 : " + sex + "&lt;br>"
+	res += "직업 : " + job + "&lt;br>"
+	res += "자기소개---------------------&lt;br>" + intro + "&lt;br>"
+	$('.out').html(res);
+			
+	★자동 전송 타입 : 타입이 없는 버튼, input type submit, input type image, form
+</pre>
+
+	<br>
+	<br>
+	<div id="d1">
+		<form>
+			<label for="user">이름</label>
+			<input type="text" id="user" value="korea"><br>
+			
+			<label >성별</label> 
+			<input type="radio" class="sex" name="sex" value="여자" checked>여자
+			<input type="radio" class="sex" name="sex" value="남자">남자<br>
+			
+			<label for="intro">소개</label> 
+			<textarea id="intro" cols="40" rows="4"></textarea> <br>
+			
+			<label for="work">직업</label>
+			<select id="work">
+				<option value="programmer">프로그래머</option>
+				<option value="progammer">프로게이머</option>
+				<option value="whitehand">백수</option>
+			</select><br>
+			
+			<button id="btnview" type='button'>조사하기 </button>
+			<button  id="btnchange">이름변경 </button>
+		</form>
+	</div>
+	<div class="out"></div>
+
+</body>
+</html>
