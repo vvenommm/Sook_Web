@@ -2,113 +2,80 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Click Hide</title>
+<title>Context 지정</title>
 <link rel="stylesheet" href="../css/public.css">
 <link rel="shortcut icon" type="image/x-icon" href="../images/J.png"/>
 <script src="../js/jquery-3.6.0.min.js" type="text/javascript"></script>
 <script>
 
-/////////////////////다 같은 것 (아래 3개)//////////////////////////
-	$(document).ready(function() {
-		$('#d2 h2').on('click', function() {
-// 			alert("hello");
-// 			$('#d2 h2').hide(); //h2가 한번에 모두 사라짐
+//document 출력 후 함수를 실행하라는 뜻의 3가지 방법.
+// window.onload = function(){}
+// $(document).ready(function(){})
+// $(function(){})
 
-			//하나씩 사라짐
-// 			this.style.display = "none"; //자스
- 			$(this).hide(); //제이쿼리
-		})
-	});
-
-	//
-// 	window.onload = function(){
-// 		$('#d2 h2').on('click', function() {
-// 			alert("hello");
-// 			$('#d2 h2').hide(); //h2가 한번에 모두 사라짐
-
-// 			//하나씩 사라짐
-// 			this.style.display = "none"; //자스
-//  			$(this).hide(); //제이쿼리
-// 	}}
+$(function (){
 	
-// 	$(function(){
-// 		$('#d2 h2').on('click', function() {
-// 			alert("hello");
-// 			$('#d2 h2').hide(); //h2가 한번에 모두 사라짐
-
-// 			//하나씩 사라짐
-// 			this.style.display = "none"; //자스
-//  			$(this).hide(); //제이쿼리
-// 	}
+	//모든 p태그 선택
+	$('p').css('background', 'pink');	
 	
+	//1번 form 안의 p태그 선택
+	$('p', document.forms[1]).css('font-size', '2.0em');
+	
+	//이벤트 발생되는 요소(this) 내에서 p태그 선택
+	$('div').on('click', function(){
+// 		$('p', this).css('color', 'red');
+// 		$('p', this).css('font-size', '2.0em');
+// 		$('p', this).css('font-weight', 'bold');
 		
-///////////////////////////////////////////////////////////
-	
-	function proc1(click) {
+		//위의 세개를 연속으로 이어서 쓸 수 있음
+// 		$('p', this).css('color', 'red').css('font-size', '2.0em').css('font-wight', 'bold');
 		
-///////////////////색 바꿔보기/////////////////
-// 		click.style.color = 'red';
-		
-		//혹은
-// 		jQuery(click).css('background', 'pink');
-// 		$(click).css('background', 'pink');
+		//css를 한 번만 써서 작성
+		$('p', this).css({'color':'red', 'font-size':'2.0em', 'font-weight':'bold'}); //여기서 this는 onclick
+	})
+})
 
-///////////////////사라지게 해보기/////////////////
-// 		click.style.display = "none";
-		$(click).hide();
-
-	}
-	
-// 	function proc1(click){ -> click은 javascript의 변수이고 click.css는 jQuery이기 때문에 오류
-// 		click.css('color', 'red');
-// 	}
 </script>
-
-<style type="text/css">
-span {
-	color : red;
-}
-
-h2:hover {
-	color : white;
-	background: black;
-}
-</style>
 </head>
 <body>
 
 <pre>
-JavaScript ver.
-&lt;h2 <span>onclick="proc1(this)"</span>>클릭하면 사라집니다1.&lt;/h2>
-</pre>
+&lt;div id = "d1">
+	&lt;p>Only one&lt;/p>
+&lt;/div>
 
-<!-- <input type="button" value = "확인" onclick="proc1()"> -->
-<div id = "d1">
-<h2 onclick="proc1(this)">클릭하면 사라집니다1.</h2>
-<h2 onclick="proc1(this)">클릭하면 사라집니다2.</h2>
-<h2 onclick="proc1(this)">클릭하면 사라집니다3.</h2>
-<h2 onclick="proc1(this)">클릭하면 사라집니다4.</h2>
-<h2 onclick="proc1(this)">클릭하면 사라집니다5.</h2>
-<h2 onclick="proc1(this)">클릭하면 사라집니다6.</h2>
-<h2 onclick="proc1(this)">클릭하면 사라집니다7.</h2>
-</div>
+&lt;p>Can't take my eyes off you&lt;/p>
+
+&lt;form>
+	&lt;p>Love Letter&lt;/p>
+&lt;/form>
+
+&lt;form>
+	&lt;p>Marvin Gaye&lt;/p> &lt;!-- $('p', document.forms[1]);하면 여기가 선택됨 -->
+&lt;/form>
+
+&lt;div>
+	&lt;p>Every Heart&lt;/p>
+&lt;/div>
+</pre>
 
 <br><br>
+<div id = "d1">
+	<p>Only one</p>
+</div>
 
-<pre>
-JQuery ver.
-$('h2').on('click', function(){});
-</pre>
+<p>Can't take my eyes off you</p>
 
-<!-- <input type="button" value = "확인" onclick="proc2()"> -->
-<div id = "d2">
-<h2>클릭하면 사라집니다1.</h2>
-<h2>클릭하면 사라집니다2.</h2>
-<h2>클릭하면 사라집니다3.</h2>
-<h2>클릭하면 사라집니다4.</h2>
-<h2>클릭하면 사라집니다5.</h2>
-<h2>클릭하면 사라집니다6.</h2>
-<h2>클릭하면 사라집니다7.</h2>
+<form>
+	<p>Love Letter</p>
+</form>
+
+<form>
+	<p>Marvin Gaye</p> <!-- $('p', document.forms[1]);하면 여기가 선택됨 -->
+</form>
+
+<div>
+	<p>Every Heart</p>
 </div>
 
 </body>
