@@ -77,30 +77,16 @@ function adding(){
 		tds += "<td>" + $(this).val() + "</td>";
 	});
 	$(tds).appendTo($('tbody tr:last'));
-	
-	
-	
-	
-	//값 구하기
-// 	arr = new Array;
-
-// 	$('#unseen').find('input[type=text]').each(function(i, v){
-//     	arr.push($(this).val());
-// });
-	
-	//값 넣기
-	
-
-	
 }
 
 function del(){
-	input = prompt('삭제할 글 번호 입력', '숫자만 입력!!!!!!!!!!1'); //Number 형변환
-	
+	input = Number(prompt('삭제할 글 번호 입력', '숫자만 입력!!!!!!!!!!1')); //Number 형변환
+	check = isNaN(input);
+
 	//if 타입 비교
-// 	if(input == " " || input == "" || typeof input !== "number"){
-// 		alert('숫자 온리!!!! 정상 입력 부탁');
-// 	}else if(typeof input === "Number"){
+	if(check == true){
+		alert('숫자 온리!!!! 정상 입력 부탁');
+	}else{
 		//값 배열에 넣기
 		arr = new Array;
 		arr = $('tbody tr th').text();
@@ -110,10 +96,11 @@ function del(){
 			alert('그런 번호 없어요~~~');
 		}else{
 			//존재하는 번호일 때
-			idx = arr.indexOf(input);
-// 			$('td:nth-child(2)')
+			idx = arr.indexOf(input)+1;
+			idx = "tr:nth-child(" + idx + ")";
+			$(idx).remove();
 		}
-// 	}
+	}
 
 // 	num = parseInt($('tr:last th').text());
 	
