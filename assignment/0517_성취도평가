@@ -25,9 +25,6 @@ function btn2(){
 	btnReturn = btn1();
 	
 	//버튼1 prompt로 입력받은 값에 따라 열 추가하는 기능은 1번만 가능하게 하는 조건문
-// 	size = $('#head th').length;
-// 	boxSize = $('#unseen :text').length;	
-
 	if (btnReturn != false) {
 		str = '<th>' + btnReturn + '</th>';
 		$(str).appendTo($('thead tr:last'));
@@ -35,20 +32,15 @@ function btn2(){
 		str = '<td></td>';
 		$(str).appendTo($('tbody tr'));
 
-// 		if (size === boxSize) {
-// 			return;
-// 		} else {
-			str = '<input type="text"><br>';
+		str = '<input type="text"><br>';
 
-			$(str).appendTo($('#unseen'));
-// 		}
+		$(str).appendTo($('#unseen'));
 				
-			$('#unseen :button').appendTo($('#unseen'));
+		$('#unseen :button').appendTo($('#unseen'));
 				
-// 			title = null;
-		} else {
-			return;
-		}
+	} else {
+		return;
+	}
 }
 
 //div 토글
@@ -67,12 +59,6 @@ function adding(){
 	
 	//td 행 추가와 동시에 입력값도 넣기
 	tds = "";
-// 	size = $('#unseen :text').length;
-// 	for(i = 0; i < size; i++){
-// 		tds += '<td></td>';
-// 	}
-// 	$(tds).appendTo($('tbody tr:last'));
-	
 	$.each($('#unseen input[type="text"]'), function(i, v){
 		tds += "<td>" + $(this).val() + "</td>";
 	});
@@ -91,7 +77,7 @@ function del(){
 		arr = new Array;
 		arr = $('tbody tr th').text();
 		
-		//있는 번호인지
+		//있는 번호인지 확인하는 조건문
 		if(arr.indexOf(input) < 0){
 			alert('그런 번호 없어요~~~');
 		}else{
@@ -101,13 +87,14 @@ function del(){
 			$(idx).remove();
 		}
 	}
-
-// 	num = parseInt($('tr:last th').text());
-	
-	
 }
 </script>
 <style type="text/css">
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Dongle:wght@300;400&family=Gowun+Batang&display=swap');
+body *{
+	font-family: 'Gowun Batang', serif;
+	font-size: 1.2em;
+}
 body{
 	padding : 50px;
 }
@@ -141,6 +128,17 @@ td:hover{
 	background: green;
 }
 
+input[type=button]{
+	width : auto;
+	font-size : 1.2em;
+	border-radius: 50px;
+}
+
+button{
+	width : auto;
+	font-size : 1.2em;
+	border-radius: 50px;
+}
 
 </style>
 </head>
