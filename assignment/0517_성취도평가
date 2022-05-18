@@ -6,9 +6,6 @@
 <link rel="shortcut icon" type="image/x-icon" href="../images/J.png"/>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
-
-title = null;
-
 //th 값 입력받기
 function btn1(){
 	
@@ -18,25 +15,21 @@ function btn1(){
 		return false;
 	}else{
 		alert(title);
+		return title;
 	}
 }
 
-//div 토글
-$(function() {
-	$('#add').on('click', function() {
-		$('#unseen').toggle();
-	})
-})
-
 //btn1()에서 입력받은 값 -> 테이블 열, div에 글상자 추가
 function btn2(){
+	
+	btnReturn = btn1();
 	
 	//버튼1 prompt로 입력받은 값에 따라 열 추가하는 기능은 1번만 가능하게 하는 조건문
 // 	size = $('#head th').length;
 // 	boxSize = $('#unseen :text').length;	
 
-	if (title != null) {
-		str = '<th>' + title + '</th>';
+	if (btnReturn != false) {
+		str = '<th>' + btnReturn + '</th>';
 		$(str).appendTo($('thead tr:last'));
 
 		str = '<td></td>';
@@ -52,11 +45,18 @@ function btn2(){
 				
 			$('#unseen :button').appendTo($('#unseen'));
 				
-			title = null;
+// 			title = null;
 		} else {
 			return;
 		}
 }
+
+//div 토글
+$(function() {
+	$('#add').on('click', function() {
+		$('#unseen').toggle();
+	})
+})
 
 //테이블 행 추가와 div의 입력버튼을 누르면 글상자에 입력한 값이 테이블에 들어가게
 function adding(){
@@ -65,21 +65,60 @@ function adding(){
 	str = '<tr><th>' + (num+1) + '</th></tr>';
 	$(str).appendTo($('tbody'));
 	
-	//td 행 추가
+	//td 행 추가와 동시에 입력값도 넣기
 	tds = "";
-	size = $('#unseen :text').length;
-	for(i = 0; i < size; i++){
-		tds += '<td></td>';
-	}
+// 	size = $('#unseen :text').length;
+// 	for(i = 0; i < size; i++){
+// 		tds += '<td></td>';
+// 	}
+// 	$(tds).appendTo($('tbody tr:last'));
+	
+	$.each($('#unseen input[type="text"]'), function(i, v){
+		tds += "<td>" + $(this).val() + "</td>";
+	});
 	$(tds).appendTo($('tbody tr:last'));
 	
 	
-	//값 입력
-	$('#unseen input').val();
-// 	alert(size);
+	
+	
+	//값 구하기
+// 	arr = new Array;
+
+// 	$('#unseen').find('input[type=text]').each(function(i, v){
+//     	arr.push($(this).val());
+// });
+	
+	//값 넣기
+	
+
+	
 }
 
+function del(){
+	input = prompt('삭제할 글 번호 입력', '숫자만 입력!!!!!!!!!!1'); //Number 형변환
+	
+	//if 타입 비교
+// 	if(input == " " || input == "" || typeof input !== "number"){
+// 		alert('숫자 온리!!!! 정상 입력 부탁');
+// 	}else if(typeof input === "Number"){
+		//값 배열에 넣기
+		arr = new Array;
+		arr = $('tbody tr th').text();
+		
+		//있는 번호인지
+		if(arr.indexOf(input) < 0){
+			alert('그런 번호 없어요~~~');
+		}else{
+			//존재하는 번호일 때
+			idx = arr.indexOf(input);
+// 			$('td:nth-child(2)')
+		}
+// 	}
 
+// 	num = parseInt($('tr:last th').text());
+	
+	
+}
 </script>
 <style type="text/css">
 body{
@@ -126,7 +165,7 @@ td:hover{
 	<input type='button' value='버튼2' onclick='btn2()'>
 	<input type='button' value='추가' id='add' >
 <!-- 	<input type='button' value='추가' onclick='tog()' > -->
-	<input type='button' value='삭제'>
+	<input type='button' value='삭제' onclick='del()'>
 </div><br>
 
 <div id="unseen">
