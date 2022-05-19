@@ -7,35 +7,23 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
 alert('WELCOME! 후후리의 답안입니다! 보너스 게임에 참여해보세요!')
+
+//세로줄 hover/////////////////////////////////////////////////////////////////////
 $(function(){
 	$('td').hover(function() {
 		var i = parseInt($(this).index()) + 1;
-		$('td:nth-child(' + i + ')').addClass('hoverC');
-		$(this).parent().addClass('hoverR');
+		$('tbody tr td:nth-child(' + i + ')').addClass('hoverC');
 	},
 
 	function() {
 		var i = parseInt($(this).index()) + 1;
-		$('td:nth-child(' + i + ')').removeClass('hoverC');
-		$(this).parent().removeClass('hoverR');
+		$('tbody tr td:nth-child(' + i + ')').removeClass('hoverC');
 	});
 
- 
 })
   
-// $('td').mouseover(function () {
-//     $(this).siblings().css('background-color', '#FFEAE0');
-//     idx = $(this).index()+1;
-//     $('td:nth-child(' + idx + ')').css('background-color', '#BDCFCC');
-// });
 
-// $('td').mouseleave(function () {
-//     $(this).siblings().css('background-color', '');
-//     idx = $(this).index()+1;
-//     $('td:nth-child(' + idx + ')').css('background-color', '');
-// })
-
-//th 값 입력받기
+//th 값 입력받기//////////////////////////////////////////////////////////////////
 function btn1(){
 	
 	title = prompt('타이틀 이름은 무엇이쥬?');
@@ -48,20 +36,21 @@ function btn1(){
 	}
 }
 
-//btn1()에서 입력받은 값 -> 테이블 열, div에 글상자 추가
+
+//btn1()에서 입력받은 값 -> 테이블 열, div에 글상자 추가////////////////////////////////////
 function btn2(){
 	
-	btnReturn = btn1();
+	title = btn1();
 	
 	//버튼1 prompt로 입력받은 값에 따라 열 추가하는 기능은 1번만 가능하게 하는 조건문
-	if (btnReturn != false) {
-		str = '<th>' + btnReturn + '</th>';
+	if (title != false) {
+		str = '<th>' + title + '</th>';
 		$(str).appendTo($('thead tr:last'));
 
 		str = '<td></td>';
 		$(str).appendTo($('tbody tr'));
 
-		str = '<input type="text"><br>';
+		str = '<input type="text" value="' + title + '"><br>';
 
 		$(str).appendTo($('#unseen'));
 				
@@ -72,14 +61,16 @@ function btn2(){
 	}
 }
 
-//div 토글
+
+//div 토글///////////////////////////////////////////////////////////////////////////////
 $(function() {
 	$('#add').on('click', function() {
 		$('#unseen').toggle();
 	})
 })
 
-//테이블 행 추가와 div의 입력버튼을 누르면 글상자에 입력한 값이 테이블에 들어가게
+
+//테이블 행 추가와 div의 입력버튼을 누르면 글상자에 입력한 값이 테이블에 들어가게/////////
 function adding(){
 	//번호 생성 및 추가
 	num = parseInt($('tr:last th').text());
@@ -94,6 +85,8 @@ function adding(){
 	$(tds).appendTo($('tbody tr:last'));
 }
 
+
+//삭제버튼/////////////////////////////////////////////////////////////////////////////////
 function del(){
 	input = Number(prompt('삭제할 글 번호 입력', '숫자만 입력!!!!!!!!!!1')); //Number 형변환
 	check = isNaN(input);
@@ -112,7 +105,8 @@ function del(){
 		}else{
 			//존재하는 번호일 때
 			idx = arr.indexOf(input)+1;
-			idx = "tr:nth-child(" + idx + ")";
+			idx = "tbody tr:nth-child(" + idx + ")";
+			
 			$(idx).remove();
 		}
 	}
@@ -126,12 +120,11 @@ body *{
 }
 body{
 	padding : 50px;
+	overflow: scroll;
 }
 table {
  	border : 3px solid #9CAB98;
 	text-align: center;
-/* 	background: #D5DCD9; */
-/* 	border-collapse: collapse; */
 }
 
 th {
@@ -151,10 +144,6 @@ tr:hover{
 	background: #FFEAE0;
 }
 
-.hoverR{
-	background: #BDCFCC;
-}
-
 .hoverC{
 	background: #FFEAE0;
 }
@@ -167,7 +156,6 @@ td:hover{
  	display: none;
 	margin : 10px;
 	padding: 40px;
-/* 	background: #F8C4C8; */
 	background: #70898C;
 	border-radius: 50px;
 }
@@ -196,23 +184,31 @@ button{
 	border : 1px solid #BDCFCC;
 }
 
+#me{
+	display : inline-block;
+	position : fixed;
+	bottom : 300px;
+	right : 50px;
+}
+
+#am{
+	width : 30px;
+}
 </style>
 </head>
 <body>
-
 
 <div>
 	<input type='button' value='버튼1' onclick='btn1()'>
 	<input type='button' value='버튼2' onclick='btn2()'>
 	<input type='button' value='추가' id='add' >
-<!-- 	<input type='button' value='추가' onclick='tog()' > -->
 	<input type='button' value='삭제' onclick='del()'>
 </div><br>
 
 <div id="unseen">
-	<input type='text'><br>
-	<input type='text'><br>
-	<input type='text'><br>
+	<input type='text' value="이름"><br>
+	<input type='text' value="주소"><br>
+	<input type='text' value="전화번호"><br>
 	<input type='button' value='입력' onclick='adding()'>
 </div><br>
 
@@ -241,5 +237,8 @@ button{
 		</tr>
 	</tbody>
 </table>
+<div id = "me" onclick="alert('아얏! 왜 눌러여 ㅡ,.ㅡ')">
+<img id="am" alt="까꿍" src="../images/me.png" >
+</div>
 </body>
 </html>
