@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>속성 메소드</title>
+<link rel="stylesheet" href="../css/public_blue.css">
+<link rel="shortcut icon" type="image/x-icon" href="../images/J.png"/>
+<script src="../js/jquery-3.6.0.min.js" type="text/javascript"></script>
+<script>
+$(function(){
+	$('#btn1').on('click', function(){
+// 		$('img').attr('title', '그림');
+		
+
+		$('img').attr('title', function(){
+		a = $(this).attr('src');
+			
+		st = a.lastIndexOf("/") + 1;
+		end = a.lastIndexOf(".");
+		
+		title = a.substring(st, end);
+// 		title = a.slice(st, end);
+		
+		return title;
+		})
+		
+	})
+	
+	
+})
+</script>
+<style type="text/css">
+img {
+	width : 100px;
+}
+
+
+</style>
+</head>
+<body>
+
+
+<pre>
+버튼을 클릭하면 title 속성을 설정
+
+</pre>
+
+<input type="button" value = "확인" id="btn1">
+<br><br>
+<div id = "d1">
+	<img src="../images/Better.jpg" alt=''>
+	<img src="../images/Camo.jpeg" alt=''>
+	<img src="../images/Woman.jpg" alt=''>
+	<img src="../images/image.6.jpg" alt=''>
+	<img src="../images/image.5.jpg" alt=''>
+</div>
+
+</body>
+</html>
