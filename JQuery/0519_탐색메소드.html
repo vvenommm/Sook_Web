@@ -56,6 +56,18 @@ $(function(){
 		$('#d2 span').parentsUntil('div').css({'background' : 'skyblue', 'color' : 'white', 'border' : '2px solid blue', 'font-weight' : 'bold'});
 	})
 		
+	
+//////////////////////////////////////////////////////////////////////////////////
+
+
+		
+	$('#find1').on('click', function(){
+		$(this).parent().find().css({'background' : 'skyblue'});
+	})
+		
+	$('#find2').on('click', function(){
+		$(this).parent().find('span').css({'background' : 'skyblue'});
+	})
 		
 })
 </script>
@@ -131,6 +143,39 @@ A.parentsUntil(selector) -> A와 selector 사이의 모든 조상 요소를 반�
       </li>
     </ul>
 </div>
+
+<br><br>
+
+<pre>
+Syntax : $(selector).find(filter)
+A.find() -> A의 후손 요소들 반환
+A.find(selector) -> A의 후손 요소들 중 selector에 해당하는 후손만 반환
+</pre>
+
+<div id = "d3">
+<input type="button" value = "find" id="find1">
+   <div style="width:500px;" class="siblings">
+	div (great-grandparent)
+    <ul>ul (grandparent)
+      <li>li (direct parent)
+        <span>span</span>
+      </li>
+    </ul>
+</div>
+</div>
+
+<div id = "d4">
+<input type="button" value = "find" id="find2">
+   <div style="width:500px;" class="siblings">
+ 	div (great-grandparent)
+    <ul>ul (grandparent)
+      <li>li (direct parent)
+        <span>span</span>
+      </li>
+    </ul>
+</div>
+</div>
+
 
 </body>
 </html>
