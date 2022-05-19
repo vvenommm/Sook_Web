@@ -1,2 +1,2 @@
 # Sook
-Sook's wqb basic
+Sook's web basic
