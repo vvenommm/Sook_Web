@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>탐색 메소드 with clone</title>
+<link rel="stylesheet" href="../css/public_blue.css">
+<link rel="shortcut icon" type="image/x-icon" href="../images/J.png"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+$(function(){
+	
+	$('#clone').on('click', function(){
+		$('#d1 p').on('click', function(){
+			if($(this).parent().is('.dd')){
+				$(this).clone().appendTo($(this).parent()).css('color', 'red'); //클릭한거 복사. .dd는 여러개라 this의 parent로 표시해줘야 함
+			}
+		})
+	})
+		
+
+		
+//////////////////////////////////////////////////////////////////////////////////
+
+
+
+	$('#cloneT').on('click', function(){
+		$('#d1 p').on('click', function(){
+			if($(this).parent().is('.dd')){
+				$(this).clone(true).appendTo($(this).parent()).css('color', 'red'); //클릭한거 복사. .dd는 여러개라 this의 parent로 표시해줘야 함
+			}
+		})
+	})
+})
+</script>
+<style type="text/css">
+p {
+	border : 5px solid red;
+}
+</style>
+</head>
+<body>
+
+<pre>
+1. is() -> clone
+	$('#clone').on('click', function(){
+		$('#d1 p').on('click', function(){
+			if($(this).parent().is('.dd')){
+				$(this).clone().appendTo($(this).parent()).css('color', 'red');
+			}
+		})
+	})
+
+
+
+2. is() -> clone(true)
+	$('#cloneT').on('click', function(){
+		$('#d1 p').on('click', function(){
+			if($(this).parent().is('.dd')){
+				$(this).clone(true).appendTo($(this).parent()).css('color', 'red');
+			}
+		})
+	})
+</pre>
+<input type="button" value = "clone" id="clone">
+<input type="button" value = "clone(true)" id="cloneT">
+
+<div id = "d1">
+	<div class = 'dd'>
+		<p>L is for the way you look at me</p>
+	</div>
+
+	<p>O is for the only one I see</p>
+
+	<div class = 'dd'>
+		<p>V is very very extraordinary</p>
+	</div>
+</div>
+  
+
+</body>
+</html>
