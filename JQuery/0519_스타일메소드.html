@@ -1,1 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Title</title>
+<link rel="stylesheet" href="../css/public_blue.css">
+<link rel="shortcut icon" type="image/x-icon" href="../images/J.png"/>
+<script src="../js/jquery-3.6.0.min.js" type="text/javascript"></script>
+<script>
+$(function(){
+	$('img').on('mouseover', function(){
+		$(this).addClass('iborder');
+	})
+	
+	$('img').on('mouseout', function(){
+		$(this).removeClass('iborder');
+	})
+	
+	//////////////////////////////////////////////////////
+	
+// 	$('#d2 p').on('click', function(){
+// 		$(this).addClass('bcolor');
+// 	})
+	
+// 	$('#d2 p').on('dblclick', function(){
+// 		$(this).removeClass('bcolor');
+// 	})
+	
+	//////////////////////////////////////////////////////
+	
+	//위에껄 토글로
+	$('#d2 p').on('click', function(){
+		$(this).toggleClass('bcolor');
+	})
+	
+})
+</script>
+<style type="text/css">
+img {
+	width : 100px;
+}
 
+.iborder{
+	border : 3px solid red;
+}
+
+.bcolor{
+	background : pink;
+}
+
+</style>
+</head>
+<body>
+
+
+<pre>
+
+</pre>
+
+<input type="button" value = "확인" id="btn1">
+<br><br>
+<div id = "d1">
+	<img src="../images/Better.jpg" alt=''>
+	<img src="../images/Camo.jpeg" alt=''>
+	<img src="../images/Woman.jpg" alt=''>
+	<img src="../images/image.6.jpg" alt=''>
+</div>
+
+<br><br>
+
+<div id = "d2">
+	<p class='bcolor'>L is for the way you look at me</p>
+
+	<p>O is for the only one I see</p>
+
+	<p>V is very very extraordinary</p>
+
+	<p>E is even more than anyone that you adore can</p>
+</div>
+
+</body>
+</html>
