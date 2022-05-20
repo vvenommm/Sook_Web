@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>bind 이벤트</title>
+<link rel="stylesheet" href="../css/public_blue.css">
+<link rel="shortcut icon" type="image/x-icon" href="../images/J.png"/>
+<script src="../js/jquery-3.6.0.min.js" type="text/javascript"></script>
+<script>
+$(function(){
+	//아래 3개는 같은 기능을 한다. 2개는 주석처리 하겠다.
+// 	$('.btn').on('click', function(){	})
+// 	$('.btn').click(function(){	})
+	$('.btn').bind('click', function(){
+		$('<input type="button" value="방법1" class="btn">').appendTo($('#d1'));
+		$('<input>', {'type' : 'button', 'value' : '방법2', 'class' : 'btn'}).appendTo($('#d1'));
+	})
+	
+	$('#stop').bind('click', function(){
+		//해제할 때는 unbind() 혹은 off()로
+		$('.but').unbind('click');
+// 		$('.but').off('click');
+	})
+	
+	$('.butone').bind('click', function(){
+		aa = $('<input type="button" value="one이벤트">');
+		$(aa).appendTo($('d1'));
+	})
+})
+</script>
+</head>
+<body>
+
+
+<pre>
+$('.btn').on('click', function(){	})
+$('.btn').click(function(){	})
+$('.btn').bind('click', function(){
+
+같은 클래스명을 가졌더래도 함수를 통해서 새로 생긴 버튼들은 눌러도 이벤트 처리기능을 수행할 수 없다.
+</pre>
+
+<input type="button" value = "확인" class="btn">
+<br><br>
+<input type="button" value = "중지" id="stop">
+<br><br>
+<div id = "d1">
+
+</div>
+
+</body>
+</html>
