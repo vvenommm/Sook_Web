@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>상태 prop 메소드</title>
+<link rel="stylesheet" href="../css/public_blue.css">
+<link rel="shortcut icon" type="image/x-icon" href="../images/J.png"/>
+<script src="../js/jquery-3.6.0.min.js" type="text/javascript"></script>
+<script>
+$(function(){
+	chk = $('#checkTest').prop('checked');
+	opt = $('#selTest option').eq(2).prop('selected');
+	txt = $('#txtTest').prop('readonly');
+	but = $('#runBtn').prop('disabled');
+		
+	console.log(chk, opt, txt, but);
+
+	$('#btn1').on('click', function(){
+		
+		if(chk == true) {
+			$('#checkTest').prop('checked', false);
+		}else if(chk == false){
+			$('#checkTest').prop('checked', true);
+		}
+	})
+
+	$('#btn2').on('click', function(){
+		
+		$('#checkTest2').prop('checked', !$('#checkTest2').prop('checked'));
+		$('#selTest2 option').eq(2).prop('selected', !$('#selTest2 option').eq(2).prop('selected'));
+		$('#txtTest2').prop('readonly', !$('#txtTest2').prop('readonly'));
+		$('#runBtn2').prop('disabled', !$('#runBtn2').prop('disabled'));
+	})
+	
+	$('#all').on('change', function(){
+		vcheck = $(this).prop('checked'); //true 혹은 false를 리턴하는 함수를 vcheck에 담기
+		
+		$('.check').prop('checked', vcheck); //true나 false를 담은 vcheck를 이용해 전체선택 혹은 해제
+	})
+	
+})
+</script>
+</head>
+<body>
+
+<pre>
+처음 실행 시 현재 상태값을 얻어온다.
+prop('checked') prop('selected')
+prop('disabled') prop('readonly')
+</pre>
+
+<input type="button" value = "확인" id="btn1">
+<br><br>
+<div id = "d1">
+	<form>
+	체크박스(라디오버튼) : <input type="checkbox" id="checkTest" checked><br><br>
+
+	리스트박스(select객체) : 
+	<select id="selTest">
+		<option value="1">하나</option>
+		<option value="2">둘</option>
+		<option value="3" selected >셋</option>
+		<option value="4">넷</option>
+	</select><br><br>
+
+	text객체 (read only) : <input readonly type="text" value="가나다" id="txtTest"><br><br>
+
+	button객체(disabled) : <input type="button" value="실행" id="runBtn" onclick="alert('Hello~~')">
+</form>
+</div>
+
+<pre>
+확인 버튼을 누를 때마다 현재 상태값 반대로 얻어온다.
+prop('checked', 변경값) prop('selected', 변경값)
+prop('disabled, 변경값') prop('readonly', 변경값)
+</pre>
+
+<input type="button" value = "확인" id="btn2">
+<br><br>
+<div id = "d2">
+	<form>
+	체크박스(라디오버튼) : <input type="checkbox" id="checkTest2" checked><br><br>
+
+	리스트박스(select객체) : 
+	<select id="selTest2">
+		<option value="1">하나</option>
+		<option value="2">둘</option>
+		<option value="3" selected >셋</option>
+		<option value="4">넷</option>
+	</select><br><br>
+
+	text객체 (read only) : <input readonly type="text" value="가나다" id="txtTest2"><br><br>
+
+	button객체(disabled) : <input type="button" value="실행" id="runBtn2" onclick="alert('Hello~~')">
+</form>
+</div>
+
+<pre>
+① 전체 선택의 상태값으로 상태값 가져오기
+	syntax) A.prop('상태')
+	
+② 1~5의 상태값 설정
+	syntax) A.prop('상태', 설정값)
+</pre>
+
+<div id="d3">
+	<input type='checkbox' id='all'>전체선택/해제
+	<input type='checkbox' class='check'>1
+	<input type='checkbox' class='check'>2
+	<input type='checkbox' class='check'>3
+	<input type='checkbox' class='check'>4
+	<input type='checkbox' class='check'>5
+</div>
+</body>
+</html>
