@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ajax 테스트</title>
+<link rel="stylesheet" href="../css/public_blue.css">
+<link rel="shortcut icon" type="image/x-icon" href="../images/J.png"/>
+<script src="../js/jquery-3.6.0.min.js" type="text/javascript"></script>
+<script>
+$(function(){
+	$('#sync').on('click', function(){
+		
+	})
+	
+	$('#sync').on('click', function(){
+		
+	})
+})
+</script>
+</head>
+<body>
+
+
+<pre>
+① xhr = new XMLHttpRequest() 객체 생성
+② 요청
+	xhr.open('get/post, '서버페이지?id=a001&name=korea', true);
+	xhr.send();
+	
+	- 요청시 처리되는 readystate
+	0: 요청 전 1:요청 페이지 로드, 2:요청 페이지 로드 완료, 3:요청 페이지 처리 중, 4:처리완료
+	
+	- status
+	404 : 그런 페이지 없음
+	304 : 요청 형식 오류 (get / post)
+	500 : 코드 오류. Syntax 오류
+	200 : 성공!
+	
+	
+	xhr.open('post', '서버페이지', true);
+	xhr.setRequestHeader('키', '값');
+	xhr.send("id=a001&name=korea");
+③ 응답
+	xhr.onreadystatechange = function(){
+		if(this.readyState == 4 && this.status == 200){
+		this.responseText - json형식으로 parsing
+		this.responseXML - 
+		}
+	}
+</pre>
+
+<input type="button" value = "일반요청" id="sync">
+<input type="button" value = "비동기요청" id="async">
+<br><br>
+<div id = "d1">
+
+</div>
+
+</body>
+</html>
