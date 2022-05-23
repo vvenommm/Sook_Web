@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>LPROD 2</title>
+<link rel="stylesheet" href="../css/public_blue.css">
+<link rel="shortcut icon" type="image/x-icon" href="../images/J.png"/>
+<script src="../js/jquery-3.6.0.min.js" type="text/javascript"></script>
+<script>
+$(function(){
+		
+		xmlR = new XMLHttpRequest();
+		
+// 	$('input:button').on('click', function(){
+	$('#btn1').on('click', function(){
+		
+		//요청
+		xmlR.open('get', '../0523/lprod.jsp', true);
+		xmlR.send();
+		
+		//응답
+		xmlR.onreadystatechange = function(){
+			if(this.readyState == 4 && this.statue == 200){
+				result = JSON.parse(this.responseText);
+				
+				//option 생성
+				code = "";
+				
+				$.each(res, function(i, v){
+					code += "<option value='" + v.id + "'>" + v.nm + "</option>";
+					
+				})
+				
+				$('#lprod').append(code);
+			}
+		}
+		
+	})
+	
+})
+</script>
+</head>
+<body>
+
+
+<pre>
+버튼 클릭 시 lprod의 정보를 출력
+</pre>
+
+<input type="button" value = "확인" id="btn1">
+<br><br>
+	<select id="lprod">
+	
+	</select>
+	<select id="prod">
+	
+	</select>
+<div id = "d1">
+</div>
+
+</body>
+</html>
