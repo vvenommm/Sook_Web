@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Title</title>
+<link rel="stylesheet" href="../css/public_blue.css">
+<link rel="shortcut icon" type="image/x-icon" href="../images/J.png"/>
+<script src="../js/jquery-3.6.0.min.js" type="text/javascript"></script>
+<script>
+$(function(){
+		
+		xmlR = new XMLHttpRequest();
+		
+	$('input:button').on('click', function(){
+		
+		//요청
+		xmlR.open('get', 'lprod.jsp', true);
+		xmlR.send();
+		
+		//응답
+		xmlR.onreadystatechange = function(){
+			if(this.readyState == 4 && this.statue == 200){
+				result = JSON.parse(this.responseText);
+			}
+		}
+		
+	})
+	
+})
+</script>
+</head>
+<body>
+
+
+<pre>
+버튼 클릭 시 lprod의 정보를 출력
+</pre>
+
+<input type="button" value = "확인" id="btn1" onclick="proc1()">
+<br><br>
+<div id = "d1">
+
+</div>
+
+</body>
+</html>
