@@ -21,17 +21,19 @@ $(function(){
 		//응답
 		xmlR.onreadystatechange = function(){
 			if(this.readyState == 4 && this.statue == 200){
-				result = JSON.parse(this.responseText);
+				res = JSON.parse(this.responseText);
 				
 				//option 생성
 				code = "";
 				
 				$.each(res, function(i, v){
-					code += "<option value='" + v.id + "'>" + v.nm + "</option>";
+					code += "<option>" + v.nm + "</option>";
 					
 				})
 				
-				$('#lprod').append(code);
+				
+				$('#lprod').html(code);
+// 				$('#lprod').append(code);
 			}
 		}
 		
