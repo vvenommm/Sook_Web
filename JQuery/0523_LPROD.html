@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Title</title>
+<title>LPROD</title>
 <link rel="stylesheet" href="../css/public_blue.css">
 <link rel="shortcut icon" type="image/x-icon" href="../images/J.png"/>
 <script src="../js/jquery-3.6.0.min.js" type="text/javascript"></script>
@@ -21,6 +21,18 @@ $(function(){
 		xmlR.onreadystatechange = function(){
 			if(this.readyState == 4 && this.statue == 200){
 				result = JSON.parse(this.responseText);
+				
+				code = "<table border='1'>";
+				code += "<tr><td>LPROD_ID</td>";
+				code += "<td>LPROD_GU</td>";
+				code += "<td>LPROD_NM</td></tr>";
+				
+				$.each(result, function(i, v){
+					code += "<tr><td>" + result[i].id + "</td>"; //result[i] = v
+					code += "<td>" + v.gu + "</td>";
+					code += "<td>" + v.nm + "</td></tr>";
+				})
+				code += "</table>";
 			}
 		}
 		
