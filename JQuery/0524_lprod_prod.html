@@ -20,14 +20,14 @@ $(function(){
 		
 		//응답
 		xmlR.onreadystatechange = function(){
-			if(this.readyState == 4 && this.statue == 200){
+			if(this.readyState == 4 && this.status == 200){
 				res = JSON.parse(this.responseText);
 				
 				//lprod 상품 option 생성
 				code = "";
 				
 				$.each(res, function(i, v){
-					code += "<option value='" +v.gu + "'>" + v.nm + "</option>";
+					code += "<option value='" +res[i].gu + "'>" + res[i].nm + "</option>";
 					
 				})
 				
@@ -51,21 +51,28 @@ $(function(){
 		
 		//비동기방식 : 페이지가 넘어가지 않음
 		//요청
-		xhr.open('get', 'prod.jsp?lgu=' + lguValue, true);
-		xhr.send();
+		xmlR.open("get", "prod.jsp?lgu=" + lguValue, true);
+		xmlR.send();
 		
 		//응답
-		xhr.onreadystatechange= function(){
+		xmlR.onreadystatechange= function(){
 			if(this.readyState == 4 && this.status == 200){
 				res = JSON.parse(this.responseText);
 				
 				//option 생성
+				code = "";
 				
+				$.each(res.data, function(i, v){
+					code += "<option value='" +v.id + "'>" + res.data[i].name + "</option>";
+					
+				})
+				
+				
+				$('#prod').html(code);
 			}
 		}
 		
-		})
-	}
+	})
 	
 })
 </script>
