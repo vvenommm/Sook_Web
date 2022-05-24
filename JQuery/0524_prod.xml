@@ -11,4 +11,8 @@
 	<select id = "selectByLgu" resultClass = "prod" parameterClass="string">
 		select prod_id, prod_name from prod where prod_lgu = #data#
 	</select>
+	
+	<select id = "selectByProdId" parameterClass="String" resultClass="prod">
+		select * from prod where prod_id = #data#
+	</select>
 </sqlMap>
