@@ -61,19 +61,17 @@ $(function(){
 				
 				//option 생성
 				code = "";
-				
-				$.each(res.data, function(i, v){
-					code += "<option value='" +v.id + "'>" + res.data[i].name + "</option>";
-					
-				})
-				
-				
+				if(res.sw == "ok"){
+					$.each(res.data, function(i, v){
+						code += "<option value='" +v.id + "'>" + res.data[i].name + "</option>";
+					})
+				}else{
+					code += "<option value='0'>데이터없음</option>";
+				}
 				$('#prod').html(code);
 			}
 		}
-		
 	})
-	
 })
 </script>
 </head>
