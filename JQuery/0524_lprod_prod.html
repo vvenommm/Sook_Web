@@ -23,11 +23,11 @@ $(function(){
 			if(this.readyState == 4 && this.statue == 200){
 				res = JSON.parse(this.responseText);
 				
-				//option 생성
+				//lprod 상품 option 생성
 				code = "";
 				
 				$.each(res, function(i, v){
-					code += "<option>" + v.nm + "</option>";
+					code += "<option value='" +v.gu + "'>" + v.nm + "</option>";
 					
 				})
 				
@@ -38,6 +38,34 @@ $(function(){
 		}
 		
 	})
+	
+	//lprod 상품을 선택하면 option의 value 값(lprod_gu)을 서버로 보내서
+	//lprod_gu 값을 파라미터로 하고, prod_lgu와 일치하는 의 상품 리스트 출력
+	//$('this option') -> this는 따옴표 안에 들어갈 수 없기 때문에 
+	//$('option:selected', this) 이렇게 바꿔줘야 함
+	$('#lprod').on('change', function(){
+		lguValue = $('option:selected', this).val();
+		console.log(lguValue); // 잘 넘어오는지 콘솔에 찍어보기
+		
+//		location.href="prod.jsp?lgu=" + lguvalue; //동기방식 : 페이지가 넘어감
+		
+		//비동기방식 : 페이지가 넘어가지 않음
+		//요청
+		xhr.open('get', 'prod.jsp?lgu=' + lguValue, true);
+		xhr.send();
+		
+		//응답
+		xhr.onreadystatechange= function(){
+			if(this.readyState == 4 && this.status == 200){
+				res = JSON.parse(this.responseText);
+				
+				//option 생성
+				
+			}
+		}
+		
+		})
+	}
 	
 })
 </script>
