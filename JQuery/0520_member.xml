@@ -12,5 +12,10 @@
 	<select id = "selectAll" resultClass="member">
 		select * from member
 	</select>
+	
+	<!-- 0525에 0525 member.html을 위해  -->
+	<select id="selectById" parameterClass="String" resultClass="String">
+		select mem_id from member where mem_id = #data#
+	</select>
 
 </sqlMap>
