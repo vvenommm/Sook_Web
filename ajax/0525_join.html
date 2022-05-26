@@ -12,30 +12,41 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
 <script>
 $(function(){
-	$('#checkid').on('click', function(){
+	$('#checkId').on('click', function(){
+		//입력한 id를 가져온다 - 공백체크
+		idValue = $('#id').val().trim();
+		
+		if(idValue.length < 1){
+			alert("아이디를 입력");
+			return false;
+		}
+		
 		//요청과 응답
 		$.ajax({
-			url : '/IdCheck.do', //이게 서블릿. /안 붙이면 404 오류 발생 (페이지가 없어서)
+			url : '/JQPro/IdCheck.do', //이게 서블릿. /안 붙이면 404 오류 발생 (페이지가 없어서)
 			type : 'post',
 			data : 'id=' + $('#id').val().trim(), //'id='는 idCheck.java에서 request.getParameter("id")와 같아야 함
 // 			data : { "id" : $('#id').val().trim()}, //이렇게 써도 됨
 			success : function(result){
-				
+				$('#spanId').html(result.sw).css('color', 'red');
 			},
-			error : function(xhr){
-				alert("상태 : " + xhr.status)
+			error : function(xmlR){
+				alert("상태 : " + xmlR.status);
 			},
 			dataType : 'json'
 			
 		})
+// 			console.log(data);
 		
 	})
 	
-})
-
-function proc1(){
 	
-}
+	//우편번호 검색
+	$('#zipbtn').on('click', function(){
+		//새로운 창 열기
+		window.open("searchZip.html", "우편번호찾기", "width=640 height=800 min-width=640"); //파일, 논리적이름(보이지 않음) -> 대신에 _blank 타입을 써도 됨, 크기
+	})
+})
 </script>
 <style type="text/css">
 @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Dongle:wght@300;400&family=Gowun+Batang&display=swap');
@@ -81,7 +92,7 @@ m은 데이터를 주고받기 위해
     </div>
     <div class="form-group">
       <label for="pw">비밀번호:</label>
-      <input type="password" class="form-control" id="pw" placeholder="Enter password" name="mem_pass">
+      <input type="password" class="form-control" id="pw" placeholder="Enter password" name="mem_pass" autoComplete="on">
     </div>
     <div class="form-group">
       <label for="name">이름:</label>
