@@ -15,7 +15,17 @@ $(function(){
 	$('#checkid').on('click', function(){
 		//요청과 응답
 		$.ajax({
-			url : '/IdCheck.do', //이게 서블릿
+			url : '/IdCheck.do', //이게 서블릿. /안 붙이면 404 오류 발생 (페이지가 없어서)
+			type : 'post',
+			data : 'id=' + $('#id').val().trim(), //'id='는 idCheck.java에서 request.getParameter("id")와 같아야 함
+// 			data : { "id" : $('#id').val().trim()}, //이렇게 써도 됨
+			success : function(result){
+				
+			},
+			error : function(xhr){
+				alert("상태 : " + xhr.status)
+			},
+			dataType : 'json'
 			
 		})
 		
