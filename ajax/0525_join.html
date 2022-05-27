@@ -8,6 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+<script src="../js/jquery.serializejson.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
 <script>
@@ -46,6 +47,64 @@ $(function(){
 		//새로운 창 열기
 		window.open("searchZip.html", "우편번호찾기", "width=640 height=800 min-width=640"); //파일, 논리적이름(보이지 않음) -> 대신에 _blank 타입을 써도 됨, 크기
 	})
+	
+	//전송 제출 - 저장하기
+	$('form').on('submit', function(){
+// 		alert('전송');
+
+		//입력한 모든 값을 가져온다
+	/*
+		$('#id').val().trim();
+		$('#name').val().trim();
+		$('#pw').val().trim();
+		$('#email').val().trim();
+		$('#bir').val().trim();
+		$('#hp').val().trim();
+		$('#zip').val().trim();
+		$('#add1').val().trim();
+		$('#add2').val().trim();
+		
+		//userData 만드는 방법
+		//1) 객체 타입으로 작성 : serializeJSON
+		userData = {
+				"id" : $('#id').val().trim(),
+				"name" : $('#name').val().trim(),
+				"pw" : $('#pw').val().trim(),
+				"email" : $('#email').val().trim(),
+				"bir" : $('#bir').val().trim(),
+				"hp" : $('#hp').val().trim(),
+				"zip" : $('#zip').val().trim(),
+				"add1" : $('#add1').val().trim(),
+				"add2" : $('#add2').val().trim()
+		}
+	*/
+		//2) String 타입으로 작성 : serialize
+// 		userData = "id=" + $('#id').val().trim() + "&name=" + $('#name').val().trim() + "&pw" + $('#pw').val().trim() ...
+
+		//3) 직렬화 : 데이터를 한 덩어리로 모아서 보냄
+		userData1 = $('form').serialize();
+		userData2 = $('form').serializeArray();
+		userData3 = $('form').serializeJSON();
+		
+		console.log(userData1);
+		console.log(userData2);
+		console.log(userData3);
+		
+		//클라이언트 요청 -> 서버로 전송 - controller가 요청 받음 - 
+		$.ajax({
+			url : '/JQPro/insertMember.do',
+			type : 'post',
+			data : userData3,
+			success : function(res){
+				$('#spanId').html(res.sw)
+			},
+			error : function(xhr){
+				alert("상태 : " + xhr.status);
+			},
+			dataType : 'json'
+		})
+		
+	})
 })
 </script>
 <style type="text/css">
@@ -83,7 +142,7 @@ m은 데이터를 주고받기 위해
 </pre>
 <div class="container">
   <h2>Stacked form</h2>
-  <form>
+  <form onsubmit ="return false;">
     <div class="form-group">
       <label for="id">아이디:</label>
       <input type="button" id="checkId" value="중복검사" class='btn btn-warning btn-lg'>
