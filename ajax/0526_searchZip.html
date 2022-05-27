@@ -27,20 +27,42 @@ $(function(){
 					code = "해당하는 주소가 없습니다."
 				}else{
 					code = "<table>";
-					code += "<tr><th>우편번호</th>";
+					code += "<thead><tr><th>우편번호</th>";
 					code += "<th>주소</th>";
-					code += "<th>번지</th></tr>";
-				
+					code += "<th>번지</th></tr></thead>";
+					
+					code += "<tbody>";
 					$.each(res, function(i, v){
-					code += "<tr><td>" + v.zipcode + "</td>";
+					code += "<tr class='tdata'><td>" + v.zipcode + "</td>";
 					code += "<td>"+ v.addr +"</td>";
 					code += "<td>" + v.bunji +"</td></tr>";
 					})
-					code += "</table>";
+					code += "</tbody></table>";
 				}
 				$('#d1').html(code);
 			}
 		})
+	})
+	
+// 	$(document).on('click', '.tdata', function(){
+		
+// 	})
+// 	$('#d1').on('mouseover', '.tdata', function(){
+// // 		$(this).css('background', 'grey');
+// 		$(this).addClass('.bcolor');
+// 	})
+// 	$('#d1').on('mouseout', '.tdata', function(){
+// 		$(this).removeClass('.bcolor');
+// 	})
+	$('#d1').on('click', '.tdata', function(){
+		zip = $('td:eq(0)', this).text();
+		addr = $('td:eq(1)', this).text();
+		
+		//부모창으로
+		$('#zip', opener.document).val(zip);
+		$('#add1', opener.document).val(addr);
+		
+		window.close();
 	})
 })
 </script>
@@ -49,13 +71,13 @@ body *{
 	font-size: 1.0em;
 }
 
-table{
-
-}
-tr:hover{
-	color : white;
+.bcolor{
 	background: grey;
 }
+tbody tr:hover{ 
+ 	color : white; 
+ 	background: grey; 
+ } 
 th{
 	text-align: center;
 }
