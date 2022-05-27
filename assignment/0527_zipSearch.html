@@ -2,60 +2,73 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Title</title>
+<title>Zip Search</title>
 <link rel="shortcut icon" type="image/x-icon" href="../images/J.png"/>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <script>
 $(function(){
+// 	sido ="";
+// 	gugun ="";
+// 	dong ="";
 	
+	//시도 클릭하면 구군 불러오기////////////////////////////////////////////////////////
 	$('#sido').on('change', function(){
-		sido = $('sido:selected').val();
-		console.log(sido);
-	
+		sido = $('option:selected', this).val();
+
 		//구군 불러오기////////////////////////////////////////////////////////////////
-			$.ajax({
+		$.ajax({
 			url : '/JQPro/zipGugun.do',
 			type : 'post',
 			data : sido,
 		
 			success : function(res){
-				code = "";
 			
+				code = "";
 				$.each(res, function(i, v){
 					code += "<option value='" +res[i].gugun + "'>" + res[i].gugun + "</option>";
 				})
+				$('#gugun').html(code);
 			},
 			error : function(xmlR){
 				alert('상태값 : ' + xmlR.status);
 			},
 			dataType : 'json'
 		})
+		
 	})
 	
 	
-	//시도 클릭하면 구군 불러오기
-// 	$('#sido').on('change', function(){
-// 		sidoValue = $('')
-// 	})
-// 	$.ajax({
-// 		url : 'zipSearch.jsp',
-// 		type : 'post',
-// 		success : function(res){
-// 			code = "<table border='1'>";
-// 			$.each(res, function(i){
-// 				code +="<tr><td>" + 우편번호+ "</td>";
-// 				code += "<td>" + 시도 + "</td><td>" + 구군 "</td><td>" + 동 +"</td>";
-// 			})
-// 			code += "</table>";
-// 		}
-// 	})
 	
-	
-// 	$('#btn1').on('click', function(){
+	//구군 클릭하면 동 불러오기////////////////////////////////////////////////////////
+	$('#gugun').on('change', function(){
+		sido = $('#sido option:selected').val();
+		gugun = $('option:selected', this).val();
+
+		//구군 불러오기////////////////////////////////////////////////////////////////
+		$.ajax({
+			url : '/JQPro/zipDong.do',
+			type : 'post',
+			data : {"sido" : sido, "gugun" : gugun},
 		
-// 	})
+			success : function(res){
+			
+				code = "";
+				$.each(res, function(i, v){
+					code += "<option value='" +res[i].dong + "'>" + res[i].dong + "</option>";
+				})
+				$('#dong').html(code);
+			},
+			error : function(xmlR){
+				alert('상태값 : ' + xmlR.status);
+			},
+			dataType : 'json'
+		})
+		
+	})
+	
+	
 	
 })
 </script>
@@ -68,14 +81,15 @@ $(function(){
 </pre>
 
 <div class = "container">
-	<select class="sido"  name="sido">
+	<select id="sido">
+		<option value="선택" selected>선택</option>
 		<option value="강원">강원</option>
 		<option value="경기">경기</option>
 		<option value="경남">경남</option>
 		<option value="경북">경북</option>
 		<option value="광주">광주</option>
 		<option value="대구">대구</option>
-		<option value="대전" selected>대전</option>
+		<option value="대전">대전</option>
 		<option value="부산">부산</option>
 		<option value="서울">서울</option>
 		<option value="세종">세종</option>
@@ -87,10 +101,10 @@ $(function(){
 		<option value="충남">충남</option>
 		<option value="충북">충북</option>
 	</select>
-	<select class="gugun"  name="gugun">
+	<select id="gugun">
 		
 	</select>
-	<select class="dong"  name="dong">
+	<select id="dong">
 		
 	</select>
 </div>
