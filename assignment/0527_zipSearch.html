@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Title</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/J.png"/>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script>
+$(function(){
+	
+	$('#sido').on('change', function(){
+		sido = $('sido:selected').val();
+		console.log(sido);
+	
+		//구군 불러오기////////////////////////////////////////////////////////////////
+			$.ajax({
+			url : '/JQPro/zipGugun.do',
+			type : 'post',
+			data : sido,
+		
+			success : function(res){
+				code = "";
+			
+				$.each(res, function(i, v){
+					code += "<option value='" +res[i].gugun + "'>" + res[i].gugun + "</option>";
+				})
+			},
+			error : function(xmlR){
+				alert('상태값 : ' + xmlR.status);
+			},
+			dataType : 'json'
+		})
+	})
+	
+	
+	//시도 클릭하면 구군 불러오기
+// 	$('#sido').on('change', function(){
+// 		sidoValue = $('')
+// 	})
+// 	$.ajax({
+// 		url : 'zipSearch.jsp',
+// 		type : 'post',
+// 		success : function(res){
+// 			code = "<table border='1'>";
+// 			$.each(res, function(i){
+// 				code +="<tr><td>" + 우편번호+ "</td>";
+// 				code += "<td>" + 시도 + "</td><td>" + 구군 "</td><td>" + 동 +"</td>";
+// 			})
+// 			code += "</table>";
+// 		}
+// 	})
+	
+	
+// 	$('#btn1').on('click', function(){
+		
+// 	})
+	
+})
+</script>
+</head>
+<body>
+
+
+<pre>
+우편번호 검색
+</pre>
+
+<div class = "container">
+	<select class="sido"  name="sido">
+		<option value="강원">강원</option>
+		<option value="경기">경기</option>
+		<option value="경남">경남</option>
+		<option value="경북">경북</option>
+		<option value="광주">광주</option>
+		<option value="대구">대구</option>
+		<option value="대전" selected>대전</option>
+		<option value="부산">부산</option>
+		<option value="서울">서울</option>
+		<option value="세종">세종</option>
+		<option value="울산">울산</option>
+		<option value="인천">인천</option>
+		<option value="전남">전남</option>
+		<option value="전북">전북</option>
+		<option value="제주">제주</option>
+		<option value="충남">충남</option>
+		<option value="충북">충북</option>
+	</select>
+	<select class="gugun"  name="gugun">
+		
+	</select>
+	<select class="dong"  name="dong">
+		
+	</select>
+</div>
+
+<br><br>
+<div id = "d1">
+
+</div>
+
+</body>
+</html>
