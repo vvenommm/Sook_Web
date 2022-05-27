@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta charset="UTF-8">
+<title>Board List Test</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- <link rel="stylesheet" href="../css/public_blue.css"> -->
 <link rel="shortcut icon" type="image/x-icon" href="../images/J.png"/>
@@ -11,6 +13,20 @@
 p {
 	margin: 1px;
 	padding: 5px;
+	height: auto;
+}
+.p1{
+	width : 70%;
+	float : left;
+}
+.p2{
+	width : 25%;
+	float : right;
+	text-align: right;
+}
+input[name=reply]{
+	height : 45px;
+	vertical-align: top;
 }
 </style>
 </head>
@@ -28,14 +44,27 @@ p {
       </div>
       <div id="collapse1" class="panel-collapse collapse in">
         <div class="panel-body">
-        	<p class="p1" style='width:70%; height:25%;'></p>
-        	<p class="p2"></p>
-        	<p class="p3"></p>
-        	<p class="p4"></p>
-        
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+        	<p class="p1">
+       	 		작성자 후후리 &emsp;&emsp;&emsp;&emsp;
+        		이메일 abc@abc.com &emsp;&emsp;&emsp;&emsp;
+        		조회수<span class="hit">0</span> &emsp;&emsp;&emsp;&emsp;
+        		날짜 2022-05-27
+        	</p>
+        	<p class="p2">
+        		<input type="button" value="수정" class="action" name="edit">
+        		<input type="button" value="삭제" class="action" name="delete">
+        	</p>
+        	<p class="p3">
+        		내용출력<br>
+        		내용출력<br>
+        		내용출력<br>
+        		내용출력<br>
+        	</p>
+        	<p class="p4">
+        		<textarea rows="5" cols="60"></textarea>
+        		<input type="button" value="등록" class="action" name="reply">
+        	</p>
+        </div>
       </div>
     </div>
     <div class="panel panel-default">
