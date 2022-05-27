@@ -105,6 +105,64 @@ $(function(){
 		})
 		
 	})
+	
+	
+	//우편번호 모달창에서 동 입력 후 확인 버튼 클릭
+	$('#dongbtn').on('click', function(){
+		
+		//입력한 값 가져오기
+		dvalue = $('#dong').val().trim();
+		
+		//서버로 요청
+		$.ajax({
+			url : '/JQPro/SearchZip.do',
+			type : 'get',
+			data : {"dong" : dvalue},
+			dataType : 'json',
+			error : function(xhr){
+				alert("상태 : " + xhr.status);
+			},
+			success : function(res){
+				if(res.sw == "no"){
+					code = "해당하는 주소가 없습니다."
+				}else{
+					code = "<table>";
+					code += "<thead><tr><th>우편번호</th>";
+					code += "<th>주소</th>";
+					code += "<th>번지</th></tr></thead>";
+					
+					code += "<tbody>";
+					$.each(res, function(i, v){
+					code += "<tr class='tdata'><td>" + v.zipcode + "</td>";
+					code += "<td>"+ v.addr +"</td>";
+					code += "<td>" + v.bunji +"</td></tr>";
+					})
+					code += "</tbody></table>";
+				}
+				$('#d1').html(code);
+			}
+		})
+	})
+	
+	
+	//우편번호 결과에서 한 개의 행을 선택하면 input type='text'에 값이 넘어감
+	$('#d1').on('click', '.tdata', function(){
+		zip = $('td:eq(0)', this).text();
+		addr = $('td:eq(1)', this).text();
+		
+		//원래 가입 폼으로 데이터 전송
+		$('#zip').val(zip);
+		$('#add1').val(addr);
+		
+// 		window.close();
+		
+		//모달 창 닫기 - 창을 닫아도 검색했던 기록이 남아있음. 그래서 지워줘야함
+		//remove()는 태그도 다 사라지게 돼서 empty()로 내용만 지워줘야 함
+		$('#myModal').modal('hide');
+		
+		$('#dong').val("");
+		$('#d1').empty();
+	})
 })
 </script>
 <style type="text/css">
@@ -112,6 +170,7 @@ $(function(){
 body *{
 	font-family: 'Gowun Batang', serif;
 }
+
 pre{
 	min-width : 1000px;
 	font-family: 'Gowun Batang', serif;
@@ -125,6 +184,23 @@ pre{
  	border-bottom : 5px double #96A5FF;
 	background : #E8F5FF;
 	padding : 30px;
+}
+
+tbody tr:hover{ 
+ 	color : white; 
+ 	background: grey; 
+ } 
+ 
+th{
+	text-align: center;
+}
+
+th:nth-child(1){
+	width: 80px;
+}
+
+th:nth-child(2){
+	width: 380px;
 }
 </style>
 </head>
@@ -172,6 +248,7 @@ m은 데이터를 주고받기 위해
     <div class="form-group">
       <label for="zip">우편번호:</label>
       <input type='button' value='번호검색' id='zipbtn' class='btn btn-warning btn-sm'>
+      <input type='button' value='번호검색modal' id='zipbtn2' class='btn btn-warning btn-sm' data-toggle="modal" data-target="#myModal">
       <input type="text" class="form-control" id="zip" placeholder="Enter zip" name="mem_zip">
     </div>
     <div class="form-group">
@@ -185,5 +262,36 @@ m은 데이터를 주고받기 위해
     <button type="submit" class="btn btn-primary"><span class="spinner-border spinner-border-sm"></span>Submit</button>
   </form>
 </div>
+
+
+<!-- The Modal -->
+<div class="modal" id="myModal">
+  <div class="modal-dialog modal-lg modal-dialog-scrollable">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">우편번호검색</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+			<h3>찾는 동 이름을 입력하세요</h3>
+			<input type="text" id="dong">
+			<input type="button" value="확인" id="dongbtn">
+			<br> <br>
+			<div id="d1"></div>
+			</div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
 </body>
 </html>
