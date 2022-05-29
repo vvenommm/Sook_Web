@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<!DOCTYPE sqlMap
+	PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+	
+<sqlMap namespace="zip">
+	<select id="selectBySido" parameterClass="string" resultClass="zip">
+		select * from ziptb where sido like '%'||#data#||'%'
+	</select>
+	
+	<select id="selectGugunList" parameterClass="String" resultClass="zip">
+		select distinct gugun from ziptb where sido = #data#
+	</select>
+	
+	<select id="selectDongList" parameterClass="map" resultClass="String">
+		select distinct dong from ziptb where sido like '%'||#sido#||'%' and gugun like '%'||#gugun#||'%'
+	</select>
+	
+	<select id="selectAddress" parameterClass="map" resultClass="String">
+		select * from ziptb where sido like '%'||#sido#||'%' and gugun like '%'||#gugun#||'%' and dong like '%'||#dong#||'%'
+	</select>
+	
+	<select id="selectByDong" parameterClass="string" resultClass="kr.or.ddit.member.vo.ZipVO">
+		select * from ziptb where dong like '%'||#data#||'%'
+	</select>
+	
+</sqlMap>
