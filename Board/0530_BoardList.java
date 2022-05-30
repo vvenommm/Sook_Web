@@ -28,10 +28,10 @@ public class BoardList extends HttpServlet {
 		IBoardService service = BoardServiceImpl.getInstance();
 		
 		//servlet 메소드 호출하기 - 결과 값 받기
-		List<BoardVO> list = service.selectAll();
+		List<BoardVO> boardListAll = service.selectAll();
 		
 		//결과 값을 request에 저장
-		request.setAttribute("boardList", list);
+		request.setAttribute("boardListAll", boardListAll);
 		
 		//view페이지로 이동
 		request.getRequestDispatcher("view/listAll.jsp").forward(request, response);
