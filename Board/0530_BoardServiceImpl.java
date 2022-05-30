@@ -23,14 +23,14 @@ public class BoardServiceImpl implements IBoardService {
 
 	@Override
 	public List<BoardVO> selectAll() {
-		List<BoardVO> list = null;
+		List<BoardVO> boardListAll = null;
 		
 		try {
-			list = dao.selectAll();
+			boardListAll = dao.selectAll();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return list;
+		return boardListAll;
 	}
 
 }
