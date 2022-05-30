@@ -12,9 +12,9 @@ listServer = function(){
 			$.each(res, function(i, v){
 				code += '<div class="panel panel-default">';
    				code += '<div class="panel-heading">';
-    			code += '<h4 class="panel-title">';
+    			code += '<h3 class="panel-title">';
     			code += '<a data-toggle="collapse" data-parent="#accordion" href="#collapse'+ v.num +'">' + v.subject + '</a>';
-    			code += '</h4>';
+    			code += '</h3>';
     			code += '</div>';
     			code += '<div id="collapse'+ v.num +'" class="panel-collapse collapse">';
     			code += '<div class="panel-body">';
@@ -25,15 +25,15 @@ listServer = function(){
     			code += '날짜 '+v.wdate;
     			code += '</p>';
     			code += '<p class="p2">';
-    			code += '<input type="button" value="수정" class="action" name="edit">';
-    			code += '<input type="button" value="삭제" class="action" name="delete">';
+    			code += '<input idx="'+ v.num +'"type="button" value="수정" class="action" name="edit">';
+    			code += '<input idx="'+ v.num +'"type="button" value="삭제" class="action" name="delete">';
     			code += '</p>';
     			code += '<p class="p3">';
     			code += v.content;
     			code += '</p>';
     			code += '<p class="p4">';
     			code += '<textarea rows="5" cols="60"></textarea>';
-    			code += '<input type="button" value="등록" class="action" name="reply">';
+    			code += '<input idx="'+ v.num +'"type="button" value="등록" class="action" name="reply">';
     			code += '</p>';
     			code += '</div>';
     			code += '</div>';
