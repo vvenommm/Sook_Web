@@ -16,15 +16,30 @@ $(function(){
 	//list출력
 	listServer(); // 'js/board.js'의 listServer가 실행
 	
+	//이벤트
+	$('#d1').on('click', '.action', function(){
+		
+		name = $(this).attr('name');
+		idx = $(this).attr('idx');
+		
+		if(name == "edit"){
+			alert(idx + "번 글 수정");
+		}else if(name == "delete"){
+			alert(idx + "번 글 삭제");
+		}else if(name == "reply"){
+			alert(idx + "번 글에 댓글 작성");
+		}
+	})
+	
 })
 </script>
 <style type="text/css">
-@import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Batang&display=swap');
 body *{
-	font-family: 'Jua', sans-serif;
+	font-family: 'Gowun Batang', serif;
 }
 pre {
-	font-family: 'Jua', sans-serif;
+	font-family: 'Gowun Batang', serif;
 }
 body{
 	padding : 20px;
@@ -46,9 +61,24 @@ p {
 .p3{
 	clear : both;
 }
+input[type=button]{
+	width : 70px;
+}
 input[name=reply]{
-	height : 45px;
 	vertical-align: top;
+}
+#stype{
+	width: 100px;
+	float : left;
+}
+.navbar {
+	margin-left : 20px;
+}
+br{
+	clear : both;
+}
+h2{
+	margin-left : 10%;
 }
 </style>
 </head>
@@ -56,10 +86,25 @@ input[name=reply]{
 
 
 <pre>
-
+게시판 만들어보기~
 </pre>
 
 <h2>게시판</h2>
+<br><br>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+	<select class="form-control" id="stype">
+    	<option value="">전체</option>
+    	<option value="writer">이름</option>
+    	<option value="subject">제목</option>
+    	<option value="content">내용</option>
+  	</select>
+  
+	<form class="form-inline">
+		<input id="sword" class="form-contrl mr-sm-2" type="text" placeholder="Search">
+		<button id="search" class="btn btn-warning" type="submit">Search</button>
+	</form>
+</nav>
+
 <br><br>
 <div id = "d1">
 
