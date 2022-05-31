@@ -16,7 +16,7 @@
 			<dynamic prepend=" where">
 				<isNotEmpty property="stype" prepend=" and ">
 					<isNotEmpty property="sword">
-						$stype like '%'||#swrod#||'%'
+						$stype$ like '%'||#sword#||'%'
 					</isNotEmpty>
 				</isNotEmpty>
 			</dynamic>
@@ -31,7 +31,12 @@
    				<![CDATA[
       			where rownum <= #end#) A 
    				where A.rnum >=#start#
-  ]]>
+				]]>
+		</select>
+		
+		<select id="selectCount" parameterClass="map" resultClass="int">
+			select count(*) from boardtab
+				<include refid="dynamicCondition"/>
 		</select>
 	
 	</sqlMap>
