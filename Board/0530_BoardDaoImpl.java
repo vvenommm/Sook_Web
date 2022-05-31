@@ -30,12 +30,12 @@ public class BoardDaoImpl implements IBoardDao {
 	
 	@Override
 	public List<BoardVO> selectByPage(Map<String, Object> map) throws SQLException {
-		return client.queryForList("board.selectByPage");
+		return client.queryForList("board.selectByPage", map); //map을 넣어줘야 함!
 	}
 	
 	@Override
 	public int searchCount(Map<String, Object> map) throws SQLException {
-		return (int)client.queryForObject("board.searchCount");
+		return (int)client.queryForObject("board.searchCount", map); //map 넣어줘야 dynamic Condition 사용 가능
 	}
 
 }
