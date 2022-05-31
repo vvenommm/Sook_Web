@@ -14,7 +14,8 @@
 <script>
 $(function(){
 	//list출력
-	listServer(); // 'js/board.js'의 listServer가 실행
+// 	listServer(); // 'js/board.js'의 listServer가 실행
+		listPageServer(1);
 	
 	//이벤트
 	$('#d1').on('click', '.action', function(){
@@ -29,6 +30,17 @@ $(function(){
 		}else if(name == "reply"){
 			alert(idx + "번 글에 댓글 작성");
 		}
+	})
+	
+	$('#pageList').on('click', '.pager a', function(){
+// 		alert($(this).text());
+			currentPage = $(this).text();
+			listPageServer(currentPage);
+	})
+	
+	//검색 이벤트
+	$('#search').on('click', function(){
+		listPageServer(1);
 	})
 	
 })
@@ -80,6 +92,9 @@ br{
 h2{
 	margin-left : 10%;
 }
+#pageList{
+	text-align: center;
+}
 </style>
 </head>
 <body>
@@ -107,7 +122,9 @@ h2{
 
 <br><br>
 <div id = "d1">
-
+</div>
+<br><br>
+<div id = "pageList">
 </div>
 
 </body>
