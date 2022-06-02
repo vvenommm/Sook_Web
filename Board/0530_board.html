@@ -32,7 +32,8 @@ $(function(){
 		}
 	})
 	
-	$('#pageList').on('click', '.pager a', function(){
+	//페이지 번호 이벤트
+	$('#pageList').on('click', '.pager', function(){
 // 		alert($(this).text());
 			currentPage = $(this).text();
 			listPageServer(currentPage);
@@ -40,8 +41,17 @@ $(function(){
 	
 	//검색 이벤트
 	$('#search').on('click', function(){
-		listPageServer(1);
+		currentPage = 1;
+		listPageServer(currentPage);
 	})
+	
+	//다음 버튼 이벤트
+	$('#pageList').on('click', '.next', function(){
+		currentPage = parseInt($('.pager a').last().text().trim())+1;
+		listPageServer(currentPage);
+	})
+	
+	//이전 버튼 이벤트
 	
 })
 </script>
