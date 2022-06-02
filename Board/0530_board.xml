@@ -38,5 +38,19 @@
 			select count(*) from boardtab
 				<include refid="dynamicCondition"/>
 		</select>
+		
+		<insert id="posting" parameterClass="board">
+			insert into boardtab
+			values(boardtab_num_seq.nextval, #subject#, #writer#, #mail#, #password#, #content#, 0, #wip#, sysdate)
+			
+			<selectKey keyProperty="num" resultClass="int">
+				select boardtab_num_seq.currval from dual
+			</selectKey>
+		</insert>
+		
+		<delete id="deletePost" parameterClass="int">
+			delete from boardtab
+			where num = #data#
+		</delete>
 	
 	</sqlMap>
