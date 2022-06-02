@@ -69,17 +69,14 @@ $(function(){
 			data : formData,
 			type : 'post', 
 			success : function(res){
-				
+				alert(res.sw);
 			},
 			dataTape : 'json',
 			error : function(xhr){
 				alert("상태 : " + xhr.status);
 			}
 		})
-		
-		
 	})
-	
 })
 </script>
 <style type="text/css">
@@ -200,7 +197,7 @@ label{
 					<input type="text" name="email" placeholder="이메일을 입력해주세요."><br>
 					
 					<label>내용</label>
-					<textarea rows="10" cols="50"></textarea><br>
+					<textarea rows="10" cols="50" name="content"></textarea><br>
 					<input type='button' value="전송" id="fsend">
 					
 				</form>
