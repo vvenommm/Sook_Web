@@ -102,34 +102,30 @@ listPageServer = function(page){
 			msg = "첫 번째 페이지입니다.";
 			//이전 버튼
 			pager = "";
-			pager += '<ul class="pagination">';
 			if(res.startPage > 1){
-				pager += '<li class="page-item"><a class="page-link" href="#">Previous</a></li>';
+				pager += '<ul class="pagination">';
+				pager += '<li class="page-item"><a class="page-link prev" href="#">Previous</a></li>';
 				pager += '</ul>';
-			}else{
-				pager += '<li class="page-item"><a class="page-link" onclick="alert(msg)">Previous</a></li>';
 			}
 			
 			//페이지 번호
-			pager += '<ul class="pagination pager a">';
 			for (i = res.startPage; i <= res.endPage; i++){
+			pager += '<ul class="pagination pager">';
 				if(i == currentPage){
-					pager += '<li class="page-item active pager a"><a class="page-link" href="#">' + i + '</a></li>';
+					pager += '<li class="page-item active"><a class="page-link" href="#">' + i + '</a></li>';
 				}else{
-					pager += '<li class="page-item pager a"><a class="page-link" href="#">' + i + '</a></li>';
+					pager += '<li class="page-item"><a class="page-link" href="#">' + i + '</a></li>';
 				}
-			}
 			pager += '</ul>';
+			}
 			
 			endmsg = "마지막 페이지입니다."
 			//다음 버튼
-				pager += '<ul class="pagination">';
 			if(res.totalPage > res.endPage){
-				pager += '<li class="page-item"><a class="page-link" href="#">Next</a></li>';
-			}else{
-				pager += '<li class="page-item"><a class="page-link" onclick="alert(endmsg)">Next</a></li>';
+				pager += '<ul class="pagination">';
+				pager += '<li class="page-item"><a class="page-link nxt" href="#">Next</a></li>';
+				pager += '</ul>';
 			}
-			pager += '</ul>';
 				
 			
 			$('#d1').html(code);
