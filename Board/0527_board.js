@@ -67,6 +67,9 @@ listPageServer = function(page){
 			code = "<div class='container'>";
 			code += '<div class="panel-group" id="accordion">';
 			$.each(res.data, function(i, v){
+				cont = v.content;
+				content = cont.replace(/\r/g, "").replace(/\n/g, "<br>")
+				
 				code += '<div class="panel panel-default">';
    				code += '<div class="panel-heading">';
     			code += '<h3 class="panel-title">';
@@ -85,8 +88,9 @@ listPageServer = function(page){
     			code += '<input idx="'+ v.num +'"type="button" value="수정" class="action" name="edit">';
     			code += '<input idx="'+ v.num +'"type="button" value="삭제" class="action" name="delete">';
     			code += '</p>';
+    			code += '---------------------------------------------------------------------------------------';
     			code += '<p class="p3">';
-    			code += v.content;
+    			code += content;
     			code += '</p>';
     			code += '<p class="p4">';
     			code += '<textarea rows="5" cols="60"></textarea>';
@@ -130,6 +134,44 @@ listPageServer = function(page){
 			
 			$('#d1').html(code);
 			$('#pageList').html(pager);
+		},
+		error : function(xhr){
+			alert("상태 : " + xhr.status);
+		},
+		dataType : 'json'
+	})
+}
+
+writeSend=function(){
+	//입력한 모든 값 가져오기
+	formData = $('#wform').serializeJSON();
+	
+	$('#wform .wItem').val("");
+	$('#writeModal').modal('hide');
+	
+	$.ajax({
+		url : '/BoardPro/Write.do',
+		data : formData,
+		type : 'post', 
+		success : function(res){
+//			alert(res.sw);
+			listPageServer(currentPage);
+		},
+		dataType : 'json',
+		error : function(xhr){
+			alert("상태 : " + xhr.status);
+		}
+	})
+}
+
+deletePostServer=function(){
+	
+	$.ajax({
+		url : '/BoardPro/Delete.do',
+		data : {"num" : idx},
+		type : 'get',
+		success : function(res){
+			listPageServer(currentPage);
 		},
 		error : function(xhr){
 			alert("상태 : " + xhr.status);
