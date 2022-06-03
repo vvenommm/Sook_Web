@@ -19,7 +19,7 @@ listServer = function(){
     			code += '<div id="collapse'+ v.num +'" class="panel-collapse collapse">';
     			code += '<div class="panel-body">';
     			code += '<p class="p1">';
-    			code += '작성자 '+ v.writer +'&emsp;&emsp;&emsp;&emsp;';
+    			code += '작성자 '+ v.writer +'&nbsp;&nbsp;&nbsp;&nbsp;';
     			code += '이메일 '+ v.mail +'&emsp;&emsp;&emsp;&emsp;';
     			code += '조회수<span class="hit">'+ v.hit +'</span> &emsp;&emsp;&emsp;&emsp;';
     			code += '날짜 '+v.wdate;
@@ -79,8 +79,10 @@ listPageServer = function(page){
     			code += '<div id="collapse'+ v.num +'" class="panel-collapse collapse">';
     			code += '<div class="panel-body">';
     			code += '<p class="p1">';
-    			code += '작성자 '+ v.writer +'&emsp;&emsp;&emsp;&emsp;';
-    			code += '이메일 '+ v.mail +'&emsp;&emsp;&emsp;&emsp;';
+//    			code += '글번호 '+ v.num +'&nbsp;&nbsp;&nbsp;&nbsp;';
+    			code += '글번호 '+ v.num +'&emsp;&emsp;&emsp;&emsp;';
+    			code += '작성자<span class="spW"> '+ v.writer +'</span>&emsp;&emsp;&emsp;&emsp;';
+    			code += '이메일<span class="spE"> '+ v.mail +'</span>&emsp;&emsp;&emsp;&emsp;';
     			code += '조회수<span class="hit">'+ v.hit +'</span> &emsp;&emsp;&emsp;&emsp;';
     			code += '날짜 '+v.wdate;
     			code += '</p>';
@@ -88,7 +90,7 @@ listPageServer = function(page){
     			code += '<input idx="'+ v.num +'"type="button" value="수정" class="action" name="edit">';
     			code += '<input idx="'+ v.num +'"type="button" value="삭제" class="action" name="delete">';
     			code += '</p>';
-    			code += '---------------------------------------------------------------------------------------';
+    			code += '<br>------------------------------------------------------------------------------------------------------------------------<br><br>';
     			code += '<p class="p3">';
     			code += content;
     			code += '</p>';
@@ -172,6 +174,25 @@ deletePostServer=function(){
 		type : 'get',
 		success : function(res){
 			listPageServer(currentPage);
+		},
+		error : function(xhr){
+			alert("상태 : " + xhr.status);
+		},
+		dataType : 'json'
+	})
+}
+
+editPostServer=function(){
+	
+	$.ajax({
+		url : '/BoardPro/Edit.do',
+		data : formData,
+		type : 'post',
+		async : false, //억지로 동기화 시켜서 동시다발로 수행하지 못하도록. 아니면 success 안에 $.ajax 함수를 넣어서 동기식으로 진행되게
+		success : function(res){
+			alert(res.sw);
+			listPageServer(currentPage);
+//			$.ajax({}) -> 동기식으로 하는 방법2
 		},
 		error : function(xhr){
 			alert("상태 : " + xhr.status);
