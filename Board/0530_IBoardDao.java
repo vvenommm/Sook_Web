@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import kr.or.ddit.board.vo.BoardVO;
+import kr.or.ddit.board.vo.ReplyVO;
 
 public interface IBoardDao {
 
@@ -30,7 +31,7 @@ public interface IBoardDao {
 	public int updateHit(int num) throws SQLException;
 	
 	//댓글 저장
-	
+	public int replySave(ReplyVO vo) throws SQLException;
 	
 	//댓글 수정
 	
