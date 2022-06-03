@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE sqlMap
+	PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+	
+	<sqlMap namespace="reply">
+	
+		<insert id="insertReply" parameterClass="reply">
+			insert into replytab
+			values(replytab_renum_seq.nextval, #bonum#, #name#, #cont#, sysdate)
+			
+			<selectKey keyProperty="renum" resultClass="int">
+				select replytab_renum_seq.currval from dual
+			</selectKey>
+		</insert>
+	
+	</sqlMap>
