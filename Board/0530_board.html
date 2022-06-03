@@ -26,6 +26,7 @@ $(function(){
 		
 		if(name == "edit"){
 			alert(idx + "번 글 수정");
+			$('#editModal').modal('show');
 		}else if(name == "delete"){
 			alert(idx + "번 글 삭제");
 			deletePostServer();
@@ -164,7 +165,7 @@ label{
 
 			<!-- Modal Header -->
 			<div class="modal-header">
-				<h4 class="modal-title">Modal Heading</h4>
+				<h4 class="modal-title">글을 작성 중입니다...</h4>
 				<button type="button" class="close" data-dismiss="modal">&times;</button>
 			</div>
 
@@ -192,7 +193,48 @@ label{
 
 			<!-- Modal footer -->
 			<div class="modal-footer">
-				<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+				<button type="button" class="btn btn-danger" data-dismiss="modal">닫기</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- 글수정 Modal -->
+<div class="modal" id="editModal">
+	<div class="modal-dialog">
+		<div class="modal-content">
+
+			<!-- Modal Header -->
+			<div class="modal-header">
+				<h4 class="modal-title">글을 수정 중입니다...</h4>
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+			</div>
+
+			<!-- Modal body -->
+			<div class="modal-body">
+				<form id="eform">
+					<label>작성자</label>
+					<input type="text" name="writer" class="eItem"><br>
+					
+					<label>제목</label>
+					<input type="text" name="subject" class="eItem"><br>
+					
+					<label>비밀번호</label>
+					<input type="text" name="password" class="eItem"><br>
+					
+					<label>이메일</label>
+					<input type="text" name="mail" class="eItem"><br>
+					
+					<label>내용</label>
+					<textarea rows="10" cols="50" name="content" class="eItem" ></textarea><br>
+					<input type='button' value="전송" id="esend">
+					
+				</form>
+			</div>
+
+			<!-- Modal footer -->
+			<div class="modal-footer">
+				<button type="button" class="btn btn-danger" data-dismiss="modal">닫기</button>
 			</div>
 		</div>
 	</div>
