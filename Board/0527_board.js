@@ -73,7 +73,7 @@ listPageServer = function(page){
 				code += '<div class="panel panel-default">';
    				code += '<div class="panel-heading">';
     			code += '<h3 class="panel-title">';
-    			code += '<a data-toggle="collapse" data-parent="#accordion" href="#collapse'+ v.num +'">' + v.subject + '</a>';
+    			code += '<a idx="' + v.num + '" <a data-toggle="collapse" data-parent="#accordion" href="#collapse'+ v.num +'">' + v.subject + '</a>';
     			code += '</h3>';
     			code += '</div>';
     			code += '<div id="collapse'+ v.num +'" class="panel-collapse collapse">';
@@ -193,6 +193,24 @@ editPostServer=function(){
 			alert(res.sw);
 			listPageServer(currentPage);
 //			$.ajax({}) -> 동기식으로 하는 방법2
+		},
+		error : function(xhr){
+			alert("상태 : " + xhr.status);
+		},
+		dataType : 'json'
+	})
+}
+
+updateHitServer=function(){
+	
+	$.ajax({
+		url : '/BoardPro/UpdateHit.do',
+		data : {"num" : vnum},
+		type : 'get',
+		success : function(res){
+//			alert(res.sw);
+			vhit = $(parent).find('.hit').text();
+			$(parent).find('.hit').text(parseInt(vhit) + 1);
 		},
 		error : function(xhr){
 			alert("상태 : " + xhr.status);
