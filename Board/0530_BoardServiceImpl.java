@@ -5,10 +5,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.sun.org.apache.xerces.internal.impl.xpath.regex.REUtil;
+
 import kr.or.ddit.board.dao.BoardDaoImpl;
 import kr.or.ddit.board.dao.IBoardDao;
 import kr.or.ddit.board.vo.BoardVO;
 import kr.or.ddit.board.vo.PageVO;
+import kr.or.ddit.board.vo.ReplyVO;
 
 public class BoardServiceImpl implements IBoardService {
 	
@@ -111,6 +114,74 @@ public class BoardServiceImpl implements IBoardService {
 		vo.setTotalPage(totalPage);
 		
 		return vo;
+	}
+	
+	//글쓰기
+	@Override
+	public int posting(BoardVO vo) {
+		int num = 0;
+		
+		try {
+			num = dao.posting(vo);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return num;
+	}
+	
+	//글삭제
+	@Override
+	public int deletePost(int num) {
+		int resultNum = 0;
+		
+		try {
+			resultNum = dao.deletePost(num);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return resultNum;
+	}
+	
+	//글수정
+	@Override
+	public int editPost(BoardVO vo) {
+		int resultNum = 0;
+		
+		try {
+			resultNum = dao.editPost(vo);
+		} catch (SQLException e) {
+			resultNum = 0;
+			e.printStackTrace();
+		}
+		return resultNum;
+	}
+	
+	//조회수 증가
+	@Override
+	public int updateHit(int num) {
+		int resultNum = 0;
+		
+		try {
+			resultNum = dao.updateHit(num);
+		} catch (SQLException e) {
+			resultNum = 0;
+			e.printStackTrace();
+		}
+		return resultNum;
+	}
+	
+	//댓글 저장(작성)
+	@Override
+	public int replySave(ReplyVO vo) {
+		int resultNum = 0;
+		
+		try {
+			resultNum = dao.replySave(vo);
+		} catch (SQLException e) {
+			resultNum = 0;
+			e.printStackTrace();
+		}
+		return resultNum;
 	}
 
 }
