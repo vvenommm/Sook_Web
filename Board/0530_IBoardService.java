@@ -6,6 +6,7 @@ import java.util.Map;
 
 import kr.or.ddit.board.vo.BoardVO;
 import kr.or.ddit.board.vo.PageVO;
+import kr.or.ddit.board.vo.ReplyVO;
 
 public interface IBoardService {
 
@@ -37,7 +38,7 @@ public interface IBoardService {
 	public int updateHit(int num);
 	
 	//댓글 저장
-	
+	public int replySave(ReplyVO vo);
 	
 	//댓글 수정
 	
