@@ -46,6 +46,18 @@ $(function(){
 // 			listServerPage(1) -> 비동기이기 때문에 이렇게 쓰면 deletePost와 동시에 실행되기 때문에 새 글list를 제대로 가져올 수 없음
 		}else if(name == "reply"){
 			alert(idx + "번 글에 댓글 작성");
+			
+			//작성자, 글내용, 게시판 글번호(num -> bonum)
+			n1 = String.fromCharCode(Math.random() * 26 + 65); //65 ~ 90까지의 랜덤 숫자
+			n2 = String.fromCharCode(Math.random() * 26 + 97);
+			n3 = parseInt(Math.random() * 100 + 1);
+			
+			reply = {}; //객체 생성
+			reply.bonum = vidx;
+			reply.name = n1 + n2 + n3;
+			reply.cont = $(this).parent().find('textarea').val(); //enter 기호 포함
+			
+			replySaveServer();
 		}
 	})
 	
@@ -89,6 +101,19 @@ $(function(){
 		
 		$('#editModal').modal('hide');
 		$('.eItem').val(""); //다시 수정 눌렀을 때 비워지게
+	})
+	
+	//조회수 증가를 위한 이벤트 - 제목을 클릭하면
+	$('#d1').on('click', '.panel-title a', function(){
+		vnum = $(this).attr('idx');
+		parent = $(this).parents('.panel');
+// 		alert(parent.find('.in').attr('class'));
+		vin = parent.find('.in').attr('class');
+		
+		if(typeof vin == "undefined"){
+			alert(vnum + "번 글 조회수 증가");
+			updateHitServer();
+		}
 	})
 	
 })
