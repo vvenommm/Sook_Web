@@ -1,5 +1,6 @@
 package kr.or.ddit.board.service;
 
+import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
 
@@ -23,14 +24,17 @@ public interface IBoardService {
 	//페이지별 정보 구하기
 	public PageVO pageInfo(int page, String stype, String sword);
 	
-	//삭제
-	
-	
 	//글쓰기
+	public int posting(BoardVO vo);	
 	
+	//삭제
+	public int deletePost(int num);
+	
+	//수정
+	public int editPost(BoardVO vo);
 	
 	//조회수 증가
-	
+	public int updateHit(int num);
 	
 	//댓글 저장
 	
@@ -39,10 +43,6 @@ public interface IBoardService {
 	
 	
 	//댓글 삭제
-	
-	
-	//수정
-	
 	
 	
 }
