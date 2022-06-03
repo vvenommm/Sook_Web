@@ -6,7 +6,7 @@
 	
 	<sqlMap namespace="reply">
 	
-		<insert id="insertReply" parameterClass="reply">
+		<insert id="replySave" parameterClass="reply">
 			insert into replytab
 			values(replytab_renum_seq.nextval, #bonum#, #name#, #cont#, sysdate)
 			
