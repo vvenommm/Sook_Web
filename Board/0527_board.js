@@ -218,3 +218,19 @@ updateHitServer=function(){
 		dataType : 'json'
 	})
 }
+
+replySaveServer=function(){
+	
+	$.ajax({
+		url : '/BoardPro/ReplySave.do',
+		data : reply,
+		type : 'post',
+		success : function(res){
+			alert(res.sw);
+		},
+		error : function(xhr){
+			alert("상태 : " : xhr.status);
+		},
+		dataType : 'json'
+	})
+}
