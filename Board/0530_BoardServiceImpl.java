@@ -170,6 +170,19 @@ public class BoardServiceImpl implements IBoardService {
 		return resultNum;
 	}
 	
+	//댓글 리스트 출력
+	@Override
+	public List<ReplyVO> replyList(int bonum) {
+		List<ReplyVO> replyList = null;
+		
+		try {
+			replyList = dao.replyList(bonum);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return replyList;
+	}
+	
 	//댓글 저장(작성)
 	@Override
 	public int replySave(ReplyVO vo) {
@@ -183,5 +196,19 @@ public class BoardServiceImpl implements IBoardService {
 		}
 		return resultNum;
 	}
-
+	
+	//댓글 삭제
+	@Override
+	public int replyDelete(int renum) {
+		int resultNum = 0;
+		
+		try {
+			resultNum = dao.replyDelete(renum);
+		} catch (SQLException e) {
+			resultNum = 0;
+			e.printStackTrace();
+		}
+		return resultNum;
+	}
+	
 }
