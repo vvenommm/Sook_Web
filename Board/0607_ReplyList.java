@@ -21,6 +21,7 @@ public class ReplyList extends HttpServlet {
 		
 		request.setCharacterEncoding("utf-8");
 		
+		//데이터 받아오기
 		int bonum = Integer.parseInt(request.getParameter("bonum"));
 		
 		// service 객체 얻어오기
