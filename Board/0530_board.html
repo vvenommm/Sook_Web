@@ -53,11 +53,19 @@ $(function(){
 			n3 = parseInt(Math.random() * 100 + 1);
 			
 			reply = {}; //객체 생성
-			reply.bonum = vidx;
+			reply.bonum = idx;
 			reply.name = n1 + n2 + n3;
 			reply.cont = $(this).parent().find('textarea').val(); //enter 기호 포함
 			
-			replySaveServer();
+// 			alert(reply.bonum + " " + reply.name + " " + reply.cont); 여기까지 됨
+			
+			replySaveServer(this); //this는 등록 버튼 -> 나중에 replyListServer에서 필요
+		}else if(vname == "r_delete"){
+			alert(idx + "번 댓글 삭제");
+			
+		}else if(vname == "r_edit"){
+			alert(idx + "번 댓글 수정");
+			
 		}
 	})
 	
@@ -106,6 +114,7 @@ $(function(){
 	//조회수 증가를 위한 이벤트 - 제목을 클릭하면
 	$('#d1').on('click', '.panel-title a', function(){
 		vnum = $(this).attr('idx');
+		idx = vnum;
 		parent = $(this).parents('.panel');
 // 		alert(parent.find('.in').attr('class'));
 		vin = parent.find('.in').attr('class');
@@ -114,6 +123,7 @@ $(function(){
 			alert(vnum + "번 글 조회수 증가");
 			updateHitServer();
 		}
+		replyListServer(this); //this는 a태그	
 	})
 	
 })
@@ -172,6 +182,12 @@ label{
 	display: inline-block;
 	width: 100px;
 	height: 30px;
+}
+.rep-body{
+	border : 1px solid lightgray;
+	margin: 1px;
+	padding: 5px;
+	background: #f1aaa5;
 }
 </style>
 </head>
