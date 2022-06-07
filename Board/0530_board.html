@@ -60,13 +60,51 @@ $(function(){
 // 			alert(reply.bonum + " " + reply.name + " " + reply.cont); 여기까지 됨
 			
 			replySaveServer(this); //this는 등록 버튼 -> 나중에 replyListServer에서 필요
-		}else if(vname == "r_delete"){
+		}else if(name == "r_delete"){
 			alert(idx + "번 댓글 삭제");
 			
-		}else if(vname == "r_edit"){
+			//db에서 삭제
+			replyDeleteServer(this); //댓글 삭제 버튼
+		}else if(name == "r_edit"){
 			alert(idx + "번 댓글 수정");
 			
+			//editForm이 열려진 상태 비교 조건문
+			if($('#editForm').css('display') != "none"){
+				replyReset();
+			}
+			
+			//수정할 본문 가져오기
+			oCont = $(this).parents('.rep-body').find('.p3').html(); //br태그 포함
+			
+			//<br> 태그를 \n으로 변경 후 editForm에 출력
+			oCont = oCont.replace(/<br>/g, "\n");
+			
+			$('#editForm #text').val(oCont);
+			
+			//수정 폼 보이게 하기
+			$(this).parents('.rep-body').find('.p3').empty().append($('#editForm'));
+			
+			$('#editForm').show();
 		}
+	})
+	
+	//댓글 수정 클릭 시 댓글 수정창이 열려 있을 때 - 원래대로 돌려놓기
+	replyReset=function(){
+		//p3 찾기
+		cp3 = $('#editForm').parent();
+		
+		//수정 폼을 body태그로 이동
+		$('body').append($('#editForm'));
+		$('#editForm').hide();
+		
+		//댓글 수정 창에 출력하려고 바꾼 \n 태그를 <br>으로 다시 변경 후 editForm에 갖다놓기
+		p3data = oCont.replace(/\n/g, "<br>");
+		cp3.html(p3data);
+	}
+	
+	//댓글 수정창에서 취소버튼 클릭할 떄
+	$('#btnCancel').on('click', function(){
+		replyReset();
 	})
 	
 	//페이지 번호 이벤트
@@ -189,6 +227,9 @@ label{
 	padding: 5px;
 	background: #f1aaa5;
 }
+#editForm{
+	display: none;
+}
 </style>
 </head>
 <body>
@@ -202,6 +243,13 @@ label{
 <br><br>
 <input type="button" value="글쓰기" id="write" data-toggle="modal" data-target="#writeModal">
 <br><br>
+
+<div id="editForm">
+	<textarea id="text" rows="5" cols="50"></textarea>
+	
+	<input type="button" value="확인" id="btnOK">
+	<input type="button" value="취소" id="btnCancel">
+</div>
 
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
 	<select class="form-control" id="stype">
