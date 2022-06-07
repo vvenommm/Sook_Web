@@ -219,7 +219,7 @@ updateHitServer=function(){
 	})
 }
 
-replySaveServer=function(){
+replySaveServer=function(btn){ //html에서 this로 넘겨받은 버튼
 	
 	$.ajax({
 		url : '/BoardPro/ReplySave.do',
@@ -227,9 +227,82 @@ replySaveServer=function(){
 		type : 'post',
 		success : function(res){
 			alert(res.sw);
+			
+			//댓글 리스트 출력
+//			replyListServer(btn); 
+			
 		},
 		error : function(xhr){
-			alert("상태 : " : xhr.status);
+			alert("상태 : " + xhr.status);
+		},
+		dataType : 'json'
+	})
+}
+
+replyListServer = function(btn){ //btn은 제목이거나 버튼
+	
+	$.ajax({
+		url : '/BoardPro/ReplyList.do',
+		data : {'bonum' : idx},
+		type : 'get',
+		success : function(res){
+			
+			rcode = "";
+			$.each(res, function(i, v){
+				
+				cont = v.cont;
+				content = cont.replace(/\r/g, "").replace(/\n/g, "<br>");
+				
+			    rcode += '<div class="rep-body">';
+    			rcode += '<p class="p1">';
+    			rcode += '댓글번호 '+ v.renum +'&emsp;&emsp;&emsp;&emsp;';
+    			rcode += '작성자<span class="spW"> '+ v.name +'</span>&emsp;&emsp;&emsp;&emsp;';
+    			rcode += '날짜 '+v.redate;
+    			rcode += '</p>';
+    			rcode += '<p class="p2">';
+    			rcode += '<input idx="'+ v.renum +'"type="button" value="댓글수정" class="action" name="r_edit">';
+    			rcode += '<input idx="'+ v.renum +'"type="button" value="댓글삭제" class="action" name="r_delete">';
+    			rcode += '</p>';
+    			rcode += '<br>------------------------------------------------------------------------------------------------------------------------<br><br>';
+    			rcode += '<p class="p3">';
+    			rcode += content;
+    			rcode += '</p>';
+    			rcode += '</div>';
+			});
+			
+			$(btn).parents('.panel-body').find('.rep-body').remove();
+			
+			//등록버튼 기준으로 입력한 댓글 내용 지우기
+//			$(btn).parents('.panel').find('textarea').val("");
+			$(btn).prev().val("");
+			
+//			$(btn).parents('.panel-body').append(rcode); //대댓 달 때 쓸 코드)
+			$(btn).parents('.panel').find('.panel-body').append(rcode);
+
+		},
+		error : function(xhr){
+			alert("상태 : " + xhr.status);
+		},
+		dataType : 'json'
+	})
+}
+
+replyDeleteServer = function(){
+	$.ajax({
+		url : '/BoardPro/ReplyDelete.do',
+		data : {'renum' : idx},
+		type : 'get',
+		success : function(res){
+			alert(idx + '번 댓글 삭제');
+			
+			//db에서 삭제
+			
+			
+			//화면에서 삭제
+			
+		},
+		error : function(xhr){
+			alert('상태 : ' + xhr.status);
 		},
 		dataType : 'json'
 	})
