@@ -229,7 +229,7 @@ replySaveServer=function(btn){ //html에서 this로 넘겨받은 버튼
 			alert(res.sw);
 			
 			//댓글 리스트 출력
-//			replyListServer(btn); 
+			replyListServer(btn); 
 			
 		},
 		error : function(xhr){
@@ -287,7 +287,7 @@ replyListServer = function(btn){ //btn은 제목이거나 버튼
 	})
 }
 
-replyDeleteServer = function(){
+replyDeleteServer = function(btn){
 	$.ajax({
 		url : '/BoardPro/ReplyDelete.do',
 		data : {'renum' : idx},
@@ -295,11 +295,8 @@ replyDeleteServer = function(){
 		success : function(res){
 			alert(idx + '번 댓글 삭제');
 			
-			//db에서 삭제
-			
-			
-			//화면에서 삭제
-			
+			//화면에서 삭제-btn을 기준으로 reply-body를 검색해서 삭제
+			$(btn).parents('.rep-body');
 		},
 		error : function(xhr){
 			alert('상태 : ' + xhr.status);
