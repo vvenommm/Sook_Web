@@ -24,7 +24,7 @@ public class ReplySave extends HttpServlet {
 		String name = (String)request.getAttribute("name");
 		String cont = (String)request.getAttribute("cont");
 		
-		ReplyVO vo = null;
+		ReplyVO vo = new ReplyVO();
 		vo.setBonum(bonum);
 		vo.setName(name);
 		vo.setCont(cont);
@@ -34,6 +34,7 @@ public class ReplySave extends HttpServlet {
 
 		// service 메소드 호출하기 -> 결과값 받기
 		int resultNum = service.replySave(vo);
+		System.out.println(resultNum);
 
 		// request에 결과값 저장하기
 		request.setAttribute("resultNum", resultNum);
