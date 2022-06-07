@@ -8,7 +8,7 @@
 	
 		<insert id="replySave" parameterClass="reply">
 			insert into replytab
-			values(replytab_renum_seq.nextval, #bonum#, #name#, #cont#, sysdate)
+			values (replytab_renum_seq.nextval, #bonum#, #name#, #cont#, sysdate)
 			
 			<selectKey keyProperty="renum" resultClass="int">
 				select replytab_renum_seq.currval from dual
@@ -18,5 +18,9 @@
 		<select id="replyList" parameterClass="int" resultClass="reply">
 			select * from replytab where bonum = #data#
 		</select>
+		
+		<delete id="replyDelete" parameterClass="int">
+			delete from replytab where renum = #data#
+		</delete>
 	
 	</sqlMap>
