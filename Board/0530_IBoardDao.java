@@ -30,6 +30,9 @@ public interface IBoardDao {
 	//조회수 증가
 	public int updateHit(int num) throws SQLException;
 	
+	//댓글 목록 출력
+	public List<ReplyVO> replyList(int bonum) throws SQLException;
+	
 	//댓글 저장
 	public int replySave(ReplyVO vo) throws SQLException;
 	
@@ -37,6 +40,6 @@ public interface IBoardDao {
 	
 	
 	//댓글 삭제
-	
+	public int replyDelete(int renum) throws SQLException;
 	
 }
