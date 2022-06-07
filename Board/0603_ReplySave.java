@@ -19,11 +19,15 @@ public class ReplySave extends HttpServlet {
 		
 		request.setCharacterEncoding("utf-8");
 		
-		ReplyVO vo = null;
 		//데이터 받아오기
-		vo.setBonum((int)request.getAttribute("bonum"));
-		vo.setName((String)request.getAttribute("name"));
-		vo.setCont((String)request.getAttribute("cont"));
+		int bonum = Integer.parseInt(request.getParameter("bonum"));
+		String name = (String)request.getAttribute("name");
+		String cont = (String)request.getAttribute("cont");
+		
+		ReplyVO vo = null;
+		vo.setBonum(bonum);
+		vo.setName(name);
+		vo.setCont(cont);
 		
 		// service 객체 얻어오기
 		IBoardService service = BoardServiceImpl.getInstance();
@@ -36,9 +40,6 @@ public class ReplySave extends HttpServlet {
 
 		// view 페이지로 이동
 		request.getRequestDispatcher("view/resultNum.jsp").forward(request, response);
-		
-		
-		
 	}
 
 }
