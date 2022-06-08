@@ -61,11 +61,13 @@ $(function(){
 			
 			replySaveServer(this); //this는 등록 버튼 -> 나중에 replyListServer에서 필요
 		}else if(name == "r_delete"){
+// 			rIdx = idx;
 			alert(idx + "번 댓글 삭제");
 			
 			//db에서 삭제
 			replyDeleteServer(this); //댓글 삭제 버튼
 		}else if(name == "r_edit"){
+// 			rIdx = idx;
 			alert(idx + "번 댓글 수정");
 			
 			//editForm이 열려진 상태 비교 조건문
@@ -105,6 +107,29 @@ $(function(){
 	//댓글 수정창에서 취소버튼 클릭할 떄
 	$('#btnCancel').on('click', function(){
 		replyReset();
+	})
+	
+	//댓글 수정 창에서 확인버튼 클릭할 때
+	$('#btnOK').on('click', function(){
+		
+		//수정내용 가져오기
+		editCont = $('#editForm #text').val(); //엔터 포함
+		
+		//p3 찾기 -> 옮겨가기 전에 부모를 찾아야함. 옮긴 후엔 body가 부모가 돼서 원래 자리 찾을 수 없음
+		cp3 = $('#editForm').parent();
+		
+		//editForm을 p3에서 제거 - body로 이동 - append
+		$('body').append($('#editForm'));
+		$('#editForm').hide();
+		
+		//화면을 수정 - 엔터기호를 <br>로 변경 -> class=p3에 출력 -> 확인 했으니 주석처리
+		editOut = editCont.replace(/\r/g, "").replace(/\n/g, "<br>");
+		cp3.html(editOut);
+		
+		//db수정
+		//renum번호:rIdx, editCont:수정내용
+		replyUpdate(idx);
+		
 	})
 	
 	//페이지 번호 이벤트
