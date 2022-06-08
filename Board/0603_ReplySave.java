@@ -21,8 +21,8 @@ public class ReplySave extends HttpServlet {
 		
 		//데이터 받아오기
 		int bonum = Integer.parseInt(request.getParameter("bonum"));
-		String name = (String)request.getAttribute("name");
-		String cont = (String)request.getAttribute("cont");
+		String name = (String)request.getParameter("name");
+		String cont = (String)request.getParameter("cont");
 		
 		ReplyVO vo = new ReplyVO();
 		vo.setBonum(bonum);
