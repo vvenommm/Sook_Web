@@ -37,7 +37,7 @@ public interface IBoardDao {
 	public int replySave(ReplyVO vo) throws SQLException;
 	
 	//댓글 수정
-	
+	public int replyUpdate(ReplyVO vo) throws SQLException;
 	
 	//댓글 삭제
 	public int replyDelete(int renum) throws SQLException;
