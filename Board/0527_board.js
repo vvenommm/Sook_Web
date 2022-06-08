@@ -306,13 +306,14 @@ replyDeleteServer = function(btn){
 }
 
 //replyUpdate = () =>{}
-replyUpdate = function(idx){
+replyUpdate = function(){
 	$.ajax({
 		url : '/BoardPro/ReplyUpdate.do',
-		data : {"renum" : idx, "cont" : editCont},
+		data : {"renum" : idx, "cont" : editOut},
 		method : 'post', //type : 'post'와 같음
 		success : function(res){
-			alert(res.sw);
+//			alert(res.sw);
+			if(res.sw == "성고오옹") cp3.html(editOut);
 		},
 		error : function(xhr){
 			alert('상태 : ' + xhr.status);
