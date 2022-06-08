@@ -304,3 +304,19 @@ replyDeleteServer = function(btn){
 		dataType : 'json'
 	})
 }
+
+//replyUpdate = () =>{}
+replyUpdate = function(idx){
+	$.ajax({
+		url : '/BoardPro/ReplyUpdate.do',
+		data : {"renum" : idx, "cont" : editCont},
+		method : 'post', //type : 'post'와 같음
+		success : function(res){
+			alert(res.sw);
+		},
+		error : function(xhr){
+			alert('상태 : ' + xhr.status);
+		},
+		dataType : 'json'
+	})
+}
