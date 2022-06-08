@@ -20,7 +20,7 @@ public class ReplyDelete extends HttpServlet {
 		response.setCharacterEncoding("utf-8");
 		
 		//데이터 받아오기
-		int renum = (int) request.getAttribute("renum");
+		int renum = Integer.parseInt(request.getParameter("renum"));
 		
 		// service 객체 얻어오기
 		IBoardService service = BoardServiceImpl.getInstance();
