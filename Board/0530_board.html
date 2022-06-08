@@ -124,11 +124,11 @@ $(function(){
 		
 		//화면을 수정 - 엔터기호를 <br>로 변경 -> class=p3에 출력 -> 확인 했으니 주석처리
 		editOut = editCont.replace(/\r/g, "").replace(/\n/g, "<br>");
-		cp3.html(editOut);
+// 		cp3.html(editOut);
 		
 		//db수정
 		//renum번호:rIdx, editCont:수정내용
-		replyUpdate(idx);
+		replyUpdate();
 		
 	})
 	
