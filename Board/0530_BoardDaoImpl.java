@@ -78,6 +78,12 @@ public class BoardDaoImpl implements IBoardDao {
 		return (int) client.insert("reply.replySave", vo);
 	}
 	
+	//댓글 수정
+	@Override
+	public int replyUpdate(ReplyVO vo) throws SQLException {
+		return client.update("reply.replyUpdate", vo);
+	}
+	
 	//댓글 삭제
 	@Override
 	public int replyDelete(int renum) throws SQLException {
