@@ -44,7 +44,8 @@ public interface IBoardService {
 	public int replySave(ReplyVO vo);
 
 	// 댓글 수정
-
+	public int replyUpdate(ReplyVO vo);
+	
 	// 댓글 삭제
 	public int replyDelete(int renum);
 }
