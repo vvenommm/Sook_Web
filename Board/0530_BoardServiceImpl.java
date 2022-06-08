@@ -197,6 +197,18 @@ public class BoardServiceImpl implements IBoardService {
 		return resultNum;
 	}
 	
+	//댓글 수정
+	@Override
+	public int replyUpdate(ReplyVO vo) {
+		int resultNum = 0;
+		try {
+			resultNum = dao.replyUpdate(vo);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return resultNum;
+	}
+	
 	//댓글 삭제
 	@Override
 	public int replyDelete(int renum) {
