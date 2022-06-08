@@ -18,13 +18,14 @@ public class ReplyUpdate extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		request.setCharacterEncoding("utf-8");
+		response.setCharacterEncoding("utf-8");
 		
 		//데이터 받아오기
 		int renum = Integer.parseInt(request.getParameter("renum"));
-		String cont = (String)request.getAttribute("cont");
+		String cont = (String)request.getParameter("cont");
 		
 		ReplyVO vo = new ReplyVO();
-		vo.setBonum(renum);
+		vo.setRenum(renum);
 		vo.setCont(cont);
 		
 		// service 객체 얻어오기
